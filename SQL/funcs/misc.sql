@@ -14,8 +14,8 @@ RETURNS CHAR(7) AS BEGIN
     IF (@ID IS NULL) SET @ID = @TYPE + '00001'
     ELSE BEGIN
         SET @ID = CAST(RIGHT(@ID, 5) AS INT) + 1
-        SET @ID = @TYPE + RIGHT('00000'
-            + CAST(@ID AS CHAR(5)), 5)
+        SET @ID = @TYPE + RIGHT(RTRIM('00000'
+            + CAST(@ID AS CHAR(5))), 5)
     END
     RETURN @ID
 END

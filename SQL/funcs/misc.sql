@@ -9,13 +9,13 @@ USE [NC03_QLNhaKhoa]
 GO
 
 CREATE OR ALTER FUNCTION F_MAKE_ID
-    (@TYPE CHAR(2), @ID VARCHAR(5))
-RETURNS VARCHAR(5) AS BEGIN
-    IF (@ID IS NULL) SET @ID = @TYPE + '001'
+    (@TYPE CHAR(2), @ID CHAR(7))
+RETURNS CHAR(7) AS BEGIN
+    IF (@ID IS NULL) SET @ID = @TYPE + '00001'
     ELSE BEGIN
-        SET @ID = CAST(RIGHT(@ID, 3) AS INT) + 1
-        SET @ID = @TYPE + RIGHT('000'
-            + CAST(@ID AS VARCHAR(3)), 3)
+        SET @ID = CAST(RIGHT(@ID, 5) AS INT) + 1
+        SET @ID = @TYPE + RIGHT('00000'
+            + CAST(@ID AS CHAR(5)), 5)
     END
     RETURN @ID
 END

@@ -1,0 +1,78 @@
+/* 21HTTT1 - 21CLC1.CSDLNC.03
+ * 21127004 - Trần Nguyễn An Phong
+ * 21127135 - Diệp Hữu Phúc
+ * 21127296 - Đặng Hà Huy
+ * 21127315 - Nguyễn Gia Khánh
+ * 21127712 - Lê Quang Trường
+ */
+USE [NC03_QLNhaKhoa]
+GO
+
+--PARTITION NÀY GIÚP PHÂN BẢNG LỊCH HẸN THÀNH LỊCH HẸN THEO PHÒNG KHÁM, GIÚP DỄ DÀNG XÁC ĐỊNH
+--CÁC TRUY VẤN CÓ LIÊN QUAN RIÊNG BIỆT THEO PHÒNG KHÁM NHƯ
+--XEM DANH SÁCH LỊCH HẸN CỦA MỘT PHÒNG KHÁM
+--XEM DANH SÁCH LỊCH HẸN CỦA MỘT NHA SĨ Ở MỘT PHÒNG KHÁM
+--GIẢ ĐỊNH BỆNH NHÂN ĐẶT HẸN ĐỀU Ở CẢ 3 PHÒNG KHÁM THÌ PARTITION NÀY SẼ GIÚP CHIA NHỎ BẢNG LỊCH HẸN THÀNH 3 PHẦN ĐỀU NHAU
+
+ALTER DATABASE [NC03_QLNhaKhoa]
+ADD FILEGROUP lichhen_pk1
+
+ALTER DATABASE [NC03_QLNhaKhoa]
+ADD FILEGROUP lichhen_pk2
+
+ALTER DATABASE [NC03_QLNhaKhoa]
+ADD FILEGROUP lichhen_pk3
+GO
+
+ALTER DATABASE [NC03_QLNhaKhoa]
+ADD FILE
+(
+    NAME = partition_lichhen_pk1,
+    FILENAME = 'D:\SQLPartitions\partition_lichhen_pk1.ndf',
+    SIZE = 5MB,
+    FILEGROWTH = 5MB
+)
+TO FILEGROUP lichhen_pk1;
+GO
+
+ALTER DATABASE [NC03_QLNhaKhoa]
+ADD FILE
+(
+    NAME = partition_lichhen_pk2,
+    FILENAME = 'D:\SQLPartitions\partition_lichhen_pk2.ndf',
+    SIZE = 5MB,
+    FILEGROWTH = 5MB
+)
+TO FILEGROUP lichhen_pk2;
+GO
+
+ALTER DATABASE [NC03_QLNhaKhoa]
+ADD FILE
+(
+    NAME = partition_lichhen_pk3,
+    FILENAME = 'D:\SQLPartitions\partition_lichhen_pk3.ndf',
+    SIZE = 5MB,
+    FILEGROWTH = 5MB
+)
+TO FILEGROUP lichhen_pk3;
+GO
+
+CREATE PARTITION FUNCTION [PartitioningByPhongKham_LichHen_FUNCTION] (char(7))
+AS RANGE RIGHT FOR VALUES ('PK00001', 'PK00002');
+
+CREATE PARTITION SCHEME PartitionByPhongKham_LichHen_SCHEME
+AS PARTITION PartitioningByPhongKham_LichHen_FUNCTION
+TO (lichhen_pk1, lichhen_pk2, lichhen_pk3);
+GO
+
+ALTER TABLE LICHHEN DROP CONSTRAINT PK_LICHHEN
+
+ALTER TABLE LICHHEN ADD CONSTRAINT PK_LICHHEN
+PRIMARY KEY NONCLUSTERED(IDHOSO, IDLICHHEN ASC) ON [PRIMARY]
+
+CREATE CLUSTERED INDEX IX_IDPHONGKHAM
+ON LICHHEN ( IDPHONGKHAM )
+ON PartitionByPhongKham_LichHen_SCHEME(IDPHONGKHAM)
+
+DROP INDEX IX_IDPHONGKHAM ON LICHHEN
+GO

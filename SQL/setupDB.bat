@@ -3,6 +3,7 @@
 cls
 chcp 65001
 
+REM SETTING UP DATABASE
 @echo ---- Creating NC03_QLNhaKhoa...
 SQLCMD -E -dmaster -f65001 -i".\createDB.sql"
 
@@ -18,54 +19,56 @@ for %%G in (.\storedProcs\*.sql) do SQLCMD -E -dmaster -f65001 -i"%%G"
 @echo ---- Creating Indices...
 SQLCMD -E -dmaster -f65001 -i".\indices.sql"
 
-@echo ---- Populating taiKhoan.sql
-SQLCMD -E -dmaster -f65001 -i"\data\1_taiKhoan.sql"
+REM POPULATING DATA
+@echo ---- Populating TAIKHOAN...
+SQLCMD -E -dmaster -f65001 -i".\data\taiKhoan.sql"
 
-@echo ---- Populating beMatRang.sql
-SQLCMD -E -dmaster -f65001 -i"\data\2_beMatRang.sql"
+@echo ---- Populating LICHNGAY...
+SQLCMD -E -dmaster -f65001 -i".\data\lichNgay.sql"
 
-@echo ---- Populating danhMuc.sql
-SQLCMD -E -dmaster -f65001 -i"\data\3_danhMuc.sql"
+@echo ---- Populating LICHTHANG...
+SQLCMD -E -dmaster -f65001 -i".\data\lichThang.sql"
 
-@echo ---- Populating lieuTrinh.sql
-SQLCMD -E -dmaster -f65001 -i"\data\4_lieuTrinh.sql"
+@echo ---- Populating LICHTUAN...
+SQLCMD -E -dmaster -f65001 -i".\data\lichTuan.sql"
 
-@echo ---- Populating hoSoBenhNhan.sql
-SQLCMD -E -dmaster -f65001 -i"\data\5_hoSoBenhNhan.sql"
+@echo ---- Populating BEMATRANG...
+SQLCMD -E -dmaster -f65001 -i".\data\beMatRang.sql"
 
-@echo ---- Populating phongKham.sql
-SQLCMD -E -dmaster -f65001 -i"\data\6_phongKham.sql"
+@echo ---- Populating DANHMUC...
+SQLCMD -E -dmaster -f65001 -i".\data\danhMuc.sql"
 
-@echo ---- Populating rang.sql
-SQLCMD -E -dmaster -f65001 -i"\data\7_rang.sql"
+@echo ---- Populating LIEUTRINH...
+SQLCMD -E -dmaster -f65001 -i".\data\lieuTrinh.sql"
 
-@echo ---- Populating thuoc.sql
-SQLCMD -E -dmaster -f65001 -i"\data\8_thuoc.sql"
+@echo ---- Populating HOSOBENHNHAN...
+SQLCMD -E -dmaster -f65001 -i".\data\hoSoBenhNhan.sql"
 
-@echo ---- Populating keHoachDieuTri.sql
-SQLCMD -E -dmaster -f65001 -i"\data\9_keHoachDieuTri.sql"
+@echo ---- Populating PHONGKHAM...
+SQLCMD -E -dmaster -f65001 -i".\data\phongKham.sql"
 
-@echo ---- Populating lichHen.sql
-SQLCMD -E -dmaster -f65001 -i"\data\10_lichHen.sql"
+@echo ---- Populating RANG...
+SQLCMD -E -dmaster -f65001 -i".\data\rang.sql"
 
-@echo ---- Populating lichNgay.sql
-SQLCMD -E -dmaster -f65001 -i"\data\11_lichNgay.sql"
+@echo ---- Populating THUOC...
+SQLCMD -E -dmaster -f65001 -i".\data\thuoc.sql"
 
-@echo ---- Populating lichThang.sql
-SQLCMD -E -dmaster -f65001 -i"\data\12_lichThang.sql"
+@echo ---- Populating KEHOACHDIEUTRI...
+SQLCMD -E -dmaster -f65001 -i".\data\keHoachDieuTri.sql"
 
-@echo ---- Populating lichTuan.sql
-SQLCMD -E -dmaster -f65001 -i"\data\13_lichTuan.sql"
+@echo ---- Populating LICHHEN...
+SQLCMD -E -dmaster -f65001 -i".\data\lichHen.sql"
 
-@echo ---- Populating toaThuoc.sql
-SQLCMD -E -dmaster -f65001 -i"\data\14_toaThuoc.sql"
+@echo ---- Populating TOATHUOC...
+SQLCMD -E -dmaster -f65001 -i".\data\toaThuoc.sql"
 
-@echo ---- Populating thanhToan.sql
-SQLCMD -E -dmaster -f65001 -i"\data\15_thanhToan.sql"
+@echo ---- Populating THANHTOAN...
+SQLCMD -E -dmaster -f65001 -i".\data\thanhToan.sql"
 
-@echo ---- Populating ghiChu.sql
-SQLCMD -E -dmaster -f65001 -i"\data\16_ghiChu.sql"
+@echo ---- Populating GHICHU...
+SQLCMD -E -dmaster -f65001 -i".\data\ghiChu.sql"
 
+REM GRANTIN PERMISSIONS
 @echo ---- Granting Permissions...
 SQLCMD -E -dmaster -f65001 -i".\permissions.sql"
 

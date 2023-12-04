@@ -85,7 +85,6 @@ EXEC USP_RANG_INS
 EXEC USP_RANG_INS
     N'Răng cối lớn thứ 2', 47
 
-
 EXEC USP_RANG_INS
     N'Răng khôn', 18
 

@@ -47,19 +47,19 @@ EXEC USP_LIEUTRINH_INS
 
 --Tiểu phẫu DM00006
 EXEC USP_LIEUTRINH_INS
-    N'Tiểu phẩu răng khôn – Mọc thẳng', 1000000, 'DM00006'
+    N'Tiểu phẩu răng khôn - Mọc thẳng', 1000000, 'DM00006'
 
 EXEC USP_LIEUTRINH_INS
-    N'Tiểu phẩu răng khôn – Khó độ I', 1800000, 'DM00006'
+    N'Tiểu phẩu răng khôn - Khó độ I', 1800000, 'DM00006'
 
 EXEC USP_LIEUTRINH_INS
-    N'Tiểu phẩu răng khôn – Khó độ II', 2500000, 'DM00006'
+    N'Tiểu phẩu răng khôn - Khó độ II', 2500000, 'DM00006'
 
 EXEC USP_LIEUTRINH_INS
-    N'Tiểu phẩu răng khôn – Khó độ III', 3500000, 'DM00006'
+    N'Tiểu phẩu răng khôn - Khó độ III', 3500000, 'DM00006'
 
 EXEC USP_LIEUTRINH_INS
-    N'Tiểu phẩu răng khôn – Khó độ IIII', 5000000, 'DM00006'
+    N'Tiểu phẩu răng khôn - Khó độ IIII', 5000000, 'DM00006'
 
 --Tẩy trắng răng DM00007
 EXEC USP_LIEUTRINH_INS
@@ -145,37 +145,37 @@ EXEC USP_LIEUTRINH_INS
 
 --Niềng răng DM00011
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng mắc cài kim loại chuẩn – Đơn giản + Công nghệ Optimal Align', 35000000, 'DM00011'
+    N'Niềng răng mắc cài kim loại chuẩn - Đơn giản + Công nghệ Optimal Align', 35000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng mắc cài kim loại chuẩn – Phức tạp + Công nghệ Optimal Align', 45000000, 'DM00011'
+    N'Niềng răng mắc cài kim loại chuẩn - Phức tạp + Công nghệ Optimal Align', 45000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng mắc cài kim loại có khóa – Đơn giản + Công nghệ Optimal Align', 40000000, 'DM00011'
+    N'Niềng răng mắc cài kim loại có khóa - Đơn giản + Công nghệ Optimal Align', 40000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng mắc cài kim loại có khóa – Phức tạp + Công nghệ Optimal Align', 50000000, 'DM00011'
+    N'Niềng răng mắc cài kim loại có khóa - Phức tạp + Công nghệ Optimal Align', 50000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng mắc cài sứ chuẩn – Đơn giản + Công nghệ Optimal Alignt', 40000000, 'DM00011'
+    N'Niềng răng mắc cài sứ chuẩn - Đơn giản + Công nghệ Optimal Alignt', 40000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng mắc cài sứ chuẩn – Phức tạp + Công nghệ Optimal Align	Liệu trình', 50000000, 'DM00011'
+    N'Niềng răng mắc cài sứ chuẩn - Phức tạp + Công nghệ Optimal Align	Liệu trình', 50000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng Invisalign – Đơn giản + Công nghệ Optimal Align', 34000000, 'DM00011'
+    N'Niềng răng Invisalign - Đơn giản + Công nghệ Optimal Align', 34000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng Invisalign – Phức tạp cấp I + Công nghệ Optimal', 67000000, 'DM00011'
+    N'Niềng răng Invisalign - Phức tạp cấp I + Công nghệ Optimal', 67000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng Invisalign – Phức tạp cấp II + Công nghệ Optimal Align', 90000000, 'DM00011'
+    N'Niềng răng Invisalign - Phức tạp cấp II + Công nghệ Optimal Align', 90000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng Invisalign – Phức tạp cấp I + Công nghệ Optimal', 67000000, 'DM00011'
+    N'Niềng răng Invisalign - Phức tạp cấp I + Công nghệ Optimal', 67000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
-    N'Niềng răng Invisalign – Phức tạp cấp III + Công nghệ Optimal Align', 121000000, 'DM00011'
+    N'Niềng răng Invisalign - Phức tạp cấp III + Công nghệ Optimal Align', 121000000, 'DM00011'
 
 EXEC USP_LIEUTRINH_INS
     N'Kế hoạch mô phỏng di chuyển răng 3D (Clincheck)', 8000000, 'DM00011'

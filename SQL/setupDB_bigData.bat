@@ -18,7 +18,7 @@ for %%G in (.\storedProcs\*.sql) do SQLCMD -E -dmaster -f65001 -i"%%G"
 
 REM POPULATING DATA
 @echo ---- Populating TAIKHOAN...
-SQLCMD -E -dmaster -f65001 -i".\data\taiKhoan.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\taiKhoan.sql"
 
 @echo ---- Populating LICHNGAY...
 SQLCMD -E -dmaster -f65001 -i".\data\lichNgay.sql"
@@ -39,7 +39,7 @@ SQLCMD -E -dmaster -f65001 -i".\data\danhMuc.sql"
 SQLCMD -E -dmaster -f65001 -i".\data\lieuTrinh.sql"
 
 @echo ---- Populating HOSOBENHNHAN...
-SQLCMD -E -dmaster -f65001 -i".\data\hoSoBenhNhan.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\hoSoBenhNhan.sql"
 
 @echo ---- Populating PHONGKHAM...
 SQLCMD -E -dmaster -f65001 -i".\data\phongKham.sql"
@@ -48,25 +48,25 @@ SQLCMD -E -dmaster -f65001 -i".\data\phongKham.sql"
 SQLCMD -E -dmaster -f65001 -i".\data\rang.sql"
 
 @echo ---- Populating THUOC...
-SQLCMD -E -dmaster -f65001 -i".\data\thuoc.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\thuoc.sql"
 
 @echo ---- Populating KEHOACHDIEUTRI...
-SQLCMD -E -dmaster -f65001 -i".\data\keHoachDieuTri.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\keHoachDieuTri.sql"
 
 @echo ---- Populating LICHHEN...
-SQLCMD -E -dmaster -f65001 -i".\data\lichHen.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\lichHen.sql"
 
 @echo ---- Populating TOATHUOC...
-SQLCMD -E -dmaster -f65001 -i".\data\toaThuoc.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\toaThuoc.sql"
 
 @echo ---- Populating THANHTOAN...
-SQLCMD -E -dmaster -f65001 -i".\data\thanhToan.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\thanhToan.sql"
 
 @echo ---- Populating GHICHU...
-SQLCMD -E -dmaster -f65001 -i".\data\ghiChu.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\ghiChu.sql"
 
 @echo ---- Populating CHITIETRANG...
-SQLCMD -E -dmaster -f65001 -i".\data\chiTietRang.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\chiTietRang.sql"
 
 REM CREATING INDICES
 @echo ---- Creating Indices...

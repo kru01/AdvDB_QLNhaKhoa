@@ -68,6 +68,9 @@ SQLCMD -E -dmaster -f65001 -i".\data\thanhToan.sql"
 @echo ---- Populating GHICHU...
 SQLCMD -E -dmaster -f65001 -i".\data\ghiChu.sql"
 
+@echo ---- Populating CHITIETRANG...
+SQLCMD -E -dmaster -f65001 -i".\data\chiTietRang.sql"
+
 REM GRANTING PERMISSIONS
 @echo ---- Granting Permissions...
 SQLCMD -E -dmaster -f65001 -i".\permissions.sql"

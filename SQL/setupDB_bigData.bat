@@ -27,7 +27,7 @@ SQLCMD -E -dmaster -f65001 -i".\data\lichNgay.sql"
 SQLCMD -E -dmaster -f65001 -i".\data\lichThang.sql"
 
 @echo ---- Populating LICHTUAN...
-SQLCMD -E -dmaster -f65001 -i".\data\lichTuan.sql"
+SQLCMD -E -dmaster -f65001 -i".\bigData\lichTuan.sql"
 
 @echo ---- Populating BEMATRANG...
 SQLCMD -E -dmaster -f65001 -i".\data\beMatRang.sql"

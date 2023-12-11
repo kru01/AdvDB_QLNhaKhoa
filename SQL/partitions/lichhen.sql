@@ -21,7 +21,7 @@ ALTER DATABASE [NC03_QLNhaKhoa]
 ADD FILE
 (
     NAME = partition_lichhen_pk1,
-    FILENAME = 'D:\SQLPartitions\partition_lichhen_pk1.ndf',
+    FILENAME = 'C:\N03_SQLPartitions\partition_lichhen_pk1.ndf',
     SIZE = 5MB,
     FILEGROWTH = 5MB
 )
@@ -35,7 +35,7 @@ ALTER DATABASE [NC03_QLNhaKhoa]
 ADD FILE
 (
     NAME = partition_lichhen_pk2,
-    FILENAME = 'D:\SQLPartitions\partition_lichhen_pk2.ndf',
+    FILENAME = 'C:\N03_SQLPartitions\partition_lichhen_pk2.ndf',
     SIZE = 5MB,
     FILEGROWTH = 5MB
 )
@@ -49,7 +49,7 @@ ALTER DATABASE [NC03_QLNhaKhoa]
 ADD FILE
 (
     NAME = partition_lichhen_pk3,
-    FILENAME = 'D:\SQLPartitions\partition_lichhen_pk3.ndf',
+    FILENAME = 'C:\N03_SQLPartitions\partition_lichhen_pk3.ndf',
     SIZE = 5MB,
     FILEGROWTH = 5MB
 )

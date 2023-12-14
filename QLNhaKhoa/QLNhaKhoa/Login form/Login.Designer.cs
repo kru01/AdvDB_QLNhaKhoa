@@ -34,9 +34,8 @@
             label1 = new Label();
             Logo = new PictureBox();
             RightPanel = new Panel();
-            minimizeButton = new Button();
             txtPassword = new TextBox();
-            txtID = new TextBox();
+            txtUsername = new TextBox();
             registerSwap = new Button();
             panel1 = new Panel();
             divider1 = new Panel();
@@ -44,7 +43,6 @@
             userID = new PictureBox();
             loginButton = new Button();
             label2 = new Label();
-            ExitButton = new Button();
             LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             RightPanel.SuspendLayout();
@@ -98,9 +96,8 @@
             // 
             // RightPanel
             // 
-            RightPanel.Controls.Add(minimizeButton);
             RightPanel.Controls.Add(txtPassword);
-            RightPanel.Controls.Add(txtID);
+            RightPanel.Controls.Add(txtUsername);
             RightPanel.Controls.Add(registerSwap);
             RightPanel.Controls.Add(panel1);
             RightPanel.Controls.Add(divider1);
@@ -108,25 +105,11 @@
             RightPanel.Controls.Add(userID);
             RightPanel.Controls.Add(loginButton);
             RightPanel.Controls.Add(label2);
-            RightPanel.Controls.Add(ExitButton);
             RightPanel.Dock = DockStyle.Fill;
             RightPanel.Location = new Point(350, 0);
             RightPanel.Name = "RightPanel";
             RightPanel.Size = new Size(450, 550);
             RightPanel.TabIndex = 1;
-            // 
-            // minimizeButton
-            // 
-            minimizeButton.FlatAppearance.BorderSize = 0;
-            minimizeButton.FlatStyle = FlatStyle.Flat;
-            minimizeButton.Font = new Font("VNI-Lithos", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            minimizeButton.Location = new Point(370, 0);
-            minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(40, 40);
-            minimizeButton.TabIndex = 12;
-            minimizeButton.Text = "-";
-            minimizeButton.UseVisualStyleBackColor = true;
-            minimizeButton.Click += minimizeButton_Click;
             // 
             // txtPassword
             // 
@@ -143,18 +126,18 @@
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.KeyDown += txtPassword_KeyDown;
             // 
-            // txtID
+            // txtUsername
             // 
-            txtID.BorderStyle = BorderStyle.None;
-            txtID.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtID.Location = new Point(86, 192);
-            txtID.MaxLength = 10;
-            txtID.MinimumSize = new Size(314, 25);
-            txtID.Name = "txtID";
-            txtID.PlaceholderText = "Enter your ID";
-            txtID.Size = new Size(314, 25);
-            txtID.TabIndex = 10;
-            txtID.KeyDown += txtID_KeyDown;
+            txtUsername.BorderStyle = BorderStyle.None;
+            txtUsername.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(86, 192);
+            txtUsername.MaxLength = 10;
+            txtUsername.MinimumSize = new Size(314, 25);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PlaceholderText = "Enter your username";
+            txtUsername.Size = new Size(314, 25);
+            txtUsername.TabIndex = 10;
+            txtUsername.KeyDown += txtID_KeyDown;
             // 
             // registerSwap
             // 
@@ -232,29 +215,15 @@
             label2.TabIndex = 1;
             label2.Text = "LOGIN";
             // 
-            // ExitButton
-            // 
-            ExitButton.FlatAppearance.BorderSize = 0;
-            ExitButton.FlatStyle = FlatStyle.Flat;
-            ExitButton.Font = new Font("VNI-Lithos", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ExitButton.Location = new Point(410, 0);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(40, 40);
-            ExitButton.TabIndex = 0;
-            ExitButton.Text = "X";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 550);
-            ControlBox = false;
             Controls.Add(RightPanel);
             Controls.Add(LeftPanel);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             Name = "Login";
@@ -274,7 +243,6 @@
 
         private Panel LeftPanel;
         private Panel RightPanel;
-        private Button ExitButton;
         private PictureBox Logo;
         private Label label1;
         private Label label2;
@@ -284,9 +252,8 @@
         private Panel panel1;
         private Panel divider1;
         private Button registerSwap;
-        private TextBox txtID;
+        private TextBox txtUsername;
         private TextBox txtPassword;
         private Label credit;
-        private Button minimizeButton;
     }
 }

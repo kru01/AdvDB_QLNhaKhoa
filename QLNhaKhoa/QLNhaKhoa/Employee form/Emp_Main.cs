@@ -6,6 +6,7 @@ namespace QLNhaKhoa.Employee_form
     {
         public string CurrentEmp { get; set; } = string.Empty;
         public string CurrentPass { get; set; } = string.Empty;
+        public string CurrentUsername { get; set; } = string.Empty;
         public Emp_Main()
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace QLNhaKhoa.Employee_form
             EmpID.Text = CurrentEmp;
             SqlConnection sqlCon = new SqlConnection(Helper.strCon);
             sqlCon.Open();
-            SqlCommand cmd = new SqlCommand("select HOTEN from NHANVIEN where MANHANVIEN = '" + CurrentEmp + "'", sqlCon);
+            SqlCommand cmd = new SqlCommand("select HOTEN from TAIKHOAN where IDTAIKHOAN = '" + CurrentEmp + "'", sqlCon);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())

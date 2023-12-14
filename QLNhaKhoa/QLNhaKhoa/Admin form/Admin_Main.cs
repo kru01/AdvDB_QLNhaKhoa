@@ -6,6 +6,7 @@ namespace QLNhaKhoa.Admin_form
     {
         public string CurrentAdmin { get; set; } = string.Empty;
         public string CurrentPass { get; set; } = string.Empty;
+        public string CurrentUsername { get; set; } = string.Empty;
         public Admin_Main()
         {
             InitializeComponent();
@@ -16,31 +17,20 @@ namespace QLNhaKhoa.Admin_form
             Account f = new Account();
             f.CurrentUser = CurrentAdmin;
             f.CurrentPass = CurrentPass;
+            f.CurrentUsername = CurrentUsername;
             Helper.loadform(f, this.mainPanel);
         }
 
-        private void AccountMngrButton_Click(object sender, EventArgs e)
+        private void EmployeeButton_Click(object sender, EventArgs e)
         {
-            Admin_AccManager f = new Admin_AccManager();
+            Admin_EmpList f = new Admin_EmpList();
             f.CurrentAdmin = CurrentAdmin;
             Helper.loadform(f, this.mainPanel);
         }
 
         private void MedicationButton_Click(object sender, EventArgs e)
         {
-            Admin_Medication f = new Admin_Medication();
-            f.CurrentAdmin = CurrentAdmin;
-            Helper.loadform(f, this.mainPanel);
-        }
-
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void minimizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
+            Helper.loadform(new Admin_Medication(), this.mainPanel);
         }
 
         public void Admin_Main_Load(object sender, EventArgs e)
@@ -48,7 +38,7 @@ namespace QLNhaKhoa.Admin_form
             AdminID.Text = CurrentAdmin;
             SqlConnection sqlCon = new SqlConnection(Helper.strCon);
             sqlCon.Open();
-            SqlCommand cmd = new SqlCommand("select HOTEN from NHANVIEN where MANHANVIEN='" + CurrentAdmin + "'", sqlCon);
+            SqlCommand cmd = new SqlCommand("select HOTEN from TAIKHOAN where IDTAIKHOAN='" + CurrentAdmin + "'", sqlCon);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
@@ -57,6 +47,17 @@ namespace QLNhaKhoa.Admin_form
                     sqlCon.Close();
                 }
             }
+        }
+
+        private void signOutButton_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Bạn có chắc là muốn đăng xuất?", "Warning", MessageBoxButtons.YesNoCancel);
+            if (res == DialogResult.Yes)
+            {
+                this.Close();
+                new Login().Show();
+            }
+            else { }
         }
     }
 }

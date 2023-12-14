@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            cboGender = new ComboBox();
+            label7 = new Label();
+            label8 = new Label();
+            emailBox = new TextBox();
             label6 = new Label();
             IDBox = new TextBox();
             label5 = new Label();
@@ -50,6 +54,10 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(cboGender);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(emailBox);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(IDBox);
             panel1.Controls.Add(label5);
@@ -70,12 +78,53 @@
             panel1.Size = new Size(900, 700);
             panel1.TabIndex = 1;
             // 
+            // cboGender
+            // 
+            cboGender.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboGender.FormattingEnabled = true;
+            cboGender.Items.AddRange(new object[] { "Nam", "Nữ" });
+            cboGender.Location = new Point(198, 400);
+            cboGender.Name = "cboGender";
+            cboGender.Size = new Size(125, 27);
+            cboGender.TabIndex = 25;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.SteelBlue;
+            label7.Location = new Point(198, 374);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 23);
+            label7.TabIndex = 24;
+            label7.Text = "Gender";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.SteelBlue;
+            label8.Location = new Point(350, 374);
+            label8.Name = "label8";
+            label8.Size = new Size(51, 23);
+            label8.TabIndex = 22;
+            label8.Text = "Email";
+            // 
+            // emailBox
+            // 
+            emailBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailBox.Location = new Point(350, 400);
+            emailBox.Name = "emailBox";
+            emailBox.PlaceholderText = "Email";
+            emailBox.Size = new Size(350, 27);
+            emailBox.TabIndex = 21;
+            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(200, 215);
+            label6.Location = new Point(200, 214);
             label6.Name = "label6";
             label6.Size = new Size(26, 23);
             label6.TabIndex = 20;
@@ -84,7 +133,7 @@
             // IDBox
             // 
             IDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            IDBox.Location = new Point(200, 241);
+            IDBox.Location = new Point(200, 240);
             IDBox.MaxLength = 11;
             IDBox.Name = "IDBox";
             IDBox.PlaceholderText = "ID";
@@ -97,7 +146,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(550, 335);
+            label5.Location = new Point(550, 294);
             label5.Name = "label5";
             label5.Size = new Size(86, 23);
             label5.TabIndex = 18;
@@ -106,7 +155,7 @@
             // passwordBox
             // 
             passwordBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordBox.Location = new Point(550, 361);
+            passwordBox.Location = new Point(550, 320);
             passwordBox.Name = "passwordBox";
             passwordBox.PlaceholderText = "Password";
             passwordBox.Size = new Size(150, 27);
@@ -144,7 +193,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(375, 335);
+            label4.Location = new Point(350, 294);
             label4.Name = "label4";
             label4.Size = new Size(113, 23);
             label4.TabIndex = 14;
@@ -155,7 +204,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(350, 215);
+            label2.Location = new Point(350, 214);
             label2.Name = "label2";
             label2.Size = new Size(57, 23);
             label2.TabIndex = 13;
@@ -166,7 +215,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(200, 335);
+            label1.Location = new Point(200, 294);
             label1.Name = "label1";
             label1.Size = new Size(123, 23);
             label1.TabIndex = 12;
@@ -177,7 +226,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(200, 460);
+            label3.Location = new Point(200, 454);
             label3.Name = "label3";
             label3.Size = new Size(75, 23);
             label3.TabIndex = 11;
@@ -188,15 +237,15 @@
             bdayBox.CustomFormat = "yyyy-MM-dd";
             bdayBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bdayBox.Format = DateTimePickerFormat.Custom;
-            bdayBox.Location = new Point(375, 361);
+            bdayBox.Location = new Point(350, 320);
             bdayBox.Name = "bdayBox";
-            bdayBox.Size = new Size(150, 27);
+            bdayBox.Size = new Size(175, 27);
             bdayBox.TabIndex = 3;
             // 
             // nameBox
             // 
             nameBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nameBox.Location = new Point(350, 241);
+            nameBox.Location = new Point(350, 240);
             nameBox.Name = "nameBox";
             nameBox.PlaceholderText = "Name";
             nameBox.Size = new Size(350, 27);
@@ -205,18 +254,18 @@
             // phoneBox
             // 
             phoneBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            phoneBox.Location = new Point(200, 361);
+            phoneBox.Location = new Point(200, 320);
             phoneBox.MaxLength = 11;
             phoneBox.Name = "phoneBox";
             phoneBox.PlaceholderText = "Phone number";
-            phoneBox.Size = new Size(150, 27);
+            phoneBox.Size = new Size(125, 27);
             phoneBox.TabIndex = 1;
             phoneBox.KeyPress += phoneBox_KeyPress;
             // 
             // addressBox
             // 
             addressBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addressBox.Location = new Point(200, 486);
+            addressBox.Location = new Point(200, 480);
             addressBox.Name = "addressBox";
             addressBox.PlaceholderText = "Address";
             addressBox.Size = new Size(500, 27);
@@ -256,5 +305,10 @@
         private TextBox passwordBox;
         private Label label6;
         private TextBox IDBox;
+        private Label label7;
+        private TextBox textBox1;
+        private Label label8;
+        private TextBox emailBox;
+        private ComboBox cboGender;
     }
 }

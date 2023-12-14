@@ -11,13 +11,10 @@ namespace QLNhaKhoa
         public Login()
         {
             InitializeComponent();
-            this.ActiveControl = txtID;
-            txtID.Focus();
+            this.ActiveControl = txtUsername;
+            txtUsername.Focus();
         }
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
         private void txtID_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
@@ -25,6 +22,7 @@ namespace QLNhaKhoa
                 txtPassword.Focus();
             }
         }
+
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down)
@@ -37,23 +35,20 @@ namespace QLNhaKhoa
             }
             else if (e.KeyCode == Keys.Up)
             {
-                txtID.Focus();
+                txtUsername.Focus();
             }
-        }
-        private void minimizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
         private void registerSwap_Click(object sender, EventArgs e)
         {
             new Register().Show();
             this.Hide();
         }
+
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (txtUsername.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập ID");
+                MessageBox.Show("Vui lòng nhập tên đăng nhập");
             }
             else if (txtPassword.Text == "")
             {
@@ -68,50 +63,47 @@ namespace QLNhaKhoa
                     SqlCommand cmd = new SqlCommand("USP_MISC_LOGIN", sqlCon);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add(new SqlParameter("@MAUSER", txtID.Text));
+                    cmd.Parameters.Add(new SqlParameter("@TENDANGNHAP", txtUsername.Text));
                     cmd.Parameters.Add(new SqlParameter("@MATKHAU", txtPassword.Text));
 
-                    cmd.Parameters.Add("@LOAIUSER", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@LOAITAIKHOAN", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@IDTAIKHOAN", SqlDbType.Char, 7).Direction = ParameterDirection.Output;
                     cmd.ExecuteNonQuery();
 
-                    int user_type = (int)cmd.Parameters["@LOAIUSER"].Value;
-                    if (user_type == -1)
-                    {
-                        Customer_Main f = new Customer_Main();
-                        f.CurrentUser = txtID.Text;
-                        f.CurrentPass = txtPassword.Text;
-                        f.Show();
-                        this.Hide();
-                    }
-                    else if (user_type == 0)
+                    int user_type = (int)cmd.Parameters["@LOAITAIKHOAN"].Value;
+                    string user_id = (string)cmd.Parameters["@IDTAIKHOAN"].Value;
+                    if (user_type == 0)
                     {
                         Emp_Main f = new Emp_Main();
-                        f.CurrentEmp = txtID.Text;
+                        f.CurrentEmp = user_id;
                         f.CurrentPass = txtPassword.Text;
+                        f.CurrentUsername = txtUsername.Text;
                         f.Show();
                         this.Hide();
                     }
                     else if (user_type == 1)
                     {
                         Dentist_Main f = new Dentist_Main();
-                        f.CurrentDentist = txtID.Text;
+                        f.CurrentDentist = user_id;
                         f.CurrentPass = txtPassword.Text;
+                        f.CurrentUsername = txtUsername.Text;
                         f.Show();
                         this.Hide();
                     }
                     else
                     {
                         Admin_Main f = new Admin_Main();
-                        f.CurrentAdmin = txtID.Text;
+                        f.CurrentAdmin = user_id;
                         f.CurrentPass = txtPassword.Text;
+                        f.CurrentUsername = txtUsername.Text;
                         f.Show();
                         this.Hide(); ;
                     }
                     sqlCon.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("ID hoặc mật khẩu sai! " + ex.Message);
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");
                 }
             }
         }

@@ -37,9 +37,17 @@ namespace QLNhaKhoa
             Title = new Label();
             Logo = new PictureBox();
             RightPanel = new Panel();
-            minimizeButton = new Button();
-            txtBday = new DateTimePicker();
+            panel3 = new Panel();
             txtPassword = new TextBox();
+            pictureBox3 = new PictureBox();
+            txtEmail = new TextBox();
+            pictureBox2 = new PictureBox();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            cboGender = new ComboBox();
+            pictureBox1 = new PictureBox();
+            txtBday = new DateTimePicker();
+            txtUsername = new TextBox();
             txtPhone = new TextBox();
             txtAddress = new TextBox();
             txtName = new TextBox();
@@ -56,10 +64,12 @@ namespace QLNhaKhoa
             loginSwap = new Button();
             registerButton = new Button();
             label1 = new Label();
-            ExitButton = new Button();
             LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             RightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)passIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)phoneIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)addressIcon).BeginInit();
@@ -114,9 +124,17 @@ namespace QLNhaKhoa
             // RightPanel
             // 
             RightPanel.BackColor = Color.White;
-            RightPanel.Controls.Add(minimizeButton);
-            RightPanel.Controls.Add(txtBday);
+            RightPanel.Controls.Add(panel3);
             RightPanel.Controls.Add(txtPassword);
+            RightPanel.Controls.Add(pictureBox3);
+            RightPanel.Controls.Add(txtEmail);
+            RightPanel.Controls.Add(pictureBox2);
+            RightPanel.Controls.Add(panel2);
+            RightPanel.Controls.Add(panel1);
+            RightPanel.Controls.Add(cboGender);
+            RightPanel.Controls.Add(pictureBox1);
+            RightPanel.Controls.Add(txtBday);
+            RightPanel.Controls.Add(txtUsername);
             RightPanel.Controls.Add(txtPhone);
             RightPanel.Controls.Add(txtAddress);
             RightPanel.Controls.Add(txtName);
@@ -133,65 +151,140 @@ namespace QLNhaKhoa
             RightPanel.Controls.Add(loginSwap);
             RightPanel.Controls.Add(registerButton);
             RightPanel.Controls.Add(label1);
-            RightPanel.Controls.Add(ExitButton);
             RightPanel.Dock = DockStyle.Fill;
             RightPanel.Location = new Point(350, 0);
             RightPanel.Name = "RightPanel";
             RightPanel.Size = new Size(450, 550);
             RightPanel.TabIndex = 1;
             // 
-            // minimizeButton
+            // panel3
             // 
-            minimizeButton.FlatAppearance.BorderSize = 0;
-            minimizeButton.FlatStyle = FlatStyle.Flat;
-            minimizeButton.Font = new Font("VNI-Lithos", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            minimizeButton.Location = new Point(370, 0);
-            minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(40, 40);
-            minimizeButton.TabIndex = 20;
-            minimizeButton.Text = "-";
-            minimizeButton.UseVisualStyleBackColor = true;
-            minimizeButton.Click += minimizeButton_Click;
-            // 
-            // txtBday
-            // 
-            txtBday.CustomFormat = "yyyy-MM-dd";
-            txtBday.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBday.Format = DateTimePickerFormat.Custom;
-            txtBday.Location = new Point(86, 168);
-            txtBday.MaxDate = new DateTime(2023, 11, 28, 0, 0, 0, 0);
-            txtBday.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-            txtBday.Name = "txtBday";
-            txtBday.Size = new Size(314, 27);
-            txtBday.TabIndex = 19;
-            txtBday.Value = new DateTime(2023, 11, 28, 0, 0, 0, 0);
-            txtBday.KeyDown += txtBday_KeyDown;
+            panel3.BackColor = Color.Black;
+            panel3.Location = new Point(50, 426);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(350, 1);
+            panel3.TabIndex = 13;
             // 
             // txtPassword
             // 
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(86, 395);
+            txtPassword.Location = new Point(85, 395);
             txtPassword.MaxLength = 20;
             txtPassword.MinimumSize = new Size(314, 25);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "Password (max 20)";
             txtPassword.Size = new Size(314, 25);
-            txtPassword.TabIndex = 18;
+            txtPassword.TabIndex = 25;
             txtPassword.UseSystemPasswordChar = true;
-            txtPassword.KeyDown += txtPassword_KeyDown;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.person;
+            pictureBox3.Location = new Point(50, 325);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(30, 30);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 24;
+            pictureBox3.TabStop = false;
+            // 
+            // txtEmail
+            // 
+            txtEmail.BackColor = Color.White;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEmail.Location = new Point(85, 265);
+            txtEmail.MaxLength = 20;
+            txtEmail.MinimumSize = new Size(314, 25);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = "Email";
+            txtEmail.Size = new Size(314, 25);
+            txtEmail.TabIndex = 23;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.email;
+            pictureBox2.Location = new Point(50, 260);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(30, 30);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 22;
+            pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Black;
+            panel2.Location = new Point(291, 101);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(112, 1);
+            panel2.TabIndex = 12;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Black;
+            panel1.Location = new Point(219, 166);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(180, 1);
+            panel1.TabIndex = 11;
+            // 
+            // cboGender
+            // 
+            cboGender.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboGender.FormattingEnabled = true;
+            cboGender.Items.AddRange(new object[] { "Nam", "Nữ" });
+            cboGender.Location = new Point(327, 67);
+            cboGender.Name = "cboGender";
+            cboGender.Size = new Size(73, 27);
+            cboGender.TabIndex = 21;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.gender;
+            pictureBox1.Location = new Point(291, 65);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            // 
+            // txtBday
+            // 
+            txtBday.CustomFormat = "yyyy-MM-dd";
+            txtBday.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBday.Format = DateTimePickerFormat.Custom;
+            txtBday.Location = new Point(86, 133);
+            txtBday.MaxDate = new DateTime(2023, 11, 28, 0, 0, 0, 0);
+            txtBday.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+            txtBday.Name = "txtBday";
+            txtBday.Size = new Size(110, 27);
+            txtBday.TabIndex = 19;
+            txtBday.Value = new DateTime(2023, 11, 28, 0, 0, 0, 0);
+            txtBday.KeyDown += txtBday_KeyDown;
+            // 
+            // txtUsername
+            // 
+            txtUsername.BorderStyle = BorderStyle.None;
+            txtUsername.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(86, 330);
+            txtUsername.MaxLength = 25;
+            txtUsername.MinimumSize = new Size(314, 25);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PlaceholderText = "Username (max 25)";
+            txtUsername.Size = new Size(314, 25);
+            txtUsername.TabIndex = 18;
+            txtUsername.KeyDown += txtPassword_KeyDown;
             // 
             // txtPhone
             // 
             txtPhone.BorderStyle = BorderStyle.None;
             txtPhone.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPhone.Location = new Point(86, 320);
+            txtPhone.Location = new Point(255, 135);
             txtPhone.MaxLength = 11;
-            txtPhone.MinimumSize = new Size(314, 25);
+            txtPhone.MinimumSize = new Size(130, 25);
             txtPhone.Name = "txtPhone";
             txtPhone.PlaceholderText = "Phone number";
-            txtPhone.Size = new Size(314, 25);
+            txtPhone.Size = new Size(145, 25);
             txtPhone.TabIndex = 17;
             txtPhone.KeyDown += txtPhone_KeyDown;
             txtPhone.KeyPress += txtPhone_KeyPress;
@@ -200,7 +293,7 @@ namespace QLNhaKhoa
             // 
             txtAddress.BorderStyle = BorderStyle.None;
             txtAddress.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtAddress.Location = new Point(86, 245);
+            txtAddress.Location = new Point(86, 200);
             txtAddress.MaxLength = 100;
             txtAddress.MinimumSize = new Size(314, 25);
             txtAddress.Name = "txtAddress";
@@ -213,19 +306,19 @@ namespace QLNhaKhoa
             // 
             txtName.BorderStyle = BorderStyle.None;
             txtName.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtName.Location = new Point(86, 95);
+            txtName.Location = new Point(86, 70);
             txtName.MaxLength = 50;
-            txtName.MinimumSize = new Size(314, 25);
+            txtName.MinimumSize = new Size(180, 25);
             txtName.Name = "txtName";
             txtName.PlaceholderText = "Name";
-            txtName.Size = new Size(314, 25);
+            txtName.Size = new Size(180, 25);
             txtName.TabIndex = 14;
             txtName.KeyDown += txtName_KeyDown;
             // 
             // div5
             // 
             div5.BackColor = Color.Black;
-            div5.Location = new Point(50, 426);
+            div5.Location = new Point(50, 361);
             div5.Name = "div5";
             div5.Size = new Size(350, 1);
             div5.TabIndex = 13;
@@ -233,7 +326,7 @@ namespace QLNhaKhoa
             // div4
             // 
             div4.BackColor = Color.Black;
-            div4.Location = new Point(50, 351);
+            div4.Location = new Point(50, 296);
             div4.Name = "div4";
             div4.Size = new Size(350, 1);
             div4.TabIndex = 12;
@@ -241,7 +334,7 @@ namespace QLNhaKhoa
             // div3
             // 
             div3.BackColor = Color.Black;
-            div3.Location = new Point(50, 276);
+            div3.Location = new Point(50, 231);
             div3.Name = "div3";
             div3.Size = new Size(350, 1);
             div3.TabIndex = 11;
@@ -249,17 +342,17 @@ namespace QLNhaKhoa
             // div2
             // 
             div2.BackColor = Color.Black;
-            div2.Location = new Point(50, 201);
+            div2.Location = new Point(50, 166);
             div2.Name = "div2";
-            div2.Size = new Size(350, 1);
+            div2.Size = new Size(150, 1);
             div2.TabIndex = 10;
             // 
             // div1
             // 
             div1.BackColor = Color.Black;
-            div1.Location = new Point(50, 126);
+            div1.Location = new Point(50, 101);
             div1.Name = "div1";
-            div1.Size = new Size(350, 1);
+            div1.Size = new Size(220, 1);
             div1.TabIndex = 9;
             // 
             // passIcon
@@ -275,7 +368,7 @@ namespace QLNhaKhoa
             // phoneIcon
             // 
             phoneIcon.Image = Properties.Resources.phone;
-            phoneIcon.Location = new Point(50, 315);
+            phoneIcon.Location = new Point(219, 130);
             phoneIcon.Name = "phoneIcon";
             phoneIcon.Size = new Size(30, 30);
             phoneIcon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -285,7 +378,7 @@ namespace QLNhaKhoa
             // addressIcon
             // 
             addressIcon.Image = Properties.Resources.address;
-            addressIcon.Location = new Point(50, 240);
+            addressIcon.Location = new Point(50, 195);
             addressIcon.Name = "addressIcon";
             addressIcon.Size = new Size(30, 30);
             addressIcon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -295,7 +388,7 @@ namespace QLNhaKhoa
             // birthdayIcon
             // 
             birthdayIcon.Image = Properties.Resources.date;
-            birthdayIcon.Location = new Point(50, 165);
+            birthdayIcon.Location = new Point(50, 130);
             birthdayIcon.Name = "birthdayIcon";
             birthdayIcon.Size = new Size(30, 30);
             birthdayIcon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -305,7 +398,7 @@ namespace QLNhaKhoa
             // nameIcon
             // 
             nameIcon.Image = Properties.Resources.person;
-            nameIcon.Location = new Point(50, 90);
+            nameIcon.Location = new Point(50, 65);
             nameIcon.Name = "nameIcon";
             nameIcon.Size = new Size(30, 30);
             nameIcon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -353,37 +446,26 @@ namespace QLNhaKhoa
             label1.TabIndex = 1;
             label1.Text = "REGISTER";
             // 
-            // ExitButton
-            // 
-            ExitButton.FlatAppearance.BorderSize = 0;
-            ExitButton.FlatStyle = FlatStyle.Flat;
-            ExitButton.Font = new Font("VNI-Lithos", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ExitButton.Location = new Point(410, 0);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(40, 40);
-            ExitButton.TabIndex = 0;
-            ExitButton.Text = "X";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
-            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 550);
-            ControlBox = false;
             Controls.Add(RightPanel);
             Controls.Add(LeftPanel);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Register";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Regiser";
+            Text = "Register";
             LeftPanel.ResumeLayout(false);
             LeftPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             RightPanel.ResumeLayout(false);
             RightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)passIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)phoneIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)addressIcon).EndInit();
@@ -395,7 +477,6 @@ namespace QLNhaKhoa
 
         private Panel LeftPanel;
         private Panel RightPanel;
-        private Button ExitButton;
         private PictureBox Logo;
         private Label Title;
         private Label label1;
@@ -414,9 +495,17 @@ namespace QLNhaKhoa
         private TextBox txtName;
         private TextBox txtAddress;
         private TextBox txtPhone;
-        private TextBox txtPassword;
+        private TextBox txtUsername;
         private DateTimePicker txtBday;
         private Label credit;
-        private Button minimizeButton;
+        private Panel panel1;
+        private ComboBox cboGender;
+        private PictureBox pictureBox1;
+        private Panel panel2;
+        private TextBox txtEmail;
+        private PictureBox pictureBox2;
+        private TextBox txtPassword;
+        private PictureBox pictureBox3;
+        private Panel panel3;
     }
 }

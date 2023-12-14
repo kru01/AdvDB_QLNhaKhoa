@@ -6,6 +6,7 @@ namespace QLNhaKhoa.Dentist_form
     {
         public string CurrentDentist { get; set; } = string.Empty;
         public string CurrentPass { get; set; } = string.Empty;
+        public string CurrentUsername { get; set; } = string.Empty;
         public Dentist_Main()
         {
             InitializeComponent();
@@ -26,11 +27,15 @@ namespace QLNhaKhoa.Dentist_form
             Helper.loadform(f, this.mainPanel);
         }
 
-        private void ServiceButton_Click(object sender, EventArgs e)
+        private void signOutButton_Click(object sender, EventArgs e)
         {
-            Dentist_Services f = new Dentist_Services();
-            f.CurrentDentist = CurrentDentist;
-            Helper.loadform(f, this.mainPanel);
+            var res = MessageBox.Show("Bạn có chắc là muốn đăng xuất?", "Warning", MessageBoxButtons.YesNoCancel);
+            if (res == DialogResult.Yes)
+            {
+                this.Close();
+                new Login().Show();
+            }
+            else { }
         }
 
         private void AppointmentButton_Click(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace QLNhaKhoa.Dentist_form
             DentistID.Text = CurrentDentist;
             SqlConnection sqlCon = new SqlConnection(Helper.strCon);
             sqlCon.Open();
-            SqlCommand cmd = new SqlCommand("select HOTEN from NHANVIEN where MANHANVIEN = '" + CurrentDentist + "'", sqlCon);
+            SqlCommand cmd = new SqlCommand("select HOTEN from TAIKHOAN where IDTAIKHOAN = '" + CurrentDentist + "'", sqlCon);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())

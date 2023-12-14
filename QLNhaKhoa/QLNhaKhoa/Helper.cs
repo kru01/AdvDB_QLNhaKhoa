@@ -6,7 +6,7 @@ namespace QLNhaKhoa
 {
     internal class Helper
     {
-        public static string strCon = "Data Source=HUY;Initial Catalog=Nhom3_QLNhaKhoa;Integrated Security=True;TrustServerCertificate=True";
+        public static string strCon = "Data Source=HUY;Initial Catalog=NC03_QLNhaKhoa;Integrated Security=True;TrustServerCertificate=True";
         public static DataSet getData(string query)
         {
             SqlConnection sqlCon = new SqlConnection(strCon);

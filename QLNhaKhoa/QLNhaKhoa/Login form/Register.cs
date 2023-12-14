@@ -11,14 +11,7 @@ namespace QLNhaKhoa
             this.ActiveControl = txtName;
             txtName.Focus();
         }
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void minimizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+
         private void loginSwap_Click(object sender, EventArgs e)
         {
             new Login().Show();
@@ -53,7 +46,7 @@ namespace QLNhaKhoa
             {
                 MessageBox.Show("Vui lòng nhập số điện thoại");
             }
-            else if (txtPassword.Text == "")
+            else if (txtUsername.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu");
             }
@@ -63,31 +56,40 @@ namespace QLNhaKhoa
                 {
                     SqlConnection sqlCon = new SqlConnection(Helper.strCon);
                     sqlCon.Open();
-                    SqlCommand cmd = new SqlCommand("USP_KHACHHANG_INS", sqlCon);
+                    SqlCommand cmd = new SqlCommand("USP_TAIKHOAN_INS", sqlCon);
                     cmd.CommandType = CommandType.StoredProcedure;
+                    int gender = 0;
+                    if (cboGender.Text == "Nữ")
+                    {
+                        gender = 1;
+                    }
 
+                    cmd.Parameters.Add(new SqlParameter("@TENDANGNHAP", txtUsername.Text));
+                    cmd.Parameters.Add(new SqlParameter("@MATKHAU", txtPassword.Text));
+                    cmd.Parameters.Add(new SqlParameter("@LOAITAIKHOAN", txtUsername.Text));
                     cmd.Parameters.Add(new SqlParameter("@HOTEN", txtName.Text));
                     cmd.Parameters.Add(new SqlParameter("@NGAYSINH", txtBday.Text));
+                    cmd.Parameters.Add(new SqlParameter("@GIOITINH", gender));
+                    cmd.Parameters.Add(new SqlParameter("@EMAIL", txtEmail.Text));
+                    cmd.Parameters.Add(new SqlParameter("@SDT", txtPhone.Text));
                     cmd.Parameters.Add(new SqlParameter("@DIACHI", txtAddress.Text));
-                    cmd.Parameters.Add(new SqlParameter("@SODT", txtPhone.Text));
-                    cmd.Parameters.Add(new SqlParameter("@MATKHAU", txtPassword.Text));
 
-                    cmd.Parameters.Add("@MAKHACHHANG", SqlDbType.VarChar, 10).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@IDTAIKHOAN", SqlDbType.Char, 7).Direction = ParameterDirection.Output;
                     int i = cmd.ExecuteNonQuery();
-                    string userID = (string)cmd.Parameters["@MAKHACHHANG"].Value;
+                    string userID = (string)cmd.Parameters["@IDTAIKHOAN"].Value;
                     sqlCon.Close();
                     if (i > 0)
                     {
-                        MessageBox.Show("Tạo tài khoản thành công! Mã khách hàng của bạn là " + userID);
+                        MessageBox.Show("Tạo tài khoản thành công! Mã của bạn là " + userID);
                     }
                     else
                     {
                         MessageBox.Show("Tạo tài khoản thất bại!");
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Tạo tài khoản thất bại!");
+                    MessageBox.Show("Tạo tài khoản thất bại! " + ex.Message);
                 }
             }
         }
@@ -124,7 +126,7 @@ namespace QLNhaKhoa
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
             {
-                txtPassword.Focus();
+                txtUsername.Focus();
             }
             else if (e.KeyCode == Keys.Up)
             {

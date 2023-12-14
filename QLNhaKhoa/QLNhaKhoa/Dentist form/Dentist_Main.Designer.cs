@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dentist_Main));
             LeftPanel = new Panel();
-            ServiceButton = new Button();
+            signOutButton = new Button();
             PrecriptionButton = new Button();
             certificateButton = new Button();
             credit = new Label();
@@ -42,8 +42,6 @@
             AppointmentButton = new Button();
             AccountButton = new Button();
             mainPanel = new Panel();
-            ExitButton = new Button();
-            minimizeButton = new Button();
             LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)HomepageIcon).BeginInit();
             SuspendLayout();
@@ -51,7 +49,7 @@
             // LeftPanel
             // 
             LeftPanel.BackColor = Color.SteelBlue;
-            LeftPanel.Controls.Add(ServiceButton);
+            LeftPanel.Controls.Add(signOutButton);
             LeftPanel.Controls.Add(PrecriptionButton);
             LeftPanel.Controls.Add(certificateButton);
             LeftPanel.Controls.Add(credit);
@@ -65,22 +63,22 @@
             LeftPanel.Dock = DockStyle.Left;
             LeftPanel.Location = new Point(0, 0);
             LeftPanel.Name = "LeftPanel";
-            LeftPanel.Size = new Size(300, 740);
+            LeftPanel.Size = new Size(300, 700);
             LeftPanel.TabIndex = 2;
             // 
-            // ServiceButton
+            // signOutButton
             // 
-            ServiceButton.FlatAppearance.BorderSize = 0;
-            ServiceButton.FlatStyle = FlatStyle.Flat;
-            ServiceButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ServiceButton.ForeColor = Color.White;
-            ServiceButton.Location = new Point(25, 550);
-            ServiceButton.Name = "ServiceButton";
-            ServiceButton.Size = new Size(250, 40);
-            ServiceButton.TabIndex = 11;
-            ServiceButton.Text = "Services";
-            ServiceButton.UseVisualStyleBackColor = true;
-            ServiceButton.Click += ServiceButton_Click;
+            signOutButton.FlatAppearance.BorderSize = 0;
+            signOutButton.FlatStyle = FlatStyle.Flat;
+            signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signOutButton.ForeColor = Color.White;
+            signOutButton.Location = new Point(25, 550);
+            signOutButton.Name = "signOutButton";
+            signOutButton.Size = new Size(250, 40);
+            signOutButton.TabIndex = 11;
+            signOutButton.Text = "Sign Out";
+            signOutButton.UseVisualStyleBackColor = true;
+            signOutButton.Click += signOutButton_Click;
             // 
             // PrecriptionButton
             // 
@@ -115,7 +113,7 @@
             credit.AutoSize = true;
             credit.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             credit.ForeColor = Color.White;
-            credit.Location = new Point(101, 717);
+            credit.Location = new Point(101, 677);
             credit.Name = "credit";
             credit.Size = new Size(199, 23);
             credit.TabIndex = 8;
@@ -208,53 +206,25 @@
             // 
             // mainPanel
             // 
-            mainPanel.Location = new Point(300, 40);
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(300, 0);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(900, 700);
             mainPanel.TabIndex = 3;
-            // 
-            // ExitButton
-            // 
-            ExitButton.FlatAppearance.BorderSize = 0;
-            ExitButton.FlatStyle = FlatStyle.Flat;
-            ExitButton.Font = new Font("VNI-Lithos", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ExitButton.Location = new Point(1160, 0);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(40, 40);
-            ExitButton.TabIndex = 2;
-            ExitButton.Text = "X";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
-            // 
-            // minimizeButton
-            // 
-            minimizeButton.FlatAppearance.BorderSize = 0;
-            minimizeButton.FlatStyle = FlatStyle.Flat;
-            minimizeButton.Font = new Font("VNI-Lithos", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            minimizeButton.Location = new Point(1120, 0);
-            minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(40, 40);
-            minimizeButton.TabIndex = 14;
-            minimizeButton.Text = "-";
-            minimizeButton.UseVisualStyleBackColor = true;
-            minimizeButton.Click += minimizeButton_Click;
             // 
             // Dentist_Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1200, 740);
-            ControlBox = false;
-            Controls.Add(minimizeButton);
-            Controls.Add(ExitButton);
+            ClientSize = new Size(1200, 700);
             Controls.Add(mainPanel);
             Controls.Add(LeftPanel);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dentist_Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dentist_Main";
+            Text = "Dentist Dashboard";
             Load += Dentist_Main_Load;
             LeftPanel.ResumeLayout(false);
             LeftPanel.PerformLayout();
@@ -273,11 +243,9 @@
         private Button RecordButton;
         private Button AppointmentButton;
         private Button AccountButton;
-        private Button ServiceButton;
+        private Button signOutButton;
         private Button PrecriptionButton;
         private Button certificateButton;
         private Panel mainPanel;
-        private Button ExitButton;
-        private Button minimizeButton;
     }
 }

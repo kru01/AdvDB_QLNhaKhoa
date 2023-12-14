@@ -30,17 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Main));
             LeftPanel = new Panel();
+            signOutButton = new Button();
             credit = new Label();
             AdminID = new Label();
             AdminName = new Label();
             IDLabel = new Label();
             HomepageIcon = new PictureBox();
             MedicationButton = new Button();
-            AccountMngrButton = new Button();
+            EmployeeButton = new Button();
             AccountButton = new Button();
             mainPanel = new Panel();
-            ExitButton = new Button();
-            minimizeButton = new Button();
             LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)HomepageIcon).BeginInit();
             SuspendLayout();
@@ -48,26 +47,41 @@
             // LeftPanel
             // 
             LeftPanel.BackColor = Color.SteelBlue;
+            LeftPanel.Controls.Add(signOutButton);
             LeftPanel.Controls.Add(credit);
             LeftPanel.Controls.Add(AdminID);
             LeftPanel.Controls.Add(AdminName);
             LeftPanel.Controls.Add(IDLabel);
             LeftPanel.Controls.Add(HomepageIcon);
             LeftPanel.Controls.Add(MedicationButton);
-            LeftPanel.Controls.Add(AccountMngrButton);
+            LeftPanel.Controls.Add(EmployeeButton);
             LeftPanel.Controls.Add(AccountButton);
             LeftPanel.Dock = DockStyle.Left;
             LeftPanel.Location = new Point(0, 0);
             LeftPanel.Name = "LeftPanel";
-            LeftPanel.Size = new Size(300, 740);
+            LeftPanel.Size = new Size(300, 700);
             LeftPanel.TabIndex = 3;
+            // 
+            // signOutButton
+            // 
+            signOutButton.FlatAppearance.BorderSize = 0;
+            signOutButton.FlatStyle = FlatStyle.Flat;
+            signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signOutButton.ForeColor = Color.White;
+            signOutButton.Location = new Point(25, 500);
+            signOutButton.Name = "signOutButton";
+            signOutButton.Size = new Size(250, 50);
+            signOutButton.TabIndex = 9;
+            signOutButton.Text = "Sign Out";
+            signOutButton.UseVisualStyleBackColor = true;
+            signOutButton.Click += signOutButton_Click;
             // 
             // credit
             // 
             credit.AutoSize = true;
             credit.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             credit.ForeColor = Color.White;
-            credit.Location = new Point(101, 717);
+            credit.Location = new Point(101, 677);
             credit.Name = "credit";
             credit.Size = new Size(199, 23);
             credit.TabIndex = 8;
@@ -122,7 +136,7 @@
             MedicationButton.FlatStyle = FlatStyle.Flat;
             MedicationButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MedicationButton.ForeColor = Color.White;
-            MedicationButton.Location = new Point(25, 485);
+            MedicationButton.Location = new Point(25, 425);
             MedicationButton.Name = "MedicationButton";
             MedicationButton.Size = new Size(250, 50);
             MedicationButton.TabIndex = 3;
@@ -130,19 +144,19 @@
             MedicationButton.UseVisualStyleBackColor = true;
             MedicationButton.Click += MedicationButton_Click;
             // 
-            // AccountMngrButton
+            // EmployeeButton
             // 
-            AccountMngrButton.FlatAppearance.BorderSize = 0;
-            AccountMngrButton.FlatStyle = FlatStyle.Flat;
-            AccountMngrButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AccountMngrButton.ForeColor = Color.White;
-            AccountMngrButton.Location = new Point(25, 375);
-            AccountMngrButton.Name = "AccountMngrButton";
-            AccountMngrButton.Size = new Size(250, 50);
-            AccountMngrButton.TabIndex = 2;
-            AccountMngrButton.Text = "Account Manager";
-            AccountMngrButton.UseVisualStyleBackColor = true;
-            AccountMngrButton.Click += AccountMngrButton_Click;
+            EmployeeButton.FlatAppearance.BorderSize = 0;
+            EmployeeButton.FlatStyle = FlatStyle.Flat;
+            EmployeeButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            EmployeeButton.ForeColor = Color.White;
+            EmployeeButton.Location = new Point(25, 350);
+            EmployeeButton.Name = "EmployeeButton";
+            EmployeeButton.Size = new Size(250, 50);
+            EmployeeButton.TabIndex = 2;
+            EmployeeButton.Text = "Employee List";
+            EmployeeButton.UseVisualStyleBackColor = true;
+            EmployeeButton.Click += EmployeeButton_Click;
             // 
             // AccountButton
             // 
@@ -161,53 +175,25 @@
             // mainPanel
             // 
             mainPanel.BackColor = Color.White;
-            mainPanel.Location = new Point(300, 40);
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(300, 0);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(900, 700);
             mainPanel.TabIndex = 4;
-            // 
-            // ExitButton
-            // 
-            ExitButton.FlatAppearance.BorderSize = 0;
-            ExitButton.FlatStyle = FlatStyle.Flat;
-            ExitButton.Font = new Font("VNI-Lithos", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ExitButton.Location = new Point(1160, 0);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(40, 40);
-            ExitButton.TabIndex = 3;
-            ExitButton.Text = "X";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
-            // 
-            // minimizeButton
-            // 
-            minimizeButton.FlatAppearance.BorderSize = 0;
-            minimizeButton.FlatStyle = FlatStyle.Flat;
-            minimizeButton.Font = new Font("VNI-Lithos", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            minimizeButton.Location = new Point(1120, 0);
-            minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(40, 40);
-            minimizeButton.TabIndex = 14;
-            minimizeButton.Text = "-";
-            minimizeButton.UseVisualStyleBackColor = true;
-            minimizeButton.Click += minimizeButton_Click;
             // 
             // Admin_Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1200, 740);
-            ControlBox = false;
-            Controls.Add(minimizeButton);
-            Controls.Add(ExitButton);
+            ClientSize = new Size(1200, 700);
             Controls.Add(mainPanel);
             Controls.Add(LeftPanel);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Admin_Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Admin_Main";
+            Text = "Admin Dashboard";
             Load += Admin_Main_Load;
             LeftPanel.ResumeLayout(false);
             LeftPanel.PerformLayout();
@@ -224,10 +210,9 @@
         private Label IDLabel;
         private PictureBox HomepageIcon;
         private Button MedicationButton;
-        private Button AccountMngrButton;
+        private Button EmployeeButton;
         private Button AccountButton;
         private Panel mainPanel;
-        private Button ExitButton;
-        private Button minimizeButton;
+        private Button signOutButton;
     }
 }

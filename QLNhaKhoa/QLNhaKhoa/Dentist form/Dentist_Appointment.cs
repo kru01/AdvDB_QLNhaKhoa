@@ -198,12 +198,27 @@ namespace QLNhaKhoa.Dentist_form
                     SqlCommand cmd = new SqlCommand("USP_LICHHEN_INS", sqlCon);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    //var item = (DataRowView)cboCustomer.SelectedItem;
+                    //cmd.Parameters.Add(new SqlParameter("@NGAY", dateBox.Text));
+                    //cmd.Parameters.Add(new SqlParameter("@GIO", time));
+                    //cmd.Parameters.Add(new SqlParameter("@MAKHACHHANG", item["MAKHACHHANG"].ToString()));
+                    //cmd.Parameters.Add(new SqlParameter("@MANHASI", CurrentDentist));
+
                     var item = (DataRowView)cboCustomer.SelectedItem;
+                    var assistant = (DataRowView)comboBox_TroKham.SelectedItem;
+                    var clinic = (DataRowView)comboBox_PhongKham.SelectedItem;
+                    var responsibleStaff = (DataRowView)comboBox_staffs.SelectedItem;
+                    //cmd.Parameters.Add(new SqlParameter("@IDLICHHEN", appIDBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@NGAY", dateBox.Text));
                     cmd.Parameters.Add(new SqlParameter("@GIO", time));
-                    cmd.Parameters.Add(new SqlParameter("@MAKHACHHANG", item["MAKHACHHANG"].ToString()));
-                    cmd.Parameters.Add(new SqlParameter("@MANHASI", CurrentDentist));
-                    cmd.Parameters.Add("@MALICHHEN", SqlDbType.VarChar, 10).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(new SqlParameter("@IDHOSO", item["IDHOSO"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@IDNHASI", CurrentDentist));
+                    cmd.Parameters.Add(new SqlParameter("@IDPHONGKHAM", clinic["IDPHONGKHAM"]));
+                    cmd.Parameters.Add(new SqlParameter("@GHICHU", textBox_GhiChu.Text));
+                    cmd.Parameters.Add(new SqlParameter("@TINHTRANG", numericUpDown_TinhTrang.Value));
+                    cmd.Parameters.Add(new SqlParameter("@IDTROKHAM", assistant["IDTAIKHOAN"]));
+                    cmd.Parameters.Add(new SqlParameter("@IDNHANVIENDAT", responsibleStaff["IDTAIKHOAN"]));
+                    cmd.Parameters.Add("@IDLICHHEN", SqlDbType.VarChar, 10).Direction = ParameterDirection.Output;
 
                     int i = cmd.ExecuteNonQuery();
                     if (i > 0)
@@ -214,7 +229,7 @@ namespace QLNhaKhoa.Dentist_form
                     {
                         MessageBox.Show("Đặt lịch hẹn thất bại!");
                     }
-                    Helper.refreshData("select * from LICHHEN where MANHASI='" + CurrentDentist + "'", appointmentData);
+                    Helper.refreshData("select * from LICHHEN where IDNHASI='" + CurrentDentist + "'", appointmentData);
                     sqlCon.Close();
                 }
                 catch (Exception ex)

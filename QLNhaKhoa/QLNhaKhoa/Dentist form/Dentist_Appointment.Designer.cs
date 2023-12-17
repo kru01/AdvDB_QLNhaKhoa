@@ -36,6 +36,10 @@
             makeAppButton = new Button();
             label1 = new Label();
             panel4 = new Panel();
+            numericUpDown_TinhTrang = new NumericUpDown();
+            comboBox_staffs = new ComboBox();
+            comboBox_TroKham = new ComboBox();
+            comboBox_PhongKham = new ComboBox();
             label6 = new Label();
             empIDBox = new TextBox();
             label5 = new Label();
@@ -47,8 +51,10 @@
             label2 = new Label();
             dateBox = new DateTimePicker();
             appointmentData = new DataGridView();
+            textBox_GhiChu = new TextBox();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown_TinhTrang).BeginInit();
             ((System.ComponentModel.ISupportInitialize)appointmentData).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +79,7 @@
             refreshButton.BackColor = Color.SteelBlue;
             refreshButton.FlatAppearance.BorderSize = 0;
             refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            refreshButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             refreshButton.ForeColor = Color.White;
             refreshButton.Location = new Point(468, 300);
             refreshButton.Name = "refreshButton";
@@ -88,7 +94,7 @@
             updateButton.BackColor = Color.SteelBlue;
             updateButton.FlatAppearance.BorderSize = 0;
             updateButton.FlatStyle = FlatStyle.Flat;
-            updateButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            updateButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             updateButton.ForeColor = Color.White;
             updateButton.Location = new Point(256, 300);
             updateButton.Name = "updateButton";
@@ -103,7 +109,7 @@
             deleteButton.BackColor = Color.SteelBlue;
             deleteButton.FlatAppearance.BorderSize = 0;
             deleteButton.FlatStyle = FlatStyle.Flat;
-            deleteButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deleteButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deleteButton.ForeColor = Color.White;
             deleteButton.Location = new Point(362, 300);
             deleteButton.Name = "deleteButton";
@@ -118,7 +124,7 @@
             makeAppButton.BackColor = Color.SteelBlue;
             makeAppButton.FlatAppearance.BorderSize = 0;
             makeAppButton.FlatStyle = FlatStyle.Flat;
-            makeAppButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            makeAppButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             makeAppButton.ForeColor = Color.White;
             makeAppButton.Location = new Point(50, 300);
             makeAppButton.Name = "makeAppButton";
@@ -131,17 +137,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
             label1.Location = new Point(367, 25);
             label1.Name = "label1";
-            label1.Size = new Size(166, 35);
+            label1.Size = new Size(183, 36);
             label1.TabIndex = 0;
             label1.Text = "Appointment";
             // 
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(textBox_GhiChu);
+            panel4.Controls.Add(numericUpDown_TinhTrang);
+            panel4.Controls.Add(comboBox_staffs);
+            panel4.Controls.Add(comboBox_TroKham);
+            panel4.Controls.Add(comboBox_PhongKham);
             panel4.Controls.Add(label6);
             panel4.Controls.Add(empIDBox);
             panel4.Controls.Add(label5);
@@ -157,14 +168,45 @@
             panel4.Size = new Size(800, 250);
             panel4.TabIndex = 0;
             // 
+            // numericUpDown_TinhTrang
+            // 
+            numericUpDown_TinhTrang.Location = new Point(500, 138);
+            numericUpDown_TinhTrang.Name = "numericUpDown_TinhTrang";
+            numericUpDown_TinhTrang.Size = new Size(38, 27);
+            numericUpDown_TinhTrang.TabIndex = 19;
+            // 
+            // comboBox_staffs
+            // 
+            comboBox_staffs.FormattingEnabled = true;
+            comboBox_staffs.Location = new Point(500, 104);
+            comboBox_staffs.Name = "comboBox_staffs";
+            comboBox_staffs.Size = new Size(150, 28);
+            comboBox_staffs.TabIndex = 18;
+            // 
+            // comboBox_TroKham
+            // 
+            comboBox_TroKham.FormattingEnabled = true;
+            comboBox_TroKham.Location = new Point(326, 104);
+            comboBox_TroKham.Name = "comboBox_TroKham";
+            comboBox_TroKham.Size = new Size(150, 28);
+            comboBox_TroKham.TabIndex = 17;
+            // 
+            // comboBox_PhongKham
+            // 
+            comboBox_PhongKham.FormattingEnabled = true;
+            comboBox_PhongKham.Location = new Point(150, 104);
+            comboBox_PhongKham.Name = "comboBox_PhongKham";
+            comboBox_PhongKham.Size = new Size(150, 28);
+            comboBox_PhongKham.TabIndex = 16;
+            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
             label6.Location = new Point(500, 36);
             label6.Name = "label6";
-            label6.Size = new Size(109, 23);
+            label6.Size = new Size(123, 25);
             label6.TabIndex = 15;
             label6.Text = "Employee ID";
             // 
@@ -181,11 +223,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
             label5.Location = new Point(150, 145);
             label5.Name = "label5";
-            label5.Size = new Size(131, 23);
+            label5.Size = new Size(146, 25);
             label5.TabIndex = 9;
             label5.Text = "Appointment ID";
             // 
@@ -202,11 +244,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
             label4.Location = new Point(300, 145);
             label4.Name = "label4";
-            label4.Size = new Size(83, 23);
+            label4.Size = new Size(97, 25);
             label4.TabIndex = 7;
             label4.Text = "Customer";
             // 
@@ -234,22 +276,22 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
             label3.Location = new Point(400, 36);
             label3.Name = "label3";
-            label3.Size = new Size(48, 23);
+            label3.Size = new Size(53, 25);
             label3.TabIndex = 4;
             label3.Text = "Date";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
             label2.Location = new Point(150, 36);
             label2.Name = "label2";
-            label2.Size = new Size(132, 23);
+            label2.Size = new Size(147, 25);
             label2.TabIndex = 3;
             label2.Text = "Time (8h - 17h)";
             // 
@@ -281,6 +323,13 @@
             appointmentData.TabIndex = 2;
             appointmentData.CellClick += appointmentData_CellClick;
             // 
+            // textBox_GhiChu
+            // 
+            textBox_GhiChu.Location = new Point(150, 212);
+            textBox_GhiChu.Name = "textBox_GhiChu";
+            textBox_GhiChu.Size = new Size(500, 27);
+            textBox_GhiChu.TabIndex = 20;
+            // 
             // Dentist_Appointment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -297,6 +346,7 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown_TinhTrang).EndInit();
             ((System.ComponentModel.ISupportInitialize)appointmentData).EndInit();
             ResumeLayout(false);
         }
@@ -321,5 +371,10 @@
         private Label label6;
         private TextBox empIDBox;
         private Button refreshButton;
+        private ComboBox comboBox_TroKham;
+        private ComboBox comboBox_PhongKham;
+        private ComboBox comboBox_staffs;
+        private NumericUpDown numericUpDown_TinhTrang;
+        private TextBox textBox_GhiChu;
     }
 }

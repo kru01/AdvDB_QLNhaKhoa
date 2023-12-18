@@ -11,38 +11,17 @@ namespace QLNhaKhoa.Employee_form
         {
             InitializeComponent();
         }
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void minimizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
         private void AccountButton_Click(object sender, EventArgs e)
         {
             Account f = new Account();
             f.CurrentUser = CurrentEmp;
             f.CurrentPass = CurrentPass;
-            Helper.loadform(f, this.mainPanel);
-        }
-        private void BillButton_Click(object sender, EventArgs e)
-        {
-            Emp_Bill f = new Emp_Bill();
-            f.CurrentEmp = CurrentEmp;
+            f.CurrentUsername = CurrentUsername;
             Helper.loadform(f, this.mainPanel);
         }
         private void MedRecdButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Emp_Record(), this.mainPanel);
-        }
-        private void MedCertButton_Click(object sender, EventArgs e)
-        {
-            Helper.loadform(new Emp_Certificate(), this.mainPanel);
-        }
-        private void CusSerButton_Click(object sender, EventArgs e)
-        {
-            Helper.loadform(new Emp_Services(), this.mainPanel);
+            Helper.loadform(new General_Form.Record(), this.mainPanel);
         }
         private void PrescriptionButton_Click(object sender, EventArgs e)
         {
@@ -54,9 +33,7 @@ namespace QLNhaKhoa.Employee_form
         }
         private void AppointmentButton_Click(object sender, EventArgs e)
         {
-            Emp_Appointment f = new Emp_Appointment();
-            f.CurrentEmp = CurrentEmp;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new General_Form.Appointment(), this.mainPanel);
         }
         private void Emp_Main_Load(object sender, EventArgs e)
         {
@@ -72,6 +49,17 @@ namespace QLNhaKhoa.Employee_form
                     sqlCon.Close();
                 }
             }
+        }
+
+        private void signOutButton_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Bạn có chắc là muốn đăng xuất?", "Warning", MessageBoxButtons.YesNoCancel);
+            if (res == DialogResult.Yes)
+            {
+                this.Close();
+                new Login().Show();
+            }
+            else { }
         }
     }
 }

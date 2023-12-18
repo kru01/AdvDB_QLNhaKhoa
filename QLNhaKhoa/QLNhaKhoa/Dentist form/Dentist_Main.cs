@@ -32,9 +32,7 @@ namespace QLNhaKhoa.Dentist_form
 
         private void AppointmentButton_Click(object sender, EventArgs e)
         {
-            Dentist_Appointment f = new Dentist_Appointment();
-            f.CurrentDentist = CurrentDentist;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new General_Form.Appointment(), this.mainPanel);
         }
 
         private void PrecriptionButton_Click(object sender, EventArgs e)
@@ -46,9 +44,7 @@ namespace QLNhaKhoa.Dentist_form
 
         private void RecordButton_Click(object sender, EventArgs e)
         {
-            Dentist_Record f = new Dentist_Record();
-            f.CurrentDentist = CurrentDentist;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new General_Form.Record(), this.mainPanel);
         }
         private void certificateButton_Click(object sender, EventArgs e)
         {

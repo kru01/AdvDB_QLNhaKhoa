@@ -28,7 +28,7 @@ namespace QLNhaKhoa.Filter_folder
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            Admin_Appointment.instance.filter_dentist = ((DataRowView)cboDentist.SelectedItem)["IDTAIKHOAN"].ToString();
+            General_Form.Appointment.instance.filter_dentist = ((DataRowView)cboDentist.SelectedItem)["IDTAIKHOAN"].ToString();
             FormClosedEvent?.Invoke(this, EventArgs.Empty);
             this.Close();
         }

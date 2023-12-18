@@ -2,23 +2,23 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace QLNhaKhoa.Admin_form
+namespace QLNhaKhoa.General_Form
 {
-    public partial class Admin_Appointment : Form
+    public partial class Appointment : Form
     {
         private string query = "select IDHOSO, IDLICHHEN, NGAY, GIO, TINHTRANG, IDPHONGKHAM, IDNHASI, IDTROKHAM from LICHHEN";
-        public static Admin_Appointment instance;
+        public static Appointment instance;
         public string filter_patient, filter_room, filter_dentist;
         private Filter_Patient f1;
         private Filter_Room f2;
         private Filter_Dentist f3;
-        public Admin_Appointment()
+        public Appointment()
         {
             InitializeComponent();
             instance = this;
         }
 
-        private void Admin_Appointment_Load(object sender, EventArgs e)
+        private void Appointment_Load(object sender, EventArgs e)
         {
             appointmentData.DataSource = Helper.getData(query).Tables[0];
         }

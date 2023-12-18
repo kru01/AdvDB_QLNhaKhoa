@@ -20,7 +20,7 @@ namespace QLNhaKhoa.Filter_folder
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            Admin_Appointment.instance.filter_patient = ((DataRowView)cboPatient.SelectedItem)["IDHOSO"].ToString();
+            General_Form.Appointment.instance.filter_patient = ((DataRowView)cboPatient.SelectedItem)["IDHOSO"].ToString();
             FormClosedEvent?.Invoke(this, EventArgs.Empty);
             this.Close();
         }

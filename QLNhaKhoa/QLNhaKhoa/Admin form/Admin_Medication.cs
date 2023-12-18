@@ -6,6 +6,8 @@ namespace QLNhaKhoa.Admin_form
     public partial class Admin_Medication : Form
     {
         private Admin_Medication_AddForm f;
+        private Admin_MedSearch fs;
+        public DataTable searchData;
         public Admin_Medication()
         {
             InitializeComponent();
@@ -160,7 +162,14 @@ namespace QLNhaKhoa.Admin_form
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            (medData.DataSource as DataTable).DefaultView.RowFilter = String.Format("TENTHUOC like '%" + searchIDBox.Text + "%'");
+            fs = new Admin_MedSearch(this);
+            fs.FormClosedEvent += AdminFormClosedEventS;
+            fs.Show();
+        }
+
+        private void AdminFormClosedEventS(object sender, EventArgs e)
+        {
+            medData.DataSource = searchData;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

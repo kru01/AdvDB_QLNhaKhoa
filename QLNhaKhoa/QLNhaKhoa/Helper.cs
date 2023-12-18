@@ -9,10 +9,10 @@ namespace QLNhaKhoa
         public static string strCon = "Data Source=HUY;Initial Catalog=NC03_QLNhaKhoa;Integrated Security=True;TrustServerCertificate=True";
         public static DataSet getData(string query)
         {
-            SqlConnection sqlCon = new SqlConnection(strCon);
+            SqlConnection sqlCon = new(strCon);
             sqlCon.Open();
-            DataSet dt = new DataSet();
-            SqlDataAdapter ap = new SqlDataAdapter(query, sqlCon);
+            DataSet dt = new();
+            SqlDataAdapter ap = new(query, sqlCon);
             ap.Fill(dt);
             sqlCon.Close();
             return dt;

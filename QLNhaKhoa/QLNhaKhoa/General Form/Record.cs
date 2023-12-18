@@ -1,18 +1,28 @@
-﻿using System.Data;
+﻿using QLNhaKhoa.Admin_form;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace QLNhaKhoa.Admin_form
+namespace QLNhaKhoa.General_Form
 {
-    public partial class Admin_record : Form
+    public partial class Record : Form
     {
-        private string query = "select * from HOSOBENHNHAN";
+        private readonly string query = "select * from HOSOBENHNHAN";
+        private AddRecord f;
 
-        public Admin_record()
+        public Record()
         {
             InitializeComponent();
         }
 
-        private void Admin_record_Load(object sender, EventArgs e)
+        private void Record_Load(object sender, EventArgs e)
         {
             recordData.DataSource = Helper.getData(query).Tables[0];
         }
@@ -97,6 +107,18 @@ namespace QLNhaKhoa.Admin_form
             {
                 e.Handled = true;
             }
+        }
+
+        private void addRecordButton_Click(object sender, EventArgs e)
+        {
+            f = new AddRecord();
+            f.FormClosedEvent += AdminFormClosedEvent;
+            f.Show();
+        }
+
+        private void AdminFormClosedEvent(object sender, EventArgs e)
+        {
+            Helper.refreshData(query, recordData);
         }
     }
 }

@@ -1,15 +1,4 @@
-﻿using QLNhaKhoa.Admin_form;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace QLNhaKhoa.Filter_folder
+﻿namespace QLNhaKhoa.Filter_folder
 {
     public partial class Filter_Room : Form
     {
@@ -28,7 +17,7 @@ namespace QLNhaKhoa.Filter_folder
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            Admin_Appointment.instance.filter_room = cboRoom.Text;
+            General_Form.Appointment.instance.filter_room = cboRoom.Text;
             FormClosedEvent?.Invoke(this, EventArgs.Empty);
             this.Close();
         }

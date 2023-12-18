@@ -1,6 +1,6 @@
-﻿namespace QLNhaKhoa.Admin_form
+﻿namespace QLNhaKhoa.General_Form
 {
-    partial class Admin_record
+    partial class Record
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,9 @@
             updateInfoButton = new Button();
             label1 = new Label();
             panel2 = new Panel();
+            label12 = new Label();
+            label10 = new Label();
+            label9 = new Label();
             addressBox = new TextBox();
             label6 = new Label();
             emailBox = new TextBox();
@@ -52,11 +55,8 @@
             paidBox = new TextBox();
             nameBox = new TextBox();
             bdayBox = new DateTimePicker();
-            addEmpButton = new Button();
+            addRecordButton = new Button();
             recordData = new DataGridView();
-            label9 = new Label();
-            label10 = new Label();
-            label12 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)recordData).BeginInit();
@@ -69,13 +69,13 @@
             panel1.Controls.Add(updateInfoButton);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(addEmpButton);
+            panel1.Controls.Add(addRecordButton);
             panel1.Controls.Add(recordData);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(900, 700);
-            panel1.TabIndex = 7;
+            panel1.TabIndex = 8;
             // 
             // refreshButton
             // 
@@ -149,6 +149,39 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 300);
             panel2.TabIndex = 11;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.SteelBlue;
+            label12.Location = new Point(477, 219);
+            label12.Name = "label12";
+            label12.Size = new Size(51, 23);
+            label12.TabIndex = 31;
+            label12.Text = "Email";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.SteelBlue;
+            label10.Location = new Point(100, 219);
+            label10.Name = "label10";
+            label10.Size = new Size(75, 23);
+            label10.TabIndex = 30;
+            label10.Text = "Address";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.SteelBlue;
+            label9.Location = new Point(477, 154);
+            label9.Name = "label9";
+            label9.Size = new Size(123, 23);
+            label9.TabIndex = 29;
+            label9.Text = "Phone number";
             // 
             // addressBox
             // 
@@ -353,19 +386,20 @@
             bdayBox.TabIndex = 6;
             bdayBox.Value = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             // 
-            // addEmpButton
+            // addRecordButton
             // 
-            addEmpButton.BackColor = Color.SteelBlue;
-            addEmpButton.FlatAppearance.BorderSize = 0;
-            addEmpButton.FlatStyle = FlatStyle.Flat;
-            addEmpButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addEmpButton.ForeColor = Color.White;
-            addEmpButton.Location = new Point(50, 348);
-            addEmpButton.Name = "addEmpButton";
-            addEmpButton.Size = new Size(100, 40);
-            addEmpButton.TabIndex = 9;
-            addEmpButton.Text = "Add";
-            addEmpButton.UseVisualStyleBackColor = false;
+            addRecordButton.BackColor = Color.SteelBlue;
+            addRecordButton.FlatAppearance.BorderSize = 0;
+            addRecordButton.FlatStyle = FlatStyle.Flat;
+            addRecordButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addRecordButton.ForeColor = Color.White;
+            addRecordButton.Location = new Point(50, 348);
+            addRecordButton.Name = "addRecordButton";
+            addRecordButton.Size = new Size(100, 40);
+            addRecordButton.TabIndex = 9;
+            addRecordButton.Text = "Add";
+            addRecordButton.UseVisualStyleBackColor = false;
+            addRecordButton.Click += addRecordButton_Click;
             // 
             // recordData
             // 
@@ -384,51 +418,17 @@
             recordData.TabIndex = 0;
             recordData.CellClick += recordData_CellClick;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.SteelBlue;
-            label9.Location = new Point(477, 154);
-            label9.Name = "label9";
-            label9.Size = new Size(123, 23);
-            label9.TabIndex = 29;
-            label9.Text = "Phone number";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.SteelBlue;
-            label10.Location = new Point(100, 219);
-            label10.Name = "label10";
-            label10.Size = new Size(75, 23);
-            label10.TabIndex = 30;
-            label10.Text = "Address";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.SteelBlue;
-            label12.Location = new Point(477, 219);
-            label12.Name = "label12";
-            label12.Size = new Size(51, 23);
-            label12.TabIndex = 31;
-            label12.Text = "Email";
-            // 
-            // Admin_record
+            // Record
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
             ClientSize = new Size(900, 700);
             ControlBox = false;
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Admin_record";
-            Text = "Admin_record";
-            Load += Admin_record_Load;
+            Name = "Record";
+            Text = "Record";
+            Load += Record_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -444,6 +444,16 @@
         private Button updateInfoButton;
         private Label label1;
         private Panel panel2;
+        private Label label12;
+        private Label label10;
+        private Label label9;
+        private TextBox addressBox;
+        private Label label6;
+        private TextBox emailBox;
+        private TextBox phoneBox;
+        private TextBox IDBox;
+        private Label label2;
+        private TextBox ageBox;
         private Label label11;
         private TextBox infoBox;
         private Label label3;
@@ -456,17 +466,7 @@
         private TextBox paidBox;
         private TextBox nameBox;
         private DateTimePicker bdayBox;
-        private Button addEmpButton;
+        private Button addRecordButton;
         private DataGridView recordData;
-        private Label label2;
-        private TextBox ageBox;
-        private TextBox IDBox;
-        private Label label6;
-        private TextBox emailBox;
-        private TextBox phoneBox;
-        private TextBox addressBox;
-        private Label label12;
-        private Label label10;
-        private Label label9;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace QLNhaKhoa.Dentist_form
+﻿namespace QLNhaKhoa.Admin_form
 {
-    partial class Dentist_Appointment
+    partial class Admin_Appointment
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dentist_Appointment));
             panel3 = new Panel();
             filterDButton = new Button();
             filterRButton = new Button();
@@ -72,7 +71,7 @@
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(900, 700);
-            panel3.TabIndex = 12;
+            panel3.TabIndex = 11;
             // 
             // filterDButton
             // 
@@ -85,7 +84,7 @@
             filterDButton.Name = "filterDButton";
             filterDButton.Size = new Size(160, 40);
             filterDButton.TabIndex = 21;
-            filterDButton.Text = "Filter by my ID";
+            filterDButton.Text = "Filter by dentist";
             filterDButton.UseVisualStyleBackColor = false;
             filterDButton.Click += filterDButton_Click;
             // 
@@ -357,18 +356,18 @@
             appointmentData.TabIndex = 2;
             appointmentData.CellClick += appointmentData_CellClick;
             // 
-            // Dentist_Appointment
+            // Admin_Appointment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(900, 700);
             ControlBox = false;
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Dentist_Appointment";
-            Text = "Dentist_Appointment";
-            Load += Dentist_Appointment_Load;
+            Name = "Admin_Appointment";
+            Text = "Admin_Appointment";
+            Load += Admin_Appointment_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -380,20 +379,10 @@
         #endregion
 
         private Panel panel3;
-        private Button filterDButton;
-        private Button filterRButton;
         private Button filterPButton;
         private Button refreshButton;
         private Label label1;
         private Panel panel4;
-        private TextBox customerBox;
-        private TextBox roomBox;
-        private Label label8;
-        private Label label9;
-        private Label label;
-        private TextBox statusBox;
-        private TextBox dentistBox;
-        private TextBox assistantBox;
         private Label label6;
         private TextBox appIDBox;
         private Label label5;
@@ -403,5 +392,15 @@
         private Label label2;
         private DateTimePicker appointDate;
         private DataGridView appointmentData;
+        private TextBox assistantBox;
+        private TextBox dentistBox;
+        private TextBox roomBox;
+        private Label label8;
+        private Label label9;
+        private Label label;
+        private TextBox statusBox;
+        private TextBox customerBox;
+        private Button filterDButton;
+        private Button filterRButton;
     }
 }

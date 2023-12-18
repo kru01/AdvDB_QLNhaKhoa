@@ -30,13 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Main));
             LeftPanel = new Panel();
+            MedicationButton = new Button();
+            appointmentButton = new Button();
+            recordButton = new Button();
             signOutButton = new Button();
             credit = new Label();
             AdminID = new Label();
             AdminName = new Label();
             IDLabel = new Label();
             HomepageIcon = new PictureBox();
-            MedicationButton = new Button();
+            empScheduleButton = new Button();
             EmployeeButton = new Button();
             AccountButton = new Button();
             mainPanel = new Panel();
@@ -47,13 +50,16 @@
             // LeftPanel
             // 
             LeftPanel.BackColor = Color.SteelBlue;
+            LeftPanel.Controls.Add(MedicationButton);
+            LeftPanel.Controls.Add(appointmentButton);
+            LeftPanel.Controls.Add(recordButton);
             LeftPanel.Controls.Add(signOutButton);
             LeftPanel.Controls.Add(credit);
             LeftPanel.Controls.Add(AdminID);
             LeftPanel.Controls.Add(AdminName);
             LeftPanel.Controls.Add(IDLabel);
             LeftPanel.Controls.Add(HomepageIcon);
-            LeftPanel.Controls.Add(MedicationButton);
+            LeftPanel.Controls.Add(empScheduleButton);
             LeftPanel.Controls.Add(EmployeeButton);
             LeftPanel.Controls.Add(AccountButton);
             LeftPanel.Dock = DockStyle.Left;
@@ -62,15 +68,57 @@
             LeftPanel.Size = new Size(300, 700);
             LeftPanel.TabIndex = 3;
             // 
+            // MedicationButton
+            // 
+            MedicationButton.FlatAppearance.BorderSize = 0;
+            MedicationButton.FlatStyle = FlatStyle.Flat;
+            MedicationButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MedicationButton.ForeColor = Color.White;
+            MedicationButton.Location = new Point(25, 350);
+            MedicationButton.Name = "MedicationButton";
+            MedicationButton.Size = new Size(250, 40);
+            MedicationButton.TabIndex = 11;
+            MedicationButton.Text = "Medication";
+            MedicationButton.UseVisualStyleBackColor = true;
+            MedicationButton.Click += MedicationButton_Click_1;
+            // 
+            // appointmentButton
+            // 
+            appointmentButton.FlatAppearance.BorderSize = 0;
+            appointmentButton.FlatStyle = FlatStyle.Flat;
+            appointmentButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            appointmentButton.ForeColor = Color.White;
+            appointmentButton.Location = new Point(25, 500);
+            appointmentButton.Name = "appointmentButton";
+            appointmentButton.Size = new Size(250, 40);
+            appointmentButton.TabIndex = 12;
+            appointmentButton.Text = "Appointment";
+            appointmentButton.UseVisualStyleBackColor = true;
+            appointmentButton.Click += appointmentButton_Click;
+            // 
+            // recordButton
+            // 
+            recordButton.FlatAppearance.BorderSize = 0;
+            recordButton.FlatStyle = FlatStyle.Flat;
+            recordButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            recordButton.ForeColor = Color.White;
+            recordButton.Location = new Point(25, 400);
+            recordButton.Name = "recordButton";
+            recordButton.Size = new Size(250, 40);
+            recordButton.TabIndex = 10;
+            recordButton.Text = "Patient record";
+            recordButton.UseVisualStyleBackColor = true;
+            recordButton.Click += recordButton_Click;
+            // 
             // signOutButton
             // 
             signOutButton.FlatAppearance.BorderSize = 0;
             signOutButton.FlatStyle = FlatStyle.Flat;
             signOutButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             signOutButton.ForeColor = Color.White;
-            signOutButton.Location = new Point(25, 500);
+            signOutButton.Location = new Point(25, 550);
             signOutButton.Name = "signOutButton";
-            signOutButton.Size = new Size(250, 50);
+            signOutButton.Size = new Size(250, 40);
             signOutButton.TabIndex = 9;
             signOutButton.Text = "Sign Out";
             signOutButton.UseVisualStyleBackColor = true;
@@ -130,19 +178,19 @@
             HomepageIcon.TabIndex = 4;
             HomepageIcon.TabStop = false;
             // 
-            // MedicationButton
+            // empScheduleButton
             // 
-            MedicationButton.FlatAppearance.BorderSize = 0;
-            MedicationButton.FlatStyle = FlatStyle.Flat;
-            MedicationButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MedicationButton.ForeColor = Color.White;
-            MedicationButton.Location = new Point(25, 425);
-            MedicationButton.Name = "MedicationButton";
-            MedicationButton.Size = new Size(250, 50);
-            MedicationButton.TabIndex = 3;
-            MedicationButton.Text = "Medication";
-            MedicationButton.UseVisualStyleBackColor = true;
-            MedicationButton.Click += MedicationButton_Click;
+            empScheduleButton.FlatAppearance.BorderSize = 0;
+            empScheduleButton.FlatStyle = FlatStyle.Flat;
+            empScheduleButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            empScheduleButton.ForeColor = Color.White;
+            empScheduleButton.Location = new Point(25, 450);
+            empScheduleButton.Name = "empScheduleButton";
+            empScheduleButton.Size = new Size(250, 40);
+            empScheduleButton.TabIndex = 3;
+            empScheduleButton.Text = "Employee Schedule";
+            empScheduleButton.UseVisualStyleBackColor = true;
+            empScheduleButton.Click += empScheduleButton_Click;
             // 
             // EmployeeButton
             // 
@@ -150,9 +198,9 @@
             EmployeeButton.FlatStyle = FlatStyle.Flat;
             EmployeeButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             EmployeeButton.ForeColor = Color.White;
-            EmployeeButton.Location = new Point(25, 350);
+            EmployeeButton.Location = new Point(25, 300);
             EmployeeButton.Name = "EmployeeButton";
-            EmployeeButton.Size = new Size(250, 50);
+            EmployeeButton.Size = new Size(250, 40);
             EmployeeButton.TabIndex = 2;
             EmployeeButton.Text = "Employee List";
             EmployeeButton.UseVisualStyleBackColor = true;
@@ -164,9 +212,9 @@
             AccountButton.FlatStyle = FlatStyle.Flat;
             AccountButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AccountButton.ForeColor = Color.White;
-            AccountButton.Location = new Point(25, 275);
+            AccountButton.Location = new Point(25, 250);
             AccountButton.Name = "AccountButton";
-            AccountButton.Size = new Size(250, 50);
+            AccountButton.Size = new Size(250, 40);
             AccountButton.TabIndex = 1;
             AccountButton.Text = "Account";
             AccountButton.UseVisualStyleBackColor = true;
@@ -209,10 +257,13 @@
         private Label AdminName;
         private Label IDLabel;
         private PictureBox HomepageIcon;
-        private Button MedicationButton;
+        private Button empScheduleButton;
         private Button EmployeeButton;
         private Button AccountButton;
         private Panel mainPanel;
         private Button signOutButton;
+        private Button recordButton;
+        private Button appointmentButton;
+        private Button MedicationButton;
     }
 }

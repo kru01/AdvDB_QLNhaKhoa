@@ -151,6 +151,7 @@
             registerSwap.TabIndex = 7;
             registerSwap.Text = "Register";
             registerSwap.UseVisualStyleBackColor = true;
+            registerSwap.Visible = false;
             registerSwap.Click += registerSwap_Click;
             // 
             // panel1

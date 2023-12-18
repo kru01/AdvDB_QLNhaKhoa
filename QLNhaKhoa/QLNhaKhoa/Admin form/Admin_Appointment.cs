@@ -1,25 +1,24 @@
-﻿using QLNhaKhoa.Admin_form;
-using QLNhaKhoa.Filter_folder;
+﻿using QLNhaKhoa.Filter_folder;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace QLNhaKhoa.Dentist_form
+namespace QLNhaKhoa.Admin_form
 {
-    public partial class Dentist_Appointment : Form
+    public partial class Admin_Appointment : Form
     {
         private string query = "select IDHOSO, IDLICHHEN, NGAY, GIO, TINHTRANG, IDPHONGKHAM, IDNHASI, IDTROKHAM from LICHHEN";
-        public static Dentist_Appointment instance;
-        public string CurrentDentist { get; set; } = string.Empty;
-        public string filter_patient, filter_room;
+        public static Admin_Appointment instance;
+        public string filter_patient, filter_room, filter_dentist;
         private Filter_Patient f1;
         private Filter_Room f2;
-        public Dentist_Appointment()
+        private Filter_Dentist f3;
+        public Admin_Appointment()
         {
             InitializeComponent();
             instance = this;
         }
 
-        private void Dentist_Appointment_Load(object sender, EventArgs e)
+        private void Admin_Appointment_Load(object sender, EventArgs e)
         {
             appointmentData.DataSource = Helper.getData(query).Tables[0];
         }
@@ -87,11 +86,11 @@ namespace QLNhaKhoa.Dentist_form
         private void filterPButton_Click(object sender, EventArgs e)
         {
             f1 = new Filter_Patient();
-            f1.FormClosedEvent += DentistFormClosedEventP;
+            f1.FormClosedEvent += AdminFormClosedEventP;
             f1.Show();
         }
 
-        private void DentistFormClosedEventP(object sender, EventArgs e)
+        private void AdminFormClosedEventP(object sender, EventArgs e)
         {
             ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDHOSO like '%" + filter_patient + "%'");
         }
@@ -99,18 +98,25 @@ namespace QLNhaKhoa.Dentist_form
         private void filterRButton_Click(object sender, EventArgs e)
         {
             f2 = new Filter_Room();
-            f2.FormClosedEvent += DentistFormClosedEventR;
+            f2.FormClosedEvent += AdminFormClosedEventR;
             f2.Show();
         }
 
-        private void DentistFormClosedEventR(object sender, EventArgs e)
+        private void AdminFormClosedEventR(object sender, EventArgs e)
         {
             ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDPHONGKHAM like '%" + filter_room + "%'");
         }
 
         private void filterDButton_Click(object sender, EventArgs e)
         {
-            ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDNHASI like '%" + CurrentDentist + "%'");
+            f3 = new Filter_Dentist();
+            f3.FormClosedEvent += AdminFormClosedEventD;
+            f3.Show();
+        }
+
+        private void AdminFormClosedEventD(object sender, EventArgs e)
+        {
+            ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDNHASI like '%" + filter_dentist + "%'");
         }
     }
 }

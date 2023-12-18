@@ -46,13 +46,9 @@ namespace QLNhaKhoa
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "")
+            if (txtUsername.Text == "" || txtPassword.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập tên đăng nhập");
-            }
-            else if (txtPassword.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập!");
             }
             else
             {

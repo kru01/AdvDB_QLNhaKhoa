@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace QLNhaKhoa.Dentist_form
 {
@@ -13,17 +14,15 @@ namespace QLNhaKhoa.Dentist_form
 
         private void Dentist_Record_Load(object sender, EventArgs e)
         {
-            string record_query = "select * from HOSOBENHAN where MANHASI='" + CurrentDentist + "'";
+            string record_query = "select * from HOSOBENHNHAN";
             recordData.DataSource = Helper.getData(record_query).Tables[0];
 
-            cboCustomer.DisplayMember = "HOTEN";
-            cboCustomer.ValueMember = "MAKHACHHANG";
-            cboCustomer.DataSource = Helper.getData("select HOTEN, MAKHACHHANG from KHACHHANG").Tables[0];
+
         }
 
         private void refresh()
         {
-            Helper.refreshData("select * from HOSOBENHAN where MANHASI='" + CurrentDentist + "'", recordData);
+            Helper.refreshData("select * from HOSOBENHNHAN", recordData);
         }
 
         private void recordData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -33,24 +32,40 @@ namespace QLNhaKhoa.Dentist_form
                 DataGridViewRow dgvr = recordData.Rows[e.RowIndex];
                 SqlConnection sqlCon = new SqlConnection(Helper.strCon);
                 sqlCon.Open();
-                recordIDBox.Text = dgvr.Cells["MAHSBA"].Value.ToString();
-
-                SqlCommand cmd1 = new SqlCommand("select HOTEN from NHANVIEN where MANHANVIEN='" + CurrentDentist + "'", sqlCon);
-                SqlCommand cmd2 = new SqlCommand("select HOTEN from KHACHHANG where MAKHACHHANG='" + dgvr.Cells["MAKHACHHANG"].Value.ToString() + "'", sqlCon);
-                using (SqlDataReader reader = cmd1.ExecuteReader())
+                recordIDBox.Text = dgvr.Cells["IDHOSO"].Value.ToString();
+                textBox_Name.Text = dgvr.Cells["HOTEN"].Value.ToString();
+                dateTimePicker_DoB.Text = dgvr.Cells["NGAYSINH"].Value.ToString();
+                textBox_Email.Text = dgvr.Cells["EMAIL"].Value.ToString();
+                textBox_PhoneNumber.Text = dgvr.Cells["SDT"].Value.ToString();
+                textBox_Address.Text = dgvr.Cells["DIACHI"].Value.ToString();
+                textBox_GeneralInformation.Text = dgvr.Cells["THONGTINTONGQUAN"].Value.ToString();
+                textBox_TotalCost.Text = dgvr.Cells["TONGTIENDIEUTRI"].Value.ToString();
+                textBox_PaidAmount.Text = dgvr.Cells["TONGTIENDATHANHTOAN"].Value.ToString();
+                if (dgvr.Cells["GIOITINH"].Value.ToString().Equals("1"))
                 {
-                    if (reader.Read())
-                    {
-                        dentistNameBox.Text = reader.GetString(0);
-                    }
+                    textBox_Gender.Text = "Nam";
                 }
-                using (SqlDataReader reader = cmd2.ExecuteReader())
+                else
                 {
-                    if (reader.Read())
-                    {
-                        cboCustomer.Text = reader.GetString(0);
-                    }
+                    textBox_Gender.Text = "Nữ";
+                    //textBox_Gender.Text = dgvr.Cells["NGAYSINH"].Value.ToString();
                 }
+                //SqlCommand cmd1 = new SqlCommand("select HOTEN from TAIKHOAN where IDTAIKHOAN='" + CurrentDentist + "'", sqlCon);
+                //SqlCommand cmd2 = new SqlCommand("select HOTEN from HOSOBENHNHAN where IDHOSO='" + dgvr.Cells["IDHOSO"].Value.ToString() + "'", sqlCon);
+                //using (SqlDataReader reader = cmd1.ExecuteReader())
+                //{
+                //    if (reader.Read())
+                //    {
+                //        
+                //    }
+                //}
+                //using (SqlDataReader reader = cmd2.ExecuteReader())
+                //{
+                //    if (reader.Read())
+                //    {
+                //        cboCustomer.Text = reader.GetString(0);
+                //    }
+                //}
                 sqlCon.Close();
             }
         }
@@ -61,14 +76,24 @@ namespace QLNhaKhoa.Dentist_form
             {
                 SqlConnection sqlCon = new SqlConnection(Helper.strCon);
                 sqlCon.Open();
-                SqlCommand cmd = new SqlCommand("USP_HSBA_INS", sqlCon);
+                SqlCommand cmd = new SqlCommand("USP_HOSOBENHNHAN_INS", sqlCon);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                var item = (DataRowView)cboCustomer.SelectedItem;
-                cmd.Parameters.Add(new SqlParameter("@MAKHACHHANG", item["MAKHACHHANG"].ToString()));
-                cmd.Parameters.Add(new SqlParameter("@MANHASI", CurrentDentist));
+                cmd.Parameters.Add(new SqlParameter("@HOTEN", textBox_Name.Text));
+                cmd.Parameters.Add(new SqlParameter("@NGAYSINH", dateTimePicker_DoB.Value.ToShortDateString()));
+                cmd.Parameters.Add(new SqlParameter("@EMAIL", textBox_Email.Text));
+                cmd.Parameters.Add(new SqlParameter("@SDT", textBox_PhoneNumber.Text));
+                cmd.Parameters.Add(new SqlParameter("@DIACHI", textBox_Address.Text));
+                cmd.Parameters.Add(new SqlParameter("@THONGTINTONGQUAN", textBox_GeneralInformation.Text));
+                int gender;
+                if (textBox_Gender.Text.Equals("Nam"))
+                {
+                    gender = 1;
+                }
+                else { gender = 0; }
+                cmd.Parameters.Add(new SqlParameter("@GIOITINH", gender.ToString()));
 
-                cmd.Parameters.Add("@MAHSBA", SqlDbType.VarChar, 10).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@IDHOSO", SqlDbType.VarChar, 7).Direction = ParameterDirection.Output;
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
@@ -94,7 +119,7 @@ namespace QLNhaKhoa.Dentist_form
             {
                 SqlConnection sqlCon = new SqlConnection(Helper.strCon);
                 sqlCon.Open();
-                SqlCommand cmd = new SqlCommand("delete from HOSOBENHAN where MAHSBA='" + recordIDBox.Text + "'", sqlCon);
+                SqlCommand cmd = new SqlCommand("delete from HOSOBENHNHAN where IDHOSO='" + recordIDBox.Text + "'", sqlCon);
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
@@ -108,6 +133,48 @@ namespace QLNhaKhoa.Dentist_form
                 sqlCon.Close();
             }
             else { }
+        }
+
+        private void button_Update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(Helper.strCon);
+                sqlCon.Open();
+                SqlCommand cmd = new SqlCommand("USP_HOSOBENHNHAN_UPD", sqlCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@HOTEN", textBox_Name.Text));
+                cmd.Parameters.Add(new SqlParameter("@NGAYSINH", dateTimePicker_DoB.Value.ToShortDateString()));
+                cmd.Parameters.Add(new SqlParameter("@IDHOSO", recordIDBox.Text));
+                cmd.Parameters.Add(new SqlParameter("@EMAIL", textBox_Email.Text));
+                cmd.Parameters.Add(new SqlParameter("@SDT", textBox_PhoneNumber.Text));
+                cmd.Parameters.Add(new SqlParameter("@DIACHI", textBox_Address.Text));
+                cmd.Parameters.Add(new SqlParameter("@THONGTINTONGQUAN", textBox_GeneralInformation.Text));
+                int gender;
+                if (textBox_Gender.Text.Equals("Nam"))
+                {
+                    gender = 1;
+                }
+                else { gender = 0; }
+                cmd.Parameters.Add(new SqlParameter("@GIOITINH", gender.ToString()));
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Cập nhật hồ sơ thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật hồ sơ thất bại!");
+                }
+                Helper.refreshData("select * from HOSOBENHNHAN", recordData);
+                sqlCon.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cập nhật hồ sơ thất bại! " + ex.Message);
+            }
         }
     }
 }

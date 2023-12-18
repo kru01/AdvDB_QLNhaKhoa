@@ -21,7 +21,30 @@ namespace QLNhaKhoa.Dentist_form
 
         private void Dentist_Appointment_Load(object sender, EventArgs e)
         {
-            appointmentData.DataSource = Helper.getData(query).Tables[0];
+            string appointment_query = "select * from LICHHEN where IDNHASI='" + CurrentDentist + "'";
+            string customer_query = "select HOTEN, IDHOSO from HOSOBENHNHAN";
+            string otherDentists_query = "select HOTEN, IDTAIKHOAN from TAIKHOAN where LOAITAIKHOAN = 1";
+            string clinics_query = "select * from PHONGKHAM";
+            string staffs_query = "select * from TAIKHOAN where LOAITAIKHOAN = 0";
+            appointmentData.DataSource = Helper.getData(appointment_query).Tables[0];
+
+            cboCustomer.DisplayMember = "HOTEN";
+            cboCustomer.ValueMember = "IDHOSO";
+            cboCustomer.DataSource = Helper.getData(customer_query).Tables[0];
+
+            comboBox_TroKham.DisplayMember = "HOTEN";
+            comboBox_TroKham.ValueMember = "IDTAIKHOAN";
+            comboBox_TroKham.DataSource = Helper.getData(otherDentists_query).Tables[0];
+
+            comboBox_PhongKham.DisplayMember = "DIACHI";
+            comboBox_PhongKham.ValueMember = "IDPHONGKHAM";
+            comboBox_PhongKham.DataSource = Helper.getData(clinics_query).Tables[0];
+
+            comboBox_staffs.DisplayMember = "HOTEN";
+            comboBox_staffs.ValueMember = "IDTAIKHOAN";
+            comboBox_staffs.DataSource = Helper.getData(staffs_query).Tables[0];
+
+            empIDBox.Text = CurrentDentist;
         }
 
         private void appointmentData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -39,78 +62,137 @@ namespace QLNhaKhoa.Dentist_form
                     int hour = time / 60;
                     int minutes = time - hour * 60;
 
-                    appIDBox.Text = dgvr.Cells["IDLICHHEN"].Value.ToString();
-                    appointTime.Text = hour + ":" + minutes;
-                    appointDate.Text = dgvr.Cells["NGAY"].Value.ToString();
-                    roomBox.Text = dgvr.Cells["IDPHONGKHAM"].Value.ToString();
-                    if (dgvr.Cells["TINHTRANG"].Value.ToString() == "0")
-                    {
-                        statusBox.Text = "Cuộc hẹn mới";
-                    }
-                    else statusBox.Text = "Tái khám";
+                    timeBox.Text = hour + ":" + minutes;
+                    dateBox.Text = dgvr.Cells["NGAY"].Value.ToString();
+                    appIDBox.Text = dgvr.Cells["MALICHHEN"].Value.ToString();
 
-                    SqlCommand cmd1 = new SqlCommand("select HOTEN from TAIKHOAN where IDTAIKHOAN='" + dgvr.Cells["IDNHASI"].Value.ToString() + "'", sqlCon);
-                    using (SqlDataReader reader = cmd1.ExecuteReader())
+                    SqlCommand cmd = new SqlCommand("select HOTEN from KHACHHANG where MAKHACHHANG='" + dgvr.Cells["MAKHACHHANG"].Value.ToString() + "'", sqlCon);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             dentistBox.Text = reader.GetString(0);
                         }
                     }
+                }
+            }
+        }
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            string[] parts = timeBox.Text.Split(":");
+            int time = int.Parse(parts[0]) * 60 + int.Parse(parts[1]);
+            if (time < 480 || time > 1020)
+            {
+                 MessageBox.Show("Giờ hẹn không phù hợp! Vui lòng chọn từ 8h đến 17h");
+            }
+            else
+            {
+                try
+                {
+                    SqlConnection sqlCon = new SqlConnection(Helper.strCon);
+                    sqlCon.Open();
+                    SqlCommand cmd = new SqlCommand("USP_LICHHEN_UPD", sqlCon);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlCommand cmd2 = new SqlCommand("select HOTEN from TAIKHOAN where IDTAIKHOAN='" + dgvr.Cells["IDTROKHAM"].Value.ToString() + "'", sqlCon);
-                    using (SqlDataReader reader = cmd2.ExecuteReader())
+                    var item = (DataRowView)cboCustomer.SelectedItem;
+                    cmd.Parameters.Add(new SqlParameter("@MALICHHEN", appIDBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@NGAY", dateBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@GIO", time));
+                    cmd.Parameters.Add(new SqlParameter("@MAKHACHHANG", item["MAKHACHHANG"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@MANHASI", CurrentDentist));
+                    cmd.Parameters.Add(new SqlParameter("@NGUOIUPDATE", CurrentDentist));
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
                     {
-                        if (reader.Read())
-                        {
-                            assistantBox.Text = reader.GetString(0);
-                        }
+                        MessageBox.Show("Cập nhật lịch hẹn thành công");
                     }
-
-                    SqlCommand cmd3 = new SqlCommand("select HOTEN from HOSOBENHNHAN where IDHOSO='" + dgvr.Cells["IDHOSO"].Value.ToString() + "'", sqlCon);
-                    using (SqlDataReader reader = cmd3.ExecuteReader())
+                    else
                     {
-                        if (reader.Read())
-                        {
-                            customerBox.Text = reader.GetString(0);
-                        }
+                        MessageBox.Show("Cập nhật lịch hẹn thất bại!");
                     }
+                    Helper.refreshData("select * from LICHHEN where MANHASI='" + CurrentDentist + "'", appointmentData);
+                    sqlCon.Close();
+                }
+                catch (Exception ex)
+                {
+                        MessageBox.Show("Cập nhật lịch hẹn thất bại! " + ex.Message);
+                }       
+            }
+        }
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Bạn có chắc là muốn xóa lịch hẹn này?", "Warning", MessageBoxButtons.YesNoCancel);
+            if (res == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlConnection sqlCon = new SqlConnection(Helper.strCon);
+                    sqlCon.Open();
+                    SqlCommand cmd = new SqlCommand("delete from LICHHEN where MALICHHEN='" + appIDBox.Text + "'", sqlCon);
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        MessageBox.Show("Xóa lịch hẹn thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa lịch hẹn thất bại!");
+                    }
+                    Helper.refreshData("select * from LICHHEN where MANHASI='" + CurrentDentist + "'", appointmentData);
+                    sqlCon.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xóa lịch hẹn thất bại! " + ex.Message);
                 }
             }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Helper.refreshData(query, appointmentData);
+            Helper.refreshData("select * from LICHHEN where MANHASI='" + CurrentDentist + "'", appointmentData);
         }
-
-        private void filterPButton_Click(object sender, EventArgs e)
+        private void makeAppButton_Click(object sender, EventArgs e)
         {
-            f1 = new Filter_Patient();
-            f1.FormClosedEvent += DentistFormClosedEventP;
-            f1.Show();
-        }
+            string[] parts = timeBox.Text.Split(":");
+            int time = int.Parse(parts[0]) * 60 + int.Parse(parts[1]);
+            if (time < 480 || time > 1020)
+            {
+                MessageBox.Show("Giờ hẹn không phù hợp! Vui lòng chọn từ 8h đến 17h");
+            }
+            else
+            {
+                try
+                {
+                    SqlConnection sqlCon = new SqlConnection(Helper.strCon);
+                    sqlCon.Open();
+                    SqlCommand cmd = new SqlCommand("USP_LICHHEN_INS", sqlCon);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        private void DentistFormClosedEventP(object sender, EventArgs e)
-        {
-            ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDHOSO like '%" + filter_patient + "%'");
-        }
+                    var item = (DataRowView)cboCustomer.SelectedItem;
+                    cmd.Parameters.Add(new SqlParameter("@NGAY", dateBox.Text));
+                    cmd.Parameters.Add(new SqlParameter("@GIO", time));
+                    cmd.Parameters.Add(new SqlParameter("@MAKHACHHANG", item["MAKHACHHANG"].ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@MANHASI", CurrentDentist));
+                    cmd.Parameters.Add("@MALICHHEN", SqlDbType.VarChar, 10).Direction = ParameterDirection.Output;
 
-        private void filterRButton_Click(object sender, EventArgs e)
-        {
-            f2 = new Filter_Room();
-            f2.FormClosedEvent += DentistFormClosedEventR;
-            f2.Show();
-        }
-
-        private void DentistFormClosedEventR(object sender, EventArgs e)
-        {
-            ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDPHONGKHAM like '%" + filter_room + "%'");
-        }
-
-        private void filterDButton_Click(object sender, EventArgs e)
-        {
-            ((DataTable)appointmentData.DataSource).DefaultView.RowFilter = String.Format("IDNHASI like '%" + CurrentDentist + "%'");
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        MessageBox.Show("Đặt lịch hẹn thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đặt lịch hẹn thất bại!");
+                    }
+                    Helper.refreshData("select * from LICHHEN where MANHASI='" + CurrentDentist + "'", appointmentData);
+                    sqlCon.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đặt lịch hẹn thất bại! " + ex.Message);
+                }
+            }       
         }
     }
 }

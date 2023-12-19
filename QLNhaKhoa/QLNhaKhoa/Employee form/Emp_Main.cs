@@ -19,21 +19,25 @@ namespace QLNhaKhoa.Employee_form
             f.CurrentUsername = CurrentUsername;
             Helper.loadform(f, this.mainPanel);
         }
-        private void MedRecdButton_Click(object sender, EventArgs e)
+        private void recordButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new General_Form.Record(), this.mainPanel);
         }
-        private void PrescriptionButton_Click(object sender, EventArgs e)
+        private void medButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Emp_Prescription(), this.mainPanel);
+            Helper.loadform(new General_Form.Medication(), this.mainPanel);
         }
-        private void MedicationButton_Click(object sender, EventArgs e)
+        private void scheduleButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Emp_Medication(), this.mainPanel);
+            //Helper.loadform(new Emp_Medication(), this.mainPanel);
         }
         private void AppointmentButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new General_Form.Appointment(), this.mainPanel);
+        }
+        private void prescriptionButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new Emp_Prescription(), this.mainPanel);
         }
         private void Emp_Main_Load(object sender, EventArgs e)
         {

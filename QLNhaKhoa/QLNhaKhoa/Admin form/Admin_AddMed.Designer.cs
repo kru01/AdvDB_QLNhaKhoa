@@ -1,6 +1,6 @@
 ﻿namespace QLNhaKhoa.Admin_form
 {
-    partial class Admin_Medication_AddForm
+    partial class Admin_AddMed
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Medication_AddForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_AddMed));
             AddMedButton = new Button();
             cancelButton = new Button();
             label8 = new Label();

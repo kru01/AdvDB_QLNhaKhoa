@@ -1,6 +1,6 @@
-﻿namespace QLNhaKhoa.Admin_form
+﻿namespace QLNhaKhoa.General_Form
 {
-    partial class Admin_EmpList
+    partial class EmpList
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(900, 700);
-            panel1.TabIndex = 6;
+            panel1.TabIndex = 7;
             // 
             // refreshButton
             // 
@@ -368,9 +368,9 @@
             employeeData.RowHeadersWidth = 51;
             employeeData.Size = new Size(900, 350);
             employeeData.TabIndex = 0;
-            employeeData.CellClick += accountData_CellClick;
+            employeeData.CellClick += employeeData_CellClick;
             // 
-            // Admin_EmpList
+            // EmpList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -378,9 +378,9 @@
             ControlBox = false;
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Admin_EmpList";
-            Text = "Admin_AccManager";
-            Load += Admin_AccManager_Load;
+            Name = "EmpList";
+            Text = "EmpList";
+            Load += EmpList_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -392,16 +392,14 @@
         #endregion
 
         private Panel panel1;
-        private Button addEmpButton;
-        private DataGridView employeeData;
-        private Panel panel2;
-        private Label label2;
-        private TextBox IDBox;
-        private Label label1;
+        private Button refreshButton;
         private Button updateInfoButton;
-        private DateTimePicker bdayBox;
-        private TextBox nameBox;
-        private ComboBox cboEmpType;
+        private Label label1;
+        private Panel panel2;
+        private Label label11;
+        private TextBox addressBox;
+        private Label label3;
+        private ComboBox cboGender;
         private Label label8;
         private Label label7;
         private Label label6;
@@ -409,12 +407,14 @@
         private Label label4;
         private TextBox phoneBox;
         private TextBox emailBox;
-        private Button refreshButton;
-        private Label label3;
-        private ComboBox cboGender;
+        private ComboBox cboEmpType;
+        private TextBox nameBox;
+        private DateTimePicker bdayBox;
+        private Label label2;
+        private TextBox IDBox;
         private TextBox passwordBox;
+        private Button addEmpButton;
         private TextBox usernameBox;
-        private Label label11;
-        private TextBox addressBox;
+        private DataGridView employeeData;
     }
 }

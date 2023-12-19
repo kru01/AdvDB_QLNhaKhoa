@@ -1,15 +1,25 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace QLNhaKhoa.Admin_form
+namespace QLNhaKhoa.General_Form
 {
-    public partial class Admin_AddEmpForm : Form
+    public partial class AddEmp : Form
     {
         public event EventHandler FormClosedEvent;
 
-        public Admin_AddEmpForm()
+        public AddEmp()
         {
             InitializeComponent();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Bạn có muốn thoát quá trình thêm nhân viên?", "Warning", MessageBoxButtons.YesNoCancel);
+            if (res == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else { }
         }
 
         private void AddEmpButton_Click(object sender, EventArgs e)
@@ -70,16 +80,6 @@ namespace QLNhaKhoa.Admin_form
                     MessageBox.Show("Tạo tài khoản thất bại! " + ex.Message);
                 }
             }
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            var res = MessageBox.Show("Bạn có muốn thoát quá trình thêm nhân viên?", "Warning", MessageBoxButtons.YesNoCancel);
-            if (res == DialogResult.Yes)
-            {
-                this.Close();
-            }
-            else { }
         }
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)

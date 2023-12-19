@@ -379,7 +379,6 @@
             bdayBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bdayBox.Format = DateTimePickerFormat.Custom;
             bdayBox.Location = new Point(100, 115);
-            bdayBox.MaxDate = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             bdayBox.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             bdayBox.Name = "bdayBox";
             bdayBox.Size = new Size(125, 27);

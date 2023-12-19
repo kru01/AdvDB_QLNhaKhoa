@@ -147,7 +147,7 @@
             emailBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             emailBox.Location = new Point(71, 245);
             emailBox.Name = "emailBox";
-            emailBox.PlaceholderText = "In stock";
+            emailBox.PlaceholderText = "Email";
             emailBox.Size = new Size(200, 27);
             emailBox.TabIndex = 34;
             // 
@@ -231,7 +231,7 @@
             label2.TabIndex = 49;
             label2.Text = "General Info";
             // 
-            // Admin_AddRecord
+            // AddRecord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -255,7 +255,7 @@
             Controls.Add(cancelButton);
             Controls.Add(AddRecordButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Admin_AddRecord";
+            Name = "AddRecord";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add medical record";
             ResumeLayout(false);

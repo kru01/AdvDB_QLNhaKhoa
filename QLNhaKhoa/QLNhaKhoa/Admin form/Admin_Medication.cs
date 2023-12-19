@@ -5,7 +5,7 @@ namespace QLNhaKhoa.Admin_form
 {
     public partial class Admin_Medication : Form
     {
-        private Admin_Medication_AddForm f;
+        private Admin_AddMed f;
         private Admin_MedSearch fs;
         public DataTable searchData;
         public Admin_Medication()
@@ -72,7 +72,7 @@ namespace QLNhaKhoa.Admin_form
 
         private void addMedButton_Click(object sender, EventArgs e)
         {
-            f = new Admin_Medication_AddForm();
+            f = new Admin_AddMed();
             f.FormClosedEvent += AdminFormClosedEvent;
             f.Show();
         }

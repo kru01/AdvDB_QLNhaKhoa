@@ -23,9 +23,7 @@ namespace QLNhaKhoa.Admin_form
 
         private void EmployeeButton_Click(object sender, EventArgs e)
         {
-            Admin_EmpList f = new Admin_EmpList();
-            f.CurrentAdmin = CurrentAdmin;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new General_Form.EmpList(), this.mainPanel);
         }
 
         private void empScheduleButton_Click(object sender, EventArgs e)

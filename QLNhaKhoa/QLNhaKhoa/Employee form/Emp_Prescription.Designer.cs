@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             panel3 = new Panel();
-            searchIDBox = new TextBox();
-            searchButton = new Button();
             refreshButton = new Button();
             label1 = new Label();
             panel4 = new Panel();
+            label7 = new Label();
+            comboBox1 = new ComboBox();
             label6 = new Label();
             medNameBox = new TextBox();
             label5 = new Label();
@@ -53,8 +53,6 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(searchIDBox);
-            panel3.Controls.Add(searchButton);
             panel3.Controls.Add(refreshButton);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(panel4);
@@ -65,31 +63,6 @@
             panel3.Size = new Size(900, 700);
             panel3.TabIndex = 8;
             // 
-            // searchIDBox
-            // 
-            searchIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchIDBox.Location = new Point(569, 311);
-            searchIDBox.MaxLength = 10;
-            searchIDBox.Name = "searchIDBox";
-            searchIDBox.PlaceholderText = "Enter record ID to search";
-            searchIDBox.Size = new Size(200, 27);
-            searchIDBox.TabIndex = 16;
-            // 
-            // searchButton
-            // 
-            searchButton.BackColor = Color.SteelBlue;
-            searchButton.FlatAppearance.BorderSize = 0;
-            searchButton.FlatStyle = FlatStyle.Flat;
-            searchButton.Font = new Font("Tw Cen MT", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchButton.ForeColor = Color.White;
-            searchButton.Location = new Point(775, 311);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(75, 27);
-            searchButton.TabIndex = 17;
-            searchButton.Text = "Search";
-            searchButton.UseVisualStyleBackColor = false;
-            searchButton.Click += searchButton_Click;
-            // 
             // refreshButton
             // 
             refreshButton.BackColor = Color.SteelBlue;
@@ -99,7 +72,7 @@
             refreshButton.ForeColor = Color.White;
             refreshButton.Location = new Point(50, 300);
             refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(200, 40);
+            refreshButton.Size = new Size(100, 40);
             refreshButton.TabIndex = 14;
             refreshButton.Text = "Refresh";
             refreshButton.UseVisualStyleBackColor = false;
@@ -119,13 +92,15 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(label7);
+            panel4.Controls.Add(comboBox1);
             panel4.Controls.Add(label6);
             panel4.Controls.Add(medNameBox);
+            panel4.Controls.Add(quantityBox);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label2);
-            panel4.Controls.Add(quantityBox);
             panel4.Controls.Add(medicationIDBox);
             panel4.Controls.Add(certificateIDBox);
             panel4.Controls.Add(recordIDBox);
@@ -134,12 +109,33 @@
             panel4.Size = new Size(800, 250);
             panel4.TabIndex = 0;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.SteelBlue;
+            label7.Location = new Point(500, 44);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 23);
+            label7.TabIndex = 11;
+            label7.Text = "Status";
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Kế hoạch", "Đã hoàn thành", "Đã hủy" });
+            comboBox1.Location = new Point(500, 70);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(200, 27);
+            comboBox1.TabIndex = 10;
+            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(350, 154);
+            label6.Location = new Point(224, 154);
             label6.Name = "label6";
             label6.Size = new Size(150, 23);
             label6.TabIndex = 9;
@@ -148,7 +144,7 @@
             // medNameBox
             // 
             medNameBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            medNameBox.Location = new Point(350, 180);
+            medNameBox.Location = new Point(224, 180);
             medNameBox.Name = "medNameBox";
             medNameBox.PlaceholderText = "Quantity";
             medNameBox.ReadOnly = true;
@@ -160,7 +156,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(224, 154);
+            label5.Location = new Point(600, 154);
             label5.Name = "label5";
             label5.Size = new Size(78, 23);
             label5.TabIndex = 7;
@@ -182,30 +178,29 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(450, 54);
+            label3.Location = new Point(224, 44);
             label3.Name = "label3";
-            label3.Size = new Size(184, 23);
+            label3.Size = new Size(57, 23);
             label3.TabIndex = 5;
-            label3.Text = "Medical Certificate ID";
+            label3.Text = "Name";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(100, 54);
+            label2.Location = new Point(100, 44);
             label2.Name = "label2";
-            label2.Size = new Size(167, 23);
+            label2.Size = new Size(88, 23);
             label2.TabIndex = 4;
-            label2.Text = "Customer Record ID";
+            label2.Text = "Record ID";
             // 
             // quantityBox
             // 
             quantityBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            quantityBox.Location = new Point(224, 180);
+            quantityBox.Location = new Point(600, 180);
             quantityBox.Name = "quantityBox";
             quantityBox.PlaceholderText = "Quantity";
-            quantityBox.ReadOnly = true;
             quantityBox.Size = new Size(100, 27);
             quantityBox.TabIndex = 3;
             // 
@@ -222,21 +217,20 @@
             // certificateIDBox
             // 
             certificateIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            certificateIDBox.Location = new Point(450, 80);
+            certificateIDBox.Location = new Point(224, 70);
             certificateIDBox.Name = "certificateIDBox";
-            certificateIDBox.PlaceholderText = "Medical Certificate ID";
-            certificateIDBox.ReadOnly = true;
+            certificateIDBox.PlaceholderText = "Name";
             certificateIDBox.Size = new Size(250, 27);
             certificateIDBox.TabIndex = 1;
             // 
             // recordIDBox
             // 
             recordIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            recordIDBox.Location = new Point(100, 80);
+            recordIDBox.Location = new Point(100, 70);
             recordIDBox.Name = "recordIDBox";
-            recordIDBox.PlaceholderText = "Customer Record ID";
+            recordIDBox.PlaceholderText = "Record ID";
             recordIDBox.ReadOnly = true;
-            recordIDBox.Size = new Size(250, 27);
+            recordIDBox.Size = new Size(100, 27);
             recordIDBox.TabIndex = 0;
             // 
             // prescriptionData
@@ -292,7 +286,7 @@
         private TextBox medNameBox;
         private Label label6;
         private Button refreshButton;
-        private TextBox searchIDBox;
-        private Button searchButton;
+        private ComboBox comboBox1;
+        private Label label7;
     }
 }

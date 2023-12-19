@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dentist_Main));
             LeftPanel = new Panel();
             signOutButton = new Button();
-            PrecriptionButton = new Button();
-            certificateButton = new Button();
+            planButton = new Button();
+            medButton = new Button();
             credit = new Label();
             DentistID = new Label();
             dentistName = new Label();
@@ -50,8 +50,8 @@
             // 
             LeftPanel.BackColor = Color.SteelBlue;
             LeftPanel.Controls.Add(signOutButton);
-            LeftPanel.Controls.Add(PrecriptionButton);
-            LeftPanel.Controls.Add(certificateButton);
+            LeftPanel.Controls.Add(planButton);
+            LeftPanel.Controls.Add(medButton);
             LeftPanel.Controls.Add(credit);
             LeftPanel.Controls.Add(DentistID);
             LeftPanel.Controls.Add(dentistName);
@@ -80,33 +80,33 @@
             signOutButton.UseVisualStyleBackColor = true;
             signOutButton.Click += signOutButton_Click;
             // 
-            // PrecriptionButton
+            // planButton
             // 
-            PrecriptionButton.FlatAppearance.BorderSize = 0;
-            PrecriptionButton.FlatStyle = FlatStyle.Flat;
-            PrecriptionButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PrecriptionButton.ForeColor = Color.White;
-            PrecriptionButton.Location = new Point(25, 490);
-            PrecriptionButton.Name = "PrecriptionButton";
-            PrecriptionButton.Size = new Size(250, 40);
-            PrecriptionButton.TabIndex = 10;
-            PrecriptionButton.Text = "Prescription";
-            PrecriptionButton.UseVisualStyleBackColor = true;
-            PrecriptionButton.Click += PrecriptionButton_Click;
+            planButton.FlatAppearance.BorderSize = 0;
+            planButton.FlatStyle = FlatStyle.Flat;
+            planButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            planButton.ForeColor = Color.White;
+            planButton.Location = new Point(25, 490);
+            planButton.Name = "planButton";
+            planButton.Size = new Size(250, 40);
+            planButton.TabIndex = 10;
+            planButton.Text = "Treatment plan";
+            planButton.UseVisualStyleBackColor = true;
+            planButton.Click += planButton_Click;
             // 
-            // certificateButton
+            // medButton
             // 
-            certificateButton.FlatAppearance.BorderSize = 0;
-            certificateButton.FlatStyle = FlatStyle.Flat;
-            certificateButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            certificateButton.ForeColor = Color.White;
-            certificateButton.Location = new Point(25, 430);
-            certificateButton.Name = "certificateButton";
-            certificateButton.Size = new Size(250, 40);
-            certificateButton.TabIndex = 9;
-            certificateButton.Text = "Medical ceritificate";
-            certificateButton.UseVisualStyleBackColor = true;
-            certificateButton.Click += certificateButton_Click;
+            medButton.FlatAppearance.BorderSize = 0;
+            medButton.FlatStyle = FlatStyle.Flat;
+            medButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            medButton.ForeColor = Color.White;
+            medButton.Location = new Point(25, 430);
+            medButton.Name = "medButton";
+            medButton.Size = new Size(250, 40);
+            medButton.TabIndex = 9;
+            medButton.Text = "Medication";
+            medButton.UseVisualStyleBackColor = true;
+            medButton.Click += medButton_Click;
             // 
             // credit
             // 
@@ -244,8 +244,8 @@
         private Button AppointmentButton;
         private Button AccountButton;
         private Button signOutButton;
-        private Button PrecriptionButton;
-        private Button certificateButton;
+        private Button planButton;
+        private Button medButton;
         private Panel mainPanel;
     }
 }

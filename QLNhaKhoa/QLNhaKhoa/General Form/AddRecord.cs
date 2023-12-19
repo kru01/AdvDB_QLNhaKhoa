@@ -54,6 +54,7 @@ namespace QLNhaKhoa.Admin_form
                 {
                     MessageBox.Show("Thêm hồ sơ bệnh án thành công!");
                     FormClosedEvent?.Invoke(this, EventArgs.Empty);
+                    this.Close();
                 }
                 else
                 {

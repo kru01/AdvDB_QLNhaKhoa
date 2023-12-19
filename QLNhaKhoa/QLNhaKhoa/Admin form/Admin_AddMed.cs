@@ -3,11 +3,11 @@ using System.Data.SqlClient;
 
 namespace QLNhaKhoa.Admin_form
 {
-    public partial class Admin_Medication_AddForm : Form
+    public partial class Admin_AddMed : Form
     {
         public event EventHandler FormClosedEvent;
 
-        public Admin_Medication_AddForm()
+        public Admin_AddMed()
         {
             InitializeComponent();
         }

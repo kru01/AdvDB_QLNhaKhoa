@@ -4,8 +4,9 @@ namespace QLNhaKhoa.Employee_form
 {
     public partial class Emp_Prescription : Form
     {
-        private static string query = "select T.MATHUOC, T.TENTHUOC, TT.MAHSBA, TT.SOLUONG, TT.MAGIAYKHAMBENH " +
-                                      "from TOATHUOC TT join THUOC T on TT.MATHUOC = T.MATHUOC";
+        private static string query = "select TT.*, T.TENTHUOC, KH.GHICHU " +
+                                      "from TOATHUOC TT join KEHOACHDIEUTRI KH on TT.IDKEHOACH = KH.IDKEHOACH " +
+                                      "join THUOC T on TT.IDTHUOC = T.IDTHUOC";
         public Emp_Prescription()
         {
             InitializeComponent();
@@ -32,11 +33,6 @@ namespace QLNhaKhoa.Employee_form
         private void refreshButton_Click(object sender, EventArgs e)
         {
             Helper.refreshData(query, prescriptionData);
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            (prescriptionData.DataSource as DataTable).DefaultView.RowFilter = String.Format("MAHSBA like '%" + searchIDBox.Text + "%'");
         }
     }
 }

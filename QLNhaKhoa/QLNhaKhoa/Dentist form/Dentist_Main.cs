@@ -16,6 +16,7 @@ namespace QLNhaKhoa.Dentist_form
             Account f = new Account();
             f.CurrentUser = CurrentDentist;
             f.CurrentPass = CurrentPass;
+            f.CurrentUsername = CurrentUsername;
             Helper.loadform(f, this.mainPanel);
         }
 
@@ -35,22 +36,19 @@ namespace QLNhaKhoa.Dentist_form
             Helper.loadform(new General_Form.Appointment(), this.mainPanel);
         }
 
-        private void PrecriptionButton_Click(object sender, EventArgs e)
+        private void planButton_Click(object sender, EventArgs e)
         {
-            Dentist_Prescription f = new Dentist_Prescription();
-            f.CurrentDentist = CurrentDentist;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new Dentist_Treatment(), this.mainPanel);
         }
 
         private void RecordButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new General_Form.Record(), this.mainPanel);
         }
-        private void certificateButton_Click(object sender, EventArgs e)
+
+        private void medButton_Click(object sender, EventArgs e)
         {
-            Dentist_Certificate f = new Dentist_Certificate();
-            f.CurrentDentist = CurrentDentist;
-            Helper.loadform(f, this.mainPanel);
+            Helper.loadform(new General_Form.Medication(), this.mainPanel);
         }
         private void Dentist_Main_Load(object sender, EventArgs e)
         {

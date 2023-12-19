@@ -1,6 +1,6 @@
-﻿namespace QLNhaKhoa.Employee_form
+﻿namespace QLNhaKhoa.General_Form
 {
-    partial class Emp_Medication
+    partial class Medication
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            searchIDBox = new TextBox();
-            searchButton = new Button();
             refreshButton = new Button();
+            searchButton = new Button();
             label1 = new Label();
             panel2 = new Panel();
             unitBox = new TextBox();
-            label9 = new Label();
-            empIDBox = new TextBox();
             label8 = new Label();
-            prescriptionBox = new TextBox();
+            prescribeBox = new TextBox();
             label7 = new Label();
             expDateBox = new DateTimePicker();
             label6 = new Label();
@@ -59,9 +56,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(searchIDBox);
-            panel1.Controls.Add(searchButton);
             panel1.Controls.Add(refreshButton);
+            panel1.Controls.Add(searchButton);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(medData);
@@ -71,31 +67,6 @@
             panel1.Size = new Size(900, 700);
             panel1.TabIndex = 8;
             // 
-            // searchIDBox
-            // 
-            searchIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchIDBox.Location = new Point(569, 311);
-            searchIDBox.MaxLength = 10;
-            searchIDBox.Name = "searchIDBox";
-            searchIDBox.PlaceholderText = "Enter med ID to search";
-            searchIDBox.Size = new Size(200, 27);
-            searchIDBox.TabIndex = 18;
-            // 
-            // searchButton
-            // 
-            searchButton.BackColor = Color.SteelBlue;
-            searchButton.FlatAppearance.BorderSize = 0;
-            searchButton.FlatStyle = FlatStyle.Flat;
-            searchButton.Font = new Font("Tw Cen MT", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchButton.ForeColor = Color.White;
-            searchButton.Location = new Point(775, 311);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(75, 27);
-            searchButton.TabIndex = 19;
-            searchButton.Text = "Search";
-            searchButton.UseVisualStyleBackColor = false;
-            searchButton.Click += searchButton_Click;
-            // 
             // refreshButton
             // 
             refreshButton.BackColor = Color.SteelBlue;
@@ -103,13 +74,27 @@
             refreshButton.FlatStyle = FlatStyle.Flat;
             refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(50, 300);
+            refreshButton.Location = new Point(156, 300);
             refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(200, 40);
-            refreshButton.TabIndex = 15;
+            refreshButton.Size = new Size(100, 40);
+            refreshButton.TabIndex = 18;
             refreshButton.Text = "Refresh";
             refreshButton.UseVisualStyleBackColor = false;
             refreshButton.Click += refreshButton_Click;
+            // 
+            // searchButton
+            // 
+            searchButton.BackColor = Color.SteelBlue;
+            searchButton.FlatAppearance.BorderSize = 0;
+            searchButton.FlatStyle = FlatStyle.Flat;
+            searchButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchButton.ForeColor = Color.White;
+            searchButton.Location = new Point(50, 300);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(100, 40);
+            searchButton.TabIndex = 17;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -117,7 +102,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Tw Cen MT", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.SteelBlue;
-            label1.Location = new Point(375, 20);
+            label1.Location = new Point(375, 25);
             label1.Name = "label1";
             label1.Size = new Size(149, 35);
             label1.TabIndex = 7;
@@ -128,10 +113,8 @@
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(unitBox);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(empIDBox);
             panel2.Controls.Add(label8);
-            panel2.Controls.Add(prescriptionBox);
+            panel2.Controls.Add(prescribeBox);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(expDateBox);
             panel2.Controls.Add(label6);
@@ -156,49 +139,28 @@
             unitBox.PlaceholderText = "Unit";
             unitBox.ReadOnly = true;
             unitBox.Size = new Size(200, 27);
-            unitBox.TabIndex = 18;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.SteelBlue;
-            label9.Location = new Point(188, 16);
-            label9.Name = "label9";
-            label9.Size = new Size(65, 23);
-            label9.TabIndex = 17;
-            label9.Text = "Emp ID";
-            // 
-            // empIDBox
-            // 
-            empIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            empIDBox.Location = new Point(188, 42);
-            empIDBox.Name = "empIDBox";
-            empIDBox.PlaceholderText = "Emp ID";
-            empIDBox.ReadOnly = true;
-            empIDBox.Size = new Size(100, 27);
-            empIDBox.TabIndex = 16;
+            unitBox.TabIndex = 16;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.SteelBlue;
-            label8.Location = new Point(300, 176);
+            label8.Location = new Point(250, 176);
             label8.Name = "label8";
-            label8.Size = new Size(84, 23);
+            label8.Size = new Size(102, 23);
             label8.TabIndex = 15;
-            label8.Text = "Prescirbe";
+            label8.Text = "Prescription";
             // 
-            // prescriptionBox
+            // prescribeBox
             // 
-            prescriptionBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            prescriptionBox.Location = new Point(300, 202);
-            prescriptionBox.Name = "prescriptionBox";
-            prescriptionBox.PlaceholderText = "Prescribe";
-            prescriptionBox.ReadOnly = true;
-            prescriptionBox.Size = new Size(425, 27);
-            prescriptionBox.TabIndex = 14;
+            prescribeBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            prescribeBox.Location = new Point(250, 202);
+            prescribeBox.Name = "prescribeBox";
+            prescribeBox.PlaceholderText = "Prescription";
+            prescribeBox.ReadOnly = true;
+            prescribeBox.Size = new Size(475, 27);
+            prescribeBox.TabIndex = 14;
             // 
             // label7
             // 
@@ -219,7 +181,7 @@
             expDateBox.Format = DateTimePickerFormat.Custom;
             expDateBox.Location = new Point(75, 202);
             expDateBox.Name = "expDateBox";
-            expDateBox.Size = new Size(200, 27);
+            expDateBox.Size = new Size(150, 27);
             expDateBox.TabIndex = 12;
             // 
             // label6
@@ -314,7 +276,7 @@
             medIDBox.Name = "medIDBox";
             medIDBox.PlaceholderText = "Med ID";
             medIDBox.ReadOnly = true;
-            medIDBox.Size = new Size(100, 27);
+            medIDBox.Size = new Size(200, 27);
             medIDBox.TabIndex = 0;
             // 
             // medData
@@ -324,6 +286,7 @@
             medData.AllowUserToResizeColumns = false;
             medData.AllowUserToResizeRows = false;
             medData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            medData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             medData.BorderStyle = BorderStyle.None;
             medData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             medData.Dock = DockStyle.Bottom;
@@ -334,7 +297,7 @@
             medData.TabIndex = 0;
             medData.CellClick += medData_CellClick;
             // 
-            // Emp_Medication
+            // Medication
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -342,9 +305,9 @@
             ControlBox = false;
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Emp_Medication";
-            Text = "Emp_Medication";
-            Load += Emp_Medication_Load;
+            Name = "Medication";
+            Text = "Medication";
+            Load += Medication_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -356,12 +319,12 @@
         #endregion
 
         private Panel panel1;
+        private Button refreshButton;
+        private Button searchButton;
         private Label label1;
         private Panel panel2;
-        private Label label9;
-        private TextBox empIDBox;
         private Label label8;
-        private TextBox prescriptionBox;
+        private TextBox prescribeBox;
         private Label label7;
         private DateTimePicker expDateBox;
         private Label label6;
@@ -375,8 +338,5 @@
         private TextBox medIDBox;
         private DataGridView medData;
         private TextBox unitBox;
-        private Button refreshButton;
-        private TextBox searchIDBox;
-        private Button searchButton;
     }
 }

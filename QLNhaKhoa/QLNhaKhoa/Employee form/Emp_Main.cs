@@ -33,7 +33,7 @@ namespace QLNhaKhoa.Employee_form
         }
         private void AppointmentButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new General_Form.Appointment(), this.mainPanel);
+            Helper.loadform(new General_Form.AppointmentForEmp(), this.mainPanel);
         }
         private void prescriptionButton_Click(object sender, EventArgs e)
         {

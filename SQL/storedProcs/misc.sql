@@ -24,3 +24,5 @@ AS
 
     RETURN 0
 GO
+
+select TOP(1) * from TAIKHOAN

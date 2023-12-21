@@ -6,7 +6,7 @@ namespace QLNhaKhoa.General_Form
 {
     public partial class Appointment : Form
     {
-        private string query = "select IDHOSO, IDLICHHEN, NGAY, GIO, TINHTRANG, IDPHONGKHAM, IDNHASI, IDTROKHAM from LICHHEN";
+        private readonly string query = "select IDHOSO, IDLICHHEN, NGAY, GIO, TINHTRANG, IDPHONGKHAM, IDNHASI, IDTROKHAM, GHICHU from LICHHEN";
         public static Appointment instance;
         public string filter_patient, filter_room, filter_dentist;
         private Filter_Patient f1;
@@ -42,6 +42,7 @@ namespace QLNhaKhoa.General_Form
                     appointTime.Text = hour + ":" + minutes;
                     appointDate.Text = dgvr.Cells["NGAY"].Value.ToString();
                     roomBox.Text = dgvr.Cells["IDPHONGKHAM"].Value.ToString();
+                    noteBox.Text = dgvr.Cells["GHICHU"].Value.ToString();
                     if (dgvr.Cells["TINHTRANG"].Value.ToString() == "0")
                     {
                         statusBox.Text = "Cuộc hẹn mới";

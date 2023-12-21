@@ -36,7 +36,6 @@
             RightPanel = new Panel();
             txtPassword = new TextBox();
             txtUsername = new TextBox();
-            registerSwap = new Button();
             panel1 = new Panel();
             divider1 = new Panel();
             password = new PictureBox();
@@ -98,7 +97,6 @@
             // 
             RightPanel.Controls.Add(txtPassword);
             RightPanel.Controls.Add(txtUsername);
-            RightPanel.Controls.Add(registerSwap);
             RightPanel.Controls.Add(panel1);
             RightPanel.Controls.Add(divider1);
             RightPanel.Controls.Add(password);
@@ -138,21 +136,6 @@
             txtUsername.Size = new Size(314, 25);
             txtUsername.TabIndex = 10;
             txtUsername.KeyDown += txtID_KeyDown;
-            // 
-            // registerSwap
-            // 
-            registerSwap.FlatAppearance.BorderSize = 0;
-            registerSwap.FlatStyle = FlatStyle.Flat;
-            registerSwap.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            registerSwap.ForeColor = Color.SteelBlue;
-            registerSwap.Location = new Point(178, 430);
-            registerSwap.Name = "registerSwap";
-            registerSwap.Size = new Size(94, 29);
-            registerSwap.TabIndex = 7;
-            registerSwap.Text = "Register";
-            registerSwap.UseVisualStyleBackColor = true;
-            registerSwap.Visible = false;
-            registerSwap.Click += registerSwap_Click;
             // 
             // panel1
             // 
@@ -252,7 +235,6 @@
         private PictureBox userID;
         private Panel panel1;
         private Panel divider1;
-        private Button registerSwap;
         private TextBox txtUsername;
         private TextBox txtPassword;
         private Label credit;

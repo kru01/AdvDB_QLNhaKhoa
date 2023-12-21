@@ -1,6 +1,6 @@
-﻿namespace QLNhaKhoa.Dentist_form
+﻿namespace QLNhaKhoa.General_Form
 {
-    partial class Dentist_Treatment
+    partial class Treatment
     {
         /// <summary>
         /// Required designer variable.
@@ -29,92 +29,45 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            refreshButton = new Button();
-            addPlanButton = new Button();
-            planData = new DataGridView();
             label1 = new Label();
             panel2 = new Panel();
+            assistantBox = new TextBox();
+            dentistBox = new TextBox();
+            statusBox = new TextBox();
+            treatmentBox = new TextBox();
             label10 = new Label();
             noteBox = new TextBox();
-            cboTreatment = new ComboBox();
             label9 = new Label();
-            cboAssistant = new ComboBox();
-            cboDentist = new ComboBox();
             label8 = new Label();
             label3 = new Label();
             desBox = new TextBox();
             label7 = new Label();
             label6 = new Label();
-            cboStatus = new ComboBox();
             label5 = new Label();
             nameBox = new TextBox();
             label4 = new Label();
             label2 = new Label();
             dateBox = new DateTimePicker();
             IDBox = new TextBox();
+            refreshButton = new Button();
+            planData = new DataGridView();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)planData).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)planData).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(refreshButton);
-            panel1.Controls.Add(addPlanButton);
             panel1.Controls.Add(planData);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(900, 700);
-            panel1.TabIndex = 5;
-            // 
-            // refreshButton
-            // 
-            refreshButton.BackColor = Color.SteelBlue;
-            refreshButton.FlatAppearance.BorderSize = 0;
-            refreshButton.FlatStyle = FlatStyle.Flat;
-            refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(156, 375);
-            refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(100, 40);
-            refreshButton.TabIndex = 10;
-            refreshButton.Text = "Refresh";
-            refreshButton.UseVisualStyleBackColor = false;
-            refreshButton.Click += refreshButton_Click;
-            // 
-            // addPlanButton
-            // 
-            addPlanButton.BackColor = Color.SteelBlue;
-            addPlanButton.FlatAppearance.BorderSize = 0;
-            addPlanButton.FlatStyle = FlatStyle.Flat;
-            addPlanButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addPlanButton.ForeColor = Color.White;
-            addPlanButton.Location = new Point(50, 375);
-            addPlanButton.Name = "addPlanButton";
-            addPlanButton.Size = new Size(100, 40);
-            addPlanButton.TabIndex = 9;
-            addPlanButton.Text = "Add";
-            addPlanButton.UseVisualStyleBackColor = false;
-            addPlanButton.Click += addPlanButton_Click;
-            // 
-            // planData
-            // 
-            planData.AllowUserToAddRows = false;
-            planData.AllowUserToDeleteRows = false;
-            planData.AllowUserToResizeColumns = false;
-            planData.AllowUserToResizeRows = false;
-            planData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            planData.BorderStyle = BorderStyle.None;
-            planData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            planData.Dock = DockStyle.Bottom;
-            planData.Location = new Point(0, 425);
-            planData.Name = "planData";
-            planData.RowHeadersWidth = 51;
-            planData.Size = new Size(900, 275);
-            planData.TabIndex = 0;
-            planData.CellClick += planData_CellClick;
+            panel1.TabIndex = 6;
             // 
             // label1
             // 
@@ -125,25 +78,25 @@
             label1.Location = new Point(352, 25);
             label1.Name = "label1";
             label1.Size = new Size(196, 35);
-            label1.TabIndex = 6;
+            label1.TabIndex = 24;
             label1.Text = "Treatment plan";
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(assistantBox);
+            panel2.Controls.Add(dentistBox);
+            panel2.Controls.Add(statusBox);
+            panel2.Controls.Add(treatmentBox);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(noteBox);
-            panel2.Controls.Add(cboTreatment);
             panel2.Controls.Add(label9);
-            panel2.Controls.Add(cboAssistant);
-            panel2.Controls.Add(cboDentist);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(desBox);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(cboStatus);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(nameBox);
             panel2.Controls.Add(label4);
@@ -153,7 +106,51 @@
             panel2.Location = new Point(50, 40);
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 325);
-            panel2.TabIndex = 7;
+            panel2.TabIndex = 11;
+            // 
+            // assistantBox
+            // 
+            assistantBox.Enabled = false;
+            assistantBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            assistantBox.Location = new Point(500, 120);
+            assistantBox.Name = "assistantBox";
+            assistantBox.PlaceholderText = "Assistant";
+            assistantBox.ReadOnly = true;
+            assistantBox.Size = new Size(200, 27);
+            assistantBox.TabIndex = 27;
+            // 
+            // dentistBox
+            // 
+            dentistBox.Enabled = false;
+            dentistBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dentistBox.Location = new Point(275, 120);
+            dentistBox.Name = "dentistBox";
+            dentistBox.PlaceholderText = "Dentist";
+            dentistBox.ReadOnly = true;
+            dentistBox.Size = new Size(200, 27);
+            dentistBox.TabIndex = 26;
+            // 
+            // statusBox
+            // 
+            statusBox.Enabled = false;
+            statusBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            statusBox.Location = new Point(550, 50);
+            statusBox.Name = "statusBox";
+            statusBox.PlaceholderText = "Status";
+            statusBox.ReadOnly = true;
+            statusBox.Size = new Size(150, 27);
+            statusBox.TabIndex = 25;
+            // 
+            // treatmentBox
+            // 
+            treatmentBox.Enabled = false;
+            treatmentBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            treatmentBox.Location = new Point(100, 260);
+            treatmentBox.Name = "treatmentBox";
+            treatmentBox.PlaceholderText = "Treatment";
+            treatmentBox.ReadOnly = true;
+            treatmentBox.Size = new Size(275, 27);
+            treatmentBox.TabIndex = 24;
             // 
             // label10
             // 
@@ -173,17 +170,9 @@
             noteBox.Location = new Point(425, 260);
             noteBox.Name = "noteBox";
             noteBox.PlaceholderText = "Description";
+            noteBox.ReadOnly = true;
             noteBox.Size = new Size(275, 27);
             noteBox.TabIndex = 22;
-            // 
-            // cboTreatment
-            // 
-            cboTreatment.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cboTreatment.FormattingEnabled = true;
-            cboTreatment.Location = new Point(100, 260);
-            cboTreatment.Name = "cboTreatment";
-            cboTreatment.Size = new Size(275, 27);
-            cboTreatment.TabIndex = 21;
             // 
             // label9
             // 
@@ -195,24 +184,6 @@
             label9.Size = new Size(89, 23);
             label9.TabIndex = 20;
             label9.Text = "Treatment";
-            // 
-            // cboAssistant
-            // 
-            cboAssistant.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cboAssistant.FormattingEnabled = true;
-            cboAssistant.Location = new Point(500, 120);
-            cboAssistant.Name = "cboAssistant";
-            cboAssistant.Size = new Size(200, 27);
-            cboAssistant.TabIndex = 18;
-            // 
-            // cboDentist
-            // 
-            cboDentist.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cboDentist.FormattingEnabled = true;
-            cboDentist.Location = new Point(275, 120);
-            cboDentist.Name = "cboDentist";
-            cboDentist.Size = new Size(200, 27);
-            cboDentist.TabIndex = 17;
             // 
             // label8
             // 
@@ -243,6 +214,7 @@
             desBox.Location = new Point(100, 190);
             desBox.Name = "desBox";
             desBox.PlaceholderText = "Description";
+            desBox.ReadOnly = true;
             desBox.Size = new Size(600, 27);
             desBox.TabIndex = 13;
             // 
@@ -268,16 +240,6 @@
             label6.TabIndex = 10;
             label6.Text = "Status";
             // 
-            // cboStatus
-            // 
-            cboStatus.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cboStatus.FormattingEnabled = true;
-            cboStatus.Items.AddRange(new object[] { "Kế hoạch", "Đã hoàn thành", "Đã hủy" });
-            cboStatus.Location = new Point(550, 50);
-            cboStatus.Name = "cboStatus";
-            cboStatus.Size = new Size(150, 27);
-            cboStatus.TabIndex = 9;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -296,6 +258,7 @@
             nameBox.Location = new Point(225, 50);
             nameBox.Name = "nameBox";
             nameBox.PlaceholderText = "Name";
+            nameBox.ReadOnly = true;
             nameBox.Size = new Size(300, 27);
             nameBox.TabIndex = 7;
             // 
@@ -324,6 +287,7 @@
             // dateBox
             // 
             dateBox.CustomFormat = "yyyy-MM-dd";
+            dateBox.Enabled = false;
             dateBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateBox.Format = DateTimePickerFormat.Custom;
             dateBox.Location = new Point(100, 120);
@@ -342,52 +306,81 @@
             IDBox.Size = new Size(100, 27);
             IDBox.TabIndex = 0;
             // 
-            // Dentist_Treatment
+            // refreshButton
+            // 
+            refreshButton.BackColor = Color.SteelBlue;
+            refreshButton.FlatAppearance.BorderSize = 0;
+            refreshButton.FlatStyle = FlatStyle.Flat;
+            refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            refreshButton.ForeColor = Color.White;
+            refreshButton.Location = new Point(50, 375);
+            refreshButton.Name = "refreshButton";
+            refreshButton.Size = new Size(100, 40);
+            refreshButton.TabIndex = 10;
+            refreshButton.Text = "Refresh";
+            refreshButton.UseVisualStyleBackColor = false;
+            refreshButton.Click += refreshButton_Click;
+            // 
+            // planData
+            // 
+            planData.AllowUserToAddRows = false;
+            planData.AllowUserToDeleteRows = false;
+            planData.AllowUserToResizeColumns = false;
+            planData.AllowUserToResizeRows = false;
+            planData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            planData.BorderStyle = BorderStyle.None;
+            planData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            planData.Dock = DockStyle.Bottom;
+            planData.Location = new Point(0, 425);
+            planData.Name = "planData";
+            planData.RowHeadersWidth = 51;
+            planData.Size = new Size(900, 275);
+            planData.TabIndex = 0;
+            planData.CellClick += planData_CellClick;
+            // 
+            // Treatment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 700);
             ControlBox = false;
-            Controls.Add(label1);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Dentist_Treatment";
-            Text = "Dentist_Bill";
-            Load += Dentist_Treatment_Load;
+            Name = "Treatment";
+            Text = "Treatment";
+            Load += Treatment_Load;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)planData).EndInit();
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)planData).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private DataGridView planData;
-        private Button addPlanButton;
-        private Label label1;
-        private Panel panel2;
-        private TextBox IDBox;
-        private DateTimePicker dateBox;
-        private Label label2;
-        private Label label4;
         private Button refreshButton;
-        private Label label5;
-        private TextBox nameBox;
-        private Label label6;
-        private ComboBox cboStatus;
-        private Label label7;
-        private TextBox desBox;
-        private Label label3;
-        private Label label8;
-        private ComboBox cboAssistant;
-        private ComboBox cboDentist;
-        private Label label9;
-        private ComboBox cboTreatment;
+        private DataGridView planData;
+        private Panel panel2;
         private Label label10;
         private TextBox noteBox;
+        private Label label9;
+        private Label label8;
+        private Label label3;
+        private TextBox desBox;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private TextBox nameBox;
+        private Label label4;
+        private Label label2;
+        private DateTimePicker dateBox;
+        private TextBox IDBox;
+        private Label label1;
+        private TextBox treatmentBox;
+        private TextBox statusBox;
+        private TextBox assistantBox;
+        private TextBox dentistBox;
     }
 }

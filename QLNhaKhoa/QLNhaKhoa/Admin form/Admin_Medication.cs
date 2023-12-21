@@ -6,7 +6,6 @@ namespace QLNhaKhoa.Admin_form
     public partial class Admin_Medication : Form
     {
         private Admin_AddMed f;
-        private Admin_MedSearch fs;
         public DataTable searchData;
         public Admin_Medication()
         {
@@ -158,18 +157,6 @@ namespace QLNhaKhoa.Admin_form
             {
                 MessageBox.Show("Cập nhật dữ liệu thuốc thất bại! " + ex.Message);
             }
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            fs = new Admin_MedSearch(this);
-            fs.FormClosedEvent += AdminFormClosedEventS;
-            fs.Show();
-        }
-
-        private void AdminFormClosedEventS(object sender, EventArgs e)
-        {
-            medData.DataSource = searchData;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

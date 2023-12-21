@@ -38,11 +38,6 @@ namespace QLNhaKhoa
                 txtUsername.Focus();
             }
         }
-        private void registerSwap_Click(object sender, EventArgs e)
-        {
-            new Register().Show();
-            this.Hide();
-        }
 
         private void loginButton_Click(object sender, EventArgs e)
         {

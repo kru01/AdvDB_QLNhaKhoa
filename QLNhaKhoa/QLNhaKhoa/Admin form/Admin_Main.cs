@@ -26,9 +26,9 @@ namespace QLNhaKhoa.Admin_form
             Helper.loadform(new General_Form.EmpList(), this.mainPanel);
         }
 
-        private void empScheduleButton_Click(object sender, EventArgs e)
+        private void prescriptionButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Admin_Schedule(), this.mainPanel);
+            Helper.loadform(new General_Form.Prescription(), this.mainPanel);
         }
 
         private void recordButton_Click(object sender, EventArgs e)
@@ -71,6 +71,11 @@ namespace QLNhaKhoa.Admin_form
         private void MedicationButton_Click_1(object sender, EventArgs e)
         {
             Helper.loadform(new Admin_Medication(), this.mainPanel);
+        }
+
+        private void planButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new General_Form.Treatment(), this.mainPanel);
         }
     }
 }

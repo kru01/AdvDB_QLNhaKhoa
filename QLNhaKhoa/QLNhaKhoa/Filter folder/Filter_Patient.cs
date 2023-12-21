@@ -1,4 +1,5 @@
 ﻿using QLNhaKhoa.Admin_form;
+using QLNhaKhoa.Employee_form;
 using System.Data;
 
 namespace QLNhaKhoa.Filter_folder

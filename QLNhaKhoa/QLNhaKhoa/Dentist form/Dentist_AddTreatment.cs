@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLNhaKhoa.Admin_form
+namespace QLNhaKhoa.Dentist_form
 {
-    public partial class Admin_Schedule : Form
+    public partial class Dentist_AddTreatment : Form
     {
-        public Admin_Schedule()
+        public event EventHandler FormClosedEvent;
+        public Dentist_AddTreatment()
         {
             InitializeComponent();
         }

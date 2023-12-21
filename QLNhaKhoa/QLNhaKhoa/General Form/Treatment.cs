@@ -1,43 +1,25 @@
-﻿using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
-namespace QLNhaKhoa.Dentist_form
+namespace QLNhaKhoa.General_Form
 {
-    public partial class Dentist_Treatment : Form
+    public partial class Treatment : Form
     {
-        private readonly string query = "select * from KEHOACHDIEUTRI";
-        private static Dentist_AddTreatment f;
-
-        public Dentist_Treatment()
+        private readonly string query = "select KH.*, LT.TENLIEUTRINH, HS.HOTEN" +
+                                        "from KEHOACHDIEUTRI KH join LIEUTRINH LT on KH.IDLIEUTRINH = LT.IDLIEUTRINH " +
+                                        "join HOSOBENHNHAN HS on HS.IDHOSO = KH.IDHOSO";
+        public Treatment()
         {
             InitializeComponent();
         }
 
-        private void Dentist_Treatment_Load(object sender, EventArgs e)
-        {
-            planData.DataSource = Helper.getData(query).Tables[0];
-
-            cboDentist.DisplayMember = "HOTEN";
-            cboDentist.ValueMember = "IDTAIKHOAN";
-            cboDentist.DataSource = Helper.getData("select IDTAIKHOAN, HOTEN from TAIKHOAN where LOAITAIKHOAN = 1").Tables[0];
-
-            cboAssistant.DisplayMember = "HOTEN";
-            cboAssistant.ValueMember = "IDTAIKHOAN";
-            cboAssistant.DataSource = Helper.getData("select IDTAIKHOAN, HOTEN from TAIKHOAN where LOAITAIKHOAN = 1").Tables[0];
-
-            cboTreatment.DisplayMember = "TENLIEUTRINH";
-            cboTreatment.ValueMember = "IDLIEUTRINH";
-            cboTreatment.DataSource = Helper.getData("select IDLIEUTRINH, TENLIEUTRINH from LIEUTRINH").Tables[0];
-        }
-
-        private void refresh()
+        private void refreshButton_Click(object sender, EventArgs e)
         {
             Helper.refreshData(query, planData);
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
+        private void Treatment_Load(object sender, EventArgs e)
         {
-            refresh();
+            planData.DataSource = Helper.getData(query).Tables[0];
         }
 
         private void planData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -51,13 +33,13 @@ namespace QLNhaKhoa.Dentist_form
                 nameBox.Text = dgvr.Cells["HOTEN"].Value.ToString();
                 if (dgvr.Cells["TRANGTHAIDIEUTRI"].Value.ToString() == "0")
                 {
-                    cboStatus.Text = "Kế hoạch";
+                    statusBox.Text = "Kế hoạch";
                 }
                 else if (dgvr.Cells["TRANGTHAIDIEUTRI"].Value.ToString() == "1")
                 {
-                    cboStatus.Text = "Đã hoàn thành";
+                    statusBox.Text = "Đã hoàn thành";
                 }
-                else cboStatus.Text = "Đã hủy";
+                else statusBox.Text = "Đã hủy";
 
                 dateBox.Text = dgvr.Cells["NGAYDIEUTRI"].Value.ToString();
                 desBox.Text = dgvr.Cells["MOTA"].Value.ToString();
@@ -68,7 +50,7 @@ namespace QLNhaKhoa.Dentist_form
                 {
                     if (reader.Read())
                     {
-                        cboDentist.Text = reader.GetString(0);
+                        dentistBox.Text = reader.GetString(0);
                     }
                 }
 
@@ -77,7 +59,7 @@ namespace QLNhaKhoa.Dentist_form
                 {
                     if (reader.Read())
                     {
-                        cboAssistant.Text = reader.GetString(0);
+                        assistantBox.Text = reader.GetString(0);
                     }
                 }
 
@@ -87,17 +69,11 @@ namespace QLNhaKhoa.Dentist_form
                 {
                     if (reader.Read())
                     {
-                        cboTreatment.Text = reader.GetString(0);
+                        treatmentBox.Text = reader.GetString(0);
                         sqlCon.Close();
                     }
                 }
             }
-        }
-
-        private void addPlanButton_Click(object sender, EventArgs e)
-        {
-            f = new Dentist_AddTreatment();
-            f.Show();
         }
     }
 }

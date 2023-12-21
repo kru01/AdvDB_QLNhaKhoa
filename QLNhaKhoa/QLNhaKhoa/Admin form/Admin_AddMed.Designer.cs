@@ -146,6 +146,7 @@
             priceBox.PlaceholderText = "Price";
             priceBox.Size = new Size(200, 27);
             priceBox.TabIndex = 23;
+            priceBox.KeyPress += priceBox_KeyPress;
             // 
             // cboUnit
             // 
@@ -208,7 +209,7 @@
             label1.TabIndex = 30;
             label1.Text = "Add medication";
             // 
-            // Admin_Medication_AddForm
+            // Admin_AddMed
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -231,7 +232,7 @@
             Controls.Add(AddMedButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Admin_Medication_AddForm";
+            Name = "Admin_AddMed";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Medication";
             ResumeLayout(false);

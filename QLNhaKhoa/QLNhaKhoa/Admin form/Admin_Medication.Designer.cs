@@ -30,7 +30,6 @@
         {
             panel1 = new Panel();
             refreshButton = new Button();
-            searchButton = new Button();
             updateMedButton = new Button();
             deleteMedButton = new Button();
             label1 = new Label();
@@ -60,7 +59,6 @@
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(refreshButton);
-            panel1.Controls.Add(searchButton);
             panel1.Controls.Add(updateMedButton);
             panel1.Controls.Add(deleteMedButton);
             panel1.Controls.Add(label1);
@@ -80,28 +78,13 @@
             refreshButton.FlatStyle = FlatStyle.Flat;
             refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(474, 300);
+            refreshButton.Location = new Point(368, 300);
             refreshButton.Name = "refreshButton";
             refreshButton.Size = new Size(100, 40);
             refreshButton.TabIndex = 18;
             refreshButton.Text = "Refresh";
             refreshButton.UseVisualStyleBackColor = false;
             refreshButton.Click += refreshButton_Click;
-            // 
-            // searchButton
-            // 
-            searchButton.BackColor = Color.SteelBlue;
-            searchButton.FlatAppearance.BorderSize = 0;
-            searchButton.FlatStyle = FlatStyle.Flat;
-            searchButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchButton.ForeColor = Color.White;
-            searchButton.Location = new Point(368, 300);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(100, 40);
-            searchButton.TabIndex = 17;
-            searchButton.Text = "Search";
-            searchButton.UseVisualStyleBackColor = false;
-            searchButton.Click += searchButton_Click;
             // 
             // updateMedButton
             // 
@@ -386,7 +369,6 @@
         private Label label7;
         private DateTimePicker expDateBox;
         private Label label8;
-        private Button searchButton;
         private Button refreshButton;
         private ComboBox cboUnit;
         private Label label3;

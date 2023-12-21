@@ -1,14 +1,6 @@
 ﻿using QLNhaKhoa.Admin_form;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QLNhaKhoa.General_Form
 {
@@ -65,7 +57,7 @@ namespace QLNhaKhoa.General_Form
                     gender = 1;
                 }
 
-                SqlConnection sqlCon = new SqlConnection(Helper.strCon);
+                SqlConnection sqlCon = new(Helper.strCon);
                 sqlCon.Open();
                 SqlCommand cmd = new SqlCommand("USP_HOSOBENHNHAN_UPD", sqlCon);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -76,7 +68,7 @@ namespace QLNhaKhoa.General_Form
                 cmd.Parameters.Add(new SqlParameter("@GIOITINH", gender));
                 cmd.Parameters.Add(new SqlParameter("@EMAIL", emailBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@SDT", phoneBox.Text));
-                cmd.Parameters.Add(new SqlParameter("@DIACHI", addressBox));
+                cmd.Parameters.Add(new SqlParameter("@DIACHI", addressBox.Text));
                 cmd.Parameters.Add(new SqlParameter("@THONGTINTONGQUAN", infoBox.Text));
 
                 int i = cmd.ExecuteNonQuery();

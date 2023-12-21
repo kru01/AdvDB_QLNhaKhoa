@@ -46,6 +46,11 @@ namespace QLNhaKhoa.Dentist_form
             Helper.loadform(new General_Form.Record(), this.mainPanel);
         }
 
+        private void prescriptionButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new General_Form.Prescription(), this.mainPanel);
+        }
+
         private void medButton_Click(object sender, EventArgs e)
         {
             Helper.loadform(new General_Form.Medication(), this.mainPanel);

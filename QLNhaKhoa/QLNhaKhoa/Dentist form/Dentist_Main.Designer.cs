@@ -42,6 +42,7 @@
             AppointmentButton = new Button();
             AccountButton = new Button();
             mainPanel = new Panel();
+            prescriptionButton = new Button();
             LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)HomepageIcon).BeginInit();
             SuspendLayout();
@@ -49,6 +50,7 @@
             // LeftPanel
             // 
             LeftPanel.BackColor = Color.SteelBlue;
+            LeftPanel.Controls.Add(prescriptionButton);
             LeftPanel.Controls.Add(signOutButton);
             LeftPanel.Controls.Add(planButton);
             LeftPanel.Controls.Add(medButton);
@@ -86,7 +88,7 @@
             planButton.FlatStyle = FlatStyle.Flat;
             planButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             planButton.ForeColor = Color.White;
-            planButton.Location = new Point(25, 490);
+            planButton.Location = new Point(25, 500);
             planButton.Name = "planButton";
             planButton.Size = new Size(250, 40);
             planButton.TabIndex = 10;
@@ -100,7 +102,7 @@
             medButton.FlatStyle = FlatStyle.Flat;
             medButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             medButton.ForeColor = Color.White;
-            medButton.Location = new Point(25, 430);
+            medButton.Location = new Point(25, 400);
             medButton.Name = "medButton";
             medButton.Size = new Size(250, 40);
             medButton.TabIndex = 9;
@@ -168,7 +170,7 @@
             RecordButton.FlatStyle = FlatStyle.Flat;
             RecordButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RecordButton.ForeColor = Color.White;
-            RecordButton.Location = new Point(25, 370);
+            RecordButton.Location = new Point(25, 350);
             RecordButton.Name = "RecordButton";
             RecordButton.Size = new Size(250, 40);
             RecordButton.TabIndex = 3;
@@ -182,7 +184,7 @@
             AppointmentButton.FlatStyle = FlatStyle.Flat;
             AppointmentButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AppointmentButton.ForeColor = Color.White;
-            AppointmentButton.Location = new Point(25, 310);
+            AppointmentButton.Location = new Point(25, 300);
             AppointmentButton.Name = "AppointmentButton";
             AppointmentButton.Size = new Size(250, 40);
             AppointmentButton.TabIndex = 2;
@@ -211,6 +213,20 @@
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(900, 700);
             mainPanel.TabIndex = 3;
+            // 
+            // prescriptionButton
+            // 
+            prescriptionButton.FlatAppearance.BorderSize = 0;
+            prescriptionButton.FlatStyle = FlatStyle.Flat;
+            prescriptionButton.Font = new Font("Tw Cen MT", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            prescriptionButton.ForeColor = Color.White;
+            prescriptionButton.Location = new Point(25, 450);
+            prescriptionButton.Name = "prescriptionButton";
+            prescriptionButton.Size = new Size(250, 40);
+            prescriptionButton.TabIndex = 12;
+            prescriptionButton.Text = "Prescription";
+            prescriptionButton.UseVisualStyleBackColor = true;
+            prescriptionButton.Click += prescriptionButton_Click;
             // 
             // Dentist_Main
             // 
@@ -247,5 +263,6 @@
         private Button planButton;
         private Button medButton;
         private Panel mainPanel;
+        private Button prescriptionButton;
     }
 }

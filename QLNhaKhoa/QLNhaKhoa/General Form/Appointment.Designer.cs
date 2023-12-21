@@ -52,6 +52,8 @@
             label2 = new Label();
             appointDate = new DateTimePicker();
             appointmentData = new DataGridView();
+            noteBox = new TextBox();
+            label7 = new Label();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)appointmentData).BeginInit();
@@ -67,7 +69,6 @@
             panel3.Controls.Add(label1);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(appointmentData);
-            panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(900, 700);
@@ -80,11 +81,11 @@
             filterDButton.FlatStyle = FlatStyle.Flat;
             filterDButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             filterDButton.ForeColor = Color.White;
-            filterDButton.Location = new Point(488, 298);
+            filterDButton.Location = new Point(388, 350);
             filterDButton.Name = "filterDButton";
-            filterDButton.Size = new Size(160, 40);
+            filterDButton.Size = new Size(120, 40);
             filterDButton.TabIndex = 21;
-            filterDButton.Text = "Filter by dentist";
+            filterDButton.Text = "Filter dentist";
             filterDButton.UseVisualStyleBackColor = false;
             filterDButton.Click += filterDButton_Click;
             // 
@@ -95,11 +96,11 @@
             filterRButton.FlatStyle = FlatStyle.Flat;
             filterRButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             filterRButton.ForeColor = Color.White;
-            filterRButton.Location = new Point(322, 298);
+            filterRButton.Location = new Point(262, 350);
             filterRButton.Name = "filterRButton";
-            filterRButton.Size = new Size(160, 40);
+            filterRButton.Size = new Size(120, 40);
             filterRButton.TabIndex = 20;
-            filterRButton.Text = "Filter by room";
+            filterRButton.Text = "Filter room";
             filterRButton.UseVisualStyleBackColor = false;
             filterRButton.Click += filterRButton_Click;
             // 
@@ -110,11 +111,11 @@
             filterPButton.FlatStyle = FlatStyle.Flat;
             filterPButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             filterPButton.ForeColor = Color.White;
-            filterPButton.Location = new Point(156, 298);
+            filterPButton.Location = new Point(136, 350);
             filterPButton.Name = "filterPButton";
-            filterPButton.Size = new Size(160, 40);
+            filterPButton.Size = new Size(120, 40);
             filterPButton.TabIndex = 19;
-            filterPButton.Text = "Filter by patient";
+            filterPButton.Text = "Filter patient";
             filterPButton.UseVisualStyleBackColor = false;
             filterPButton.Click += filterPButton_Click;
             // 
@@ -125,9 +126,9 @@
             refreshButton.FlatStyle = FlatStyle.Flat;
             refreshButton.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             refreshButton.ForeColor = Color.White;
-            refreshButton.Location = new Point(50, 298);
+            refreshButton.Location = new Point(50, 350);
             refreshButton.Name = "refreshButton";
-            refreshButton.Size = new Size(100, 40);
+            refreshButton.Size = new Size(80, 40);
             refreshButton.TabIndex = 15;
             refreshButton.Text = "Refresh";
             refreshButton.UseVisualStyleBackColor = false;
@@ -147,6 +148,8 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(label7);
+            panel4.Controls.Add(noteBox);
             panel4.Controls.Add(customerBox);
             panel4.Controls.Add(roomBox);
             panel4.Controls.Add(label8);
@@ -165,13 +168,13 @@
             panel4.Controls.Add(appointDate);
             panel4.Location = new Point(50, 40);
             panel4.Name = "panel4";
-            panel4.Size = new Size(800, 250);
+            panel4.Size = new Size(800, 300);
             panel4.TabIndex = 0;
             // 
             // customerBox
             // 
             customerBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerBox.Location = new Point(100, 120);
+            customerBox.Location = new Point(100, 115);
             customerBox.Name = "customerBox";
             customerBox.PlaceholderText = "Customer name";
             customerBox.ReadOnly = true;
@@ -181,7 +184,7 @@
             // roomBox
             // 
             roomBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roomBox.Location = new Point(550, 120);
+            roomBox.Location = new Point(550, 115);
             roomBox.Name = "roomBox";
             roomBox.PlaceholderText = "Room";
             roomBox.ReadOnly = true;
@@ -193,7 +196,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.SteelBlue;
-            label8.Location = new Point(100, 94);
+            label8.Location = new Point(100, 89);
             label8.Name = "label8";
             label8.Size = new Size(83, 23);
             label8.TabIndex = 17;
@@ -204,7 +207,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.SteelBlue;
-            label9.Location = new Point(550, 94);
+            label9.Location = new Point(550, 89);
             label9.Name = "label9";
             label9.Size = new Size(53, 23);
             label9.TabIndex = 16;
@@ -215,7 +218,7 @@
             label.AutoSize = true;
             label.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label.ForeColor = Color.SteelBlue;
-            label.Location = new Point(225, 24);
+            label.Location = new Point(225, 19);
             label.Name = "label";
             label.Size = new Size(57, 23);
             label.TabIndex = 15;
@@ -224,7 +227,7 @@
             // statusBox
             // 
             statusBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            statusBox.Location = new Point(225, 50);
+            statusBox.Location = new Point(225, 45);
             statusBox.Name = "statusBox";
             statusBox.PlaceholderText = "Status";
             statusBox.ReadOnly = true;
@@ -234,7 +237,7 @@
             // dentistBox
             // 
             dentistBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dentistBox.Location = new Point(100, 190);
+            dentistBox.Location = new Point(100, 185);
             dentistBox.Name = "dentistBox";
             dentistBox.PlaceholderText = "Dentist name";
             dentistBox.ReadOnly = true;
@@ -244,7 +247,7 @@
             // assistantBox
             // 
             assistantBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            assistantBox.Location = new Point(425, 190);
+            assistantBox.Location = new Point(425, 185);
             assistantBox.Name = "assistantBox";
             assistantBox.PlaceholderText = "Assistant name";
             assistantBox.ReadOnly = true;
@@ -256,7 +259,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.SteelBlue;
-            label6.Location = new Point(100, 24);
+            label6.Location = new Point(100, 19);
             label6.Name = "label6";
             label6.Size = new Size(94, 23);
             label6.TabIndex = 11;
@@ -265,7 +268,7 @@
             // appIDBox
             // 
             appIDBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            appIDBox.Location = new Point(100, 50);
+            appIDBox.Location = new Point(100, 45);
             appIDBox.Name = "appIDBox";
             appIDBox.PlaceholderText = "Appoint ID";
             appIDBox.ReadOnly = true;
@@ -277,7 +280,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.SteelBlue;
-            label5.Location = new Point(425, 164);
+            label5.Location = new Point(425, 159);
             label5.Name = "label5";
             label5.Size = new Size(77, 23);
             label5.TabIndex = 9;
@@ -288,7 +291,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.SteelBlue;
-            label4.Location = new Point(100, 164);
+            label4.Location = new Point(100, 159);
             label4.Name = "label4";
             label4.Size = new Size(62, 23);
             label4.TabIndex = 8;
@@ -300,7 +303,7 @@
             appointTime.Enabled = false;
             appointTime.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             appointTime.Format = DateTimePickerFormat.Custom;
-            appointTime.Location = new Point(425, 50);
+            appointTime.Location = new Point(425, 45);
             appointTime.Name = "appointTime";
             appointTime.ShowUpDown = true;
             appointTime.Size = new Size(100, 27);
@@ -311,7 +314,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(550, 24);
+            label3.Location = new Point(550, 19);
             label3.Name = "label3";
             label3.Size = new Size(48, 23);
             label3.TabIndex = 4;
@@ -322,7 +325,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.SteelBlue;
-            label2.Location = new Point(425, 24);
+            label2.Location = new Point(425, 19);
             label2.Name = "label2";
             label2.Size = new Size(46, 23);
             label2.TabIndex = 3;
@@ -334,7 +337,7 @@
             appointDate.Enabled = false;
             appointDate.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             appointDate.Format = DateTimePickerFormat.Custom;
-            appointDate.Location = new Point(550, 50);
+            appointDate.Location = new Point(550, 45);
             appointDate.Name = "appointDate";
             appointDate.Size = new Size(150, 27);
             appointDate.TabIndex = 2;
@@ -349,12 +352,33 @@
             appointmentData.BorderStyle = BorderStyle.None;
             appointmentData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             appointmentData.Dock = DockStyle.Bottom;
-            appointmentData.Location = new Point(0, 345);
+            appointmentData.Location = new Point(0, 400);
             appointmentData.Name = "appointmentData";
             appointmentData.RowHeadersWidth = 51;
-            appointmentData.Size = new Size(900, 355);
+            appointmentData.Size = new Size(900, 300);
             appointmentData.TabIndex = 2;
             appointmentData.CellClick += appointmentData_CellClick;
+            // 
+            // noteBox
+            // 
+            noteBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            noteBox.Location = new Point(100, 255);
+            noteBox.Name = "noteBox";
+            noteBox.PlaceholderText = "Note";
+            noteBox.ReadOnly = true;
+            noteBox.Size = new Size(600, 27);
+            noteBox.TabIndex = 25;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.SteelBlue;
+            label7.Location = new Point(100, 229);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 23);
+            label7.TabIndex = 26;
+            label7.Text = "Note";
             // 
             // Appointment
             // 
@@ -401,5 +425,7 @@
         private Label label2;
         private DateTimePicker appointDate;
         private DataGridView appointmentData;
+        private Label label7;
+        private TextBox noteBox;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace QLNhaKhoa.Filter_folder
+﻿using QLNhaKhoa.Employee_form;
+
+namespace QLNhaKhoa.Filter_folder
 {
     public partial class Filter_Room : Form
     {

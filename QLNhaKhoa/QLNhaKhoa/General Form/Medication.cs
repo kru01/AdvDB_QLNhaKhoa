@@ -13,7 +13,6 @@ namespace QLNhaKhoa.General_Form
 {
     public partial class Medication : Form
     {
-        private Admin_MedSearch fs;
         public DataTable searchData;
         public Medication()
         {

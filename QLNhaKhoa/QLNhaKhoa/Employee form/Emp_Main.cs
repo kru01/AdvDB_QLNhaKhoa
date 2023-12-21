@@ -27,17 +27,16 @@ namespace QLNhaKhoa.Employee_form
         {
             Helper.loadform(new General_Form.Medication(), this.mainPanel);
         }
-        private void scheduleButton_Click(object sender, EventArgs e)
-        {
-            //Helper.loadform(new Emp_Medication(), this.mainPanel);
-        }
+
         private void AppointmentButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new General_Form.Appointment(), this.mainPanel);
+            Emp_Appointment f = new Emp_Appointment();
+            f.CurrentEmp = CurrentEmp;
+            Helper.loadform(f, this.mainPanel);
         }
         private void prescriptionButton_Click(object sender, EventArgs e)
         {
-            Helper.loadform(new Emp_Prescription(), this.mainPanel);
+            Helper.loadform(new General_Form.Prescription(), this.mainPanel);
         }
         private void Emp_Main_Load(object sender, EventArgs e)
         {
@@ -64,6 +63,11 @@ namespace QLNhaKhoa.Employee_form
                 new Login().Show();
             }
             else { }
+        }
+
+        private void planButton_Click(object sender, EventArgs e)
+        {
+            Helper.loadform(new General_Form.Treatment(), this.mainPanel);
         }
     }
 }

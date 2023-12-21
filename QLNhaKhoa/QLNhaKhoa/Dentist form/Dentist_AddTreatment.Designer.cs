@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dentist_AddTreatment));
             cancelButton = new Button();
-            makeAppButton = new Button();
+            addTreatmentButton = new Button();
             noteBox = new TextBox();
             label7 = new Label();
             cboAssistant = new ComboBox();
@@ -38,14 +38,22 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            appointDate = new DateTimePicker();
+            dateBox = new DateTimePicker();
             label6 = new Label();
             cboName = new ComboBox();
             label1 = new Label();
             label8 = new Label();
-            comboBox1 = new ComboBox();
+            cboTreatment = new ComboBox();
             label2 = new Label();
             label9 = new Label();
+            cboTooth = new ComboBox();
+            cboTSurface = new ComboBox();
+            label10 = new Label();
+            label11 = new Label();
+            descriptionBox = new TextBox();
+            label12 = new Label();
+            cboPayment = new ComboBox();
+            label13 = new Label();
             SuspendLayout();
             // 
             // cancelButton
@@ -54,26 +62,28 @@
             cancelButton.FlatStyle = FlatStyle.Flat;
             cancelButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cancelButton.ForeColor = Color.Black;
-            cancelButton.Location = new Point(415, 569);
+            cancelButton.Location = new Point(415, 548);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(200, 50);
             cancelButton.TabIndex = 56;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
-            // makeAppButton
+            // addTreatmentButton
             // 
-            makeAppButton.BackColor = Color.SteelBlue;
-            makeAppButton.FlatAppearance.BorderSize = 0;
-            makeAppButton.FlatStyle = FlatStyle.Flat;
-            makeAppButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            makeAppButton.ForeColor = Color.White;
-            makeAppButton.Location = new Point(159, 569);
-            makeAppButton.Name = "makeAppButton";
-            makeAppButton.Size = new Size(250, 50);
-            makeAppButton.TabIndex = 55;
-            makeAppButton.Text = "Add treatment plan";
-            makeAppButton.UseVisualStyleBackColor = false;
+            addTreatmentButton.BackColor = Color.SteelBlue;
+            addTreatmentButton.FlatAppearance.BorderSize = 0;
+            addTreatmentButton.FlatStyle = FlatStyle.Flat;
+            addTreatmentButton.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addTreatmentButton.ForeColor = Color.White;
+            addTreatmentButton.Location = new Point(159, 548);
+            addTreatmentButton.Name = "addTreatmentButton";
+            addTreatmentButton.Size = new Size(250, 50);
+            addTreatmentButton.TabIndex = 55;
+            addTreatmentButton.Text = "Add treatment plan";
+            addTreatmentButton.UseVisualStyleBackColor = false;
+            addTreatmentButton.Click += addTreatmentButton_Click;
             // 
             // noteBox
             // 
@@ -146,15 +156,15 @@
             label3.TabIndex = 43;
             label3.Text = "Date";
             // 
-            // appointDate
+            // dateBox
             // 
-            appointDate.CustomFormat = "yyyy-MM-dd";
-            appointDate.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            appointDate.Format = DateTimePickerFormat.Custom;
-            appointDate.Location = new Point(541, 115);
-            appointDate.Name = "appointDate";
-            appointDate.Size = new Size(150, 27);
-            appointDate.TabIndex = 41;
+            dateBox.CustomFormat = "yyyy-MM-dd";
+            dateBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateBox.Format = DateTimePickerFormat.Custom;
+            dateBox.Location = new Point(541, 115);
+            dateBox.Name = "dateBox";
+            dateBox.Size = new Size(150, 27);
+            dateBox.TabIndex = 41;
             // 
             // label6
             // 
@@ -173,7 +183,7 @@
             cboName.FormattingEnabled = true;
             cboName.Location = new Point(91, 115);
             cboName.Name = "cboName";
-            cboName.Size = new Size(410, 27);
+            cboName.Size = new Size(275, 27);
             cboName.TabIndex = 39;
             // 
             // label1
@@ -198,14 +208,14 @@
             label8.TabIndex = 57;
             label8.Text = "Select treatment";
             // 
-            // comboBox1
+            // cboTreatment
             // 
-            comboBox1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(92, 245);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(599, 27);
-            comboBox1.TabIndex = 58;
+            cboTreatment.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboTreatment.FormattingEnabled = true;
+            cboTreatment.Location = new Point(92, 245);
+            cboTreatment.Name = "cboTreatment";
+            cboTreatment.Size = new Size(599, 27);
+            cboTreatment.TabIndex = 58;
             // 
             // label2
             // 
@@ -223,11 +233,92 @@
             label9.AutoSize = true;
             label9.Font = new Font("Tw Cen MT", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.SteelBlue;
-            label9.Location = new Point(323, 362);
+            label9.Location = new Point(329, 416);
             label9.Name = "label9";
             label9.Size = new Size(120, 27);
             label9.TabIndex = 60;
             label9.Text = "Select tooth";
+            // 
+            // cboTooth
+            // 
+            cboTooth.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboTooth.FormattingEnabled = true;
+            cboTooth.Location = new Point(91, 484);
+            cboTooth.Name = "cboTooth";
+            cboTooth.Size = new Size(275, 27);
+            cboTooth.TabIndex = 61;
+            // 
+            // cboTSurface
+            // 
+            cboTSurface.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboTSurface.FormattingEnabled = true;
+            cboTSurface.Location = new Point(417, 484);
+            cboTSurface.Name = "cboTSurface";
+            cboTSurface.Size = new Size(275, 27);
+            cboTSurface.TabIndex = 62;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.SteelBlue;
+            label10.Location = new Point(91, 458);
+            label10.Name = "label10";
+            label10.Size = new Size(53, 23);
+            label10.TabIndex = 63;
+            label10.Text = "Tooth";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.SteelBlue;
+            label11.Location = new Point(417, 458);
+            label11.Name = "label11";
+            label11.Size = new Size(118, 23);
+            label11.TabIndex = 64;
+            label11.Text = "Tooth surface";
+            // 
+            // descriptionBox
+            // 
+            descriptionBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            descriptionBox.Location = new Point(91, 374);
+            descriptionBox.Name = "descriptionBox";
+            descriptionBox.PlaceholderText = "Description";
+            descriptionBox.Size = new Size(600, 27);
+            descriptionBox.TabIndex = 65;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.SteelBlue;
+            label12.Location = new Point(92, 348);
+            label12.Name = "label12";
+            label12.Size = new Size(97, 23);
+            label12.TabIndex = 66;
+            label12.Text = "Description";
+            // 
+            // cboPayment
+            // 
+            cboPayment.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboPayment.FormattingEnabled = true;
+            cboPayment.Items.AddRange(new object[] { "Tiền mặt", "Online" });
+            cboPayment.Location = new Point(415, 115);
+            cboPayment.Name = "cboPayment";
+            cboPayment.Size = new Size(100, 27);
+            cboPayment.TabIndex = 67;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.SteelBlue;
+            label13.Location = new Point(415, 89);
+            label13.Name = "label13";
+            label13.Size = new Size(78, 23);
+            label13.TabIndex = 68;
+            label13.Text = "Payment";
             // 
             // Dentist_AddTreatment
             // 
@@ -235,12 +326,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(782, 653);
+            Controls.Add(label13);
+            Controls.Add(cboPayment);
+            Controls.Add(label12);
+            Controls.Add(descriptionBox);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(cboTSurface);
+            Controls.Add(cboTooth);
             Controls.Add(label9);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
+            Controls.Add(cboTreatment);
             Controls.Add(label8);
             Controls.Add(cancelButton);
-            Controls.Add(makeAppButton);
+            Controls.Add(addTreatmentButton);
             Controls.Add(noteBox);
             Controls.Add(label7);
             Controls.Add(cboAssistant);
@@ -248,7 +347,7 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(appointDate);
+            Controls.Add(dateBox);
             Controls.Add(label6);
             Controls.Add(cboName);
             Controls.Add(label1);
@@ -256,6 +355,7 @@
             Name = "Dentist_AddTreatment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add treatment";
+            Load += Dentist_AddTreatment_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -263,7 +363,7 @@
         #endregion
 
         private Button cancelButton;
-        private Button makeAppButton;
+        private Button addTreatmentButton;
         private TextBox noteBox;
         private Label label7;
         private ComboBox cboAssistant;
@@ -271,13 +371,21 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private DateTimePicker appointDate;
+        private DateTimePicker dateBox;
         private Label label6;
         private ComboBox cboName;
         private Label label1;
         private Label label8;
-        private ComboBox comboBox1;
+        private ComboBox cboTreatment;
         private Label label2;
         private Label label9;
+        private ComboBox cboTooth;
+        private ComboBox cboTSurface;
+        private Label label10;
+        private Label label11;
+        private TextBox descriptionBox;
+        private Label label12;
+        private ComboBox cboPayment;
+        private Label label13;
     }
 }

@@ -48,7 +48,6 @@ namespace QLNhaKhoa.Dentist_form
                 SqlConnection sqlCon = new SqlConnection(Helper.strCon);
                 sqlCon.Open();
                 IDBox.Text = dgvr.Cells["IDKEHOACH"].Value.ToString();
-                nameBox.Text = dgvr.Cells["HOTEN"].Value.ToString();
                 if (dgvr.Cells["TRANGTHAIDIEUTRI"].Value.ToString() == "0")
                 {
                     cboStatus.Text = "Kế hoạch";
@@ -81,13 +80,21 @@ namespace QLNhaKhoa.Dentist_form
                     }
                 }
 
-
                 SqlCommand cmd3 = new SqlCommand("select TENLIEUTRINH from LIEUTRINH where IDLIEUTRINH = '" + dgvr.Cells["IDLIEUTRINH"].Value.ToString() + "'", sqlCon);
                 using (SqlDataReader reader = cmd3.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         cboTreatment.Text = reader.GetString(0);
+                    }
+                }
+
+                SqlCommand cmd4 = new SqlCommand("select HOTEN from HOSOBENHNHAN where IDHOSO = '" + dgvr.Cells["IDHOSO"].Value.ToString() + "'", sqlCon);
+                using (SqlDataReader reader = cmd4.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        nameBox.Text = reader.GetString(0);
                         sqlCon.Close();
                     }
                 }
@@ -97,7 +104,13 @@ namespace QLNhaKhoa.Dentist_form
         private void addPlanButton_Click(object sender, EventArgs e)
         {
             f = new Dentist_AddTreatment();
+            f.FormClosedEvent += DentistFormClosedEvent;
             f.Show();
+        }
+
+        private void DentistFormClosedEvent(object sender, EventArgs e)
+        {
+            refresh();
         }
     }
 }

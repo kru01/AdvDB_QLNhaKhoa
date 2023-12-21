@@ -105,7 +105,6 @@
             planData.AllowUserToDeleteRows = false;
             planData.AllowUserToResizeColumns = false;
             planData.AllowUserToResizeRows = false;
-            planData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             planData.BorderStyle = BorderStyle.None;
             planData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             planData.Dock = DockStyle.Bottom;
@@ -168,16 +167,17 @@
             // 
             // noteBox
             // 
-            noteBox.Enabled = false;
             noteBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             noteBox.Location = new Point(425, 260);
             noteBox.Name = "noteBox";
             noteBox.PlaceholderText = "Description";
+            noteBox.ReadOnly = true;
             noteBox.Size = new Size(275, 27);
             noteBox.TabIndex = 22;
             // 
             // cboTreatment
             // 
+            cboTreatment.Enabled = false;
             cboTreatment.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboTreatment.FormattingEnabled = true;
             cboTreatment.Location = new Point(100, 260);
@@ -198,6 +198,7 @@
             // 
             // cboAssistant
             // 
+            cboAssistant.Enabled = false;
             cboAssistant.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboAssistant.FormattingEnabled = true;
             cboAssistant.Location = new Point(500, 120);
@@ -207,6 +208,7 @@
             // 
             // cboDentist
             // 
+            cboDentist.Enabled = false;
             cboDentist.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboDentist.FormattingEnabled = true;
             cboDentist.Location = new Point(275, 120);
@@ -238,11 +240,11 @@
             // 
             // desBox
             // 
-            desBox.Enabled = false;
             desBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             desBox.Location = new Point(100, 190);
             desBox.Name = "desBox";
             desBox.PlaceholderText = "Description";
+            desBox.ReadOnly = true;
             desBox.Size = new Size(600, 27);
             desBox.TabIndex = 13;
             // 
@@ -270,6 +272,7 @@
             // 
             // cboStatus
             // 
+            cboStatus.Enabled = false;
             cboStatus.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "Kế hoạch", "Đã hoàn thành", "Đã hủy" });
@@ -291,11 +294,11 @@
             // 
             // nameBox
             // 
-            nameBox.Enabled = false;
             nameBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nameBox.Location = new Point(225, 50);
             nameBox.Name = "nameBox";
             nameBox.PlaceholderText = "Name";
+            nameBox.ReadOnly = true;
             nameBox.Size = new Size(300, 27);
             nameBox.TabIndex = 7;
             // 
@@ -324,6 +327,7 @@
             // dateBox
             // 
             dateBox.CustomFormat = "yyyy-MM-dd";
+            dateBox.Enabled = false;
             dateBox.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateBox.Format = DateTimePickerFormat.Custom;
             dateBox.Location = new Point(100, 120);

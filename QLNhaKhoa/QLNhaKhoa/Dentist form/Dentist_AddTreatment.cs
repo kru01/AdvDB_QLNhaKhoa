@@ -31,7 +31,7 @@ namespace QLNhaKhoa.Dentist_form
 
             cboTooth.DisplayMember = "TENRANG";
             cboTooth.ValueMember = "IDRANG";
-            cboTooth.DataSource = Helper.getData("select IDRANG, TENRANG from RANG").Tables[0];
+            cboTooth.DataSource = Helper.getData("select IDRANG, CONCAT(TENRANG, ' - ', CAST(VITRI AS NVARCHAR(2))) AS 'TENRANG' from RANG").Tables[0];
 
             cboTSurface.DisplayMember = "TENBEMAT";
             cboTSurface.ValueMember = "IDBEMAT";

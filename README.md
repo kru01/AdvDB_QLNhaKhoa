@@ -4,14 +4,58 @@
 
 -   Group project from HCMUS's 2023 Advanced Database course.
 
+<div align="center">
+  <img alt="Dentist" src="READMEsrc/dentist.jpg" width="49%" height="auto">
+  <img alt="Employee" src="READMEsrc/empl.jpg" width="49%" height="auto">
+</div>
+<div align="center">
+  <img alt="Admin" src="READMEsrc/admin.jpg" width="49%" height="auto">
+</div>
+
+<details open>
+  <summary>Table of Contents</summary>
+  <ul>
+    <li>
+      <a href="#content">Content</a>
+      <ul>
+        <li><a href="#qlnhakhoa-qlnk_release-and-assets">QLNhaKhoa, QLNK_Release and assets</a></li>
+        <li><a href="#sql">SQL</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#to-set-up-the-database">To set up the database</a></li>
+        <li><a href="#to-run-qlnhakhoa-application">To run QLNhaKhoa application</a></li>
+      </ul>
+    </li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#meet-the-team">Meet The Team</a></li>
+  </ul>
+</details>
+
 ## Content
 
 -   `2223-CSDLNC-DA#3.pdf` contains all the tasks and requirements of the project (in Vietnamese).
 -   `Report.pdf` includes our documentation for all the designs and required tasks (in Vietnamese).
 
-### QLNhaKhoa and assets
+### `QLNhaKhoa`, `QLNK_Release` and `assets`
 
-Source code and resources pertaining to the C# WinForms app.
+Source code, release build, and resources pertaining to the C# WinForms app.
+
+**_CAUTION: The application will continue running in the background, even after closing the interface, in both of these circumstances,_**
+
+-   By executing the `QLNhaKhoa.exe` in `QLNK_Release`,
+-   By `Start Without Debugging (Ctrl + F5)` in Visual Studio.
+
+**_It should be manually killed with Task Manager, by searching for `QLNhaKhoa`._**
 
 ### SQL
 
@@ -51,6 +95,14 @@ All folders and files are pretty self-explanatory, but here are some notable thi
         - If this storage should be moved, the filepath specified in each batch file, and all `FILENAME` fields in every script belonging to the `partitions` folder need to be updated accordingly.
         - If the `setupDB.bat`'s path is not changed, you need to manually create the new storage folder. Otherwise, **_SQL Server won't generate the folder if it doesn't exist_**.
     - For `setupDB_bigData`, the average time for the setup to complete falls in the range of **_4 to 5 hours_**. It's possible to manually run each script, even so, **_the execution order in the batch files should still be respected_**.
+
+### To run QLNhaKhoa application
+
+1. Finish [setting up the database](#to-set-up-the-database).
+1. Navigate into `QLNK_Release`.
+1. Run `QLNhaKhoa.exe`.
+
+**_CAUTION: The application will continue running in the background even after closing the interface. It should be manually killed with Task Manager, by searching for `QLNhaKhoa`._**
 
 ## Built With
 

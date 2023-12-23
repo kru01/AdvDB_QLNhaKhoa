@@ -7,7 +7,7 @@ namespace QLNhaKhoa.Employee_form
     public partial class Emp_Appointment : Form
     {
         public string CurrentEmp { get; set; } = string.Empty;
-        private readonly string query = "select * from LICHHEN";
+        private readonly string query = "select * from LICHHEN order by IDPHONGKHAM, NGAY, IDHOSO, IDLICHHEN";
         private string record_id = string.Empty, emp_id = string.Empty;
         private static Emp_AddAppointment f;
 

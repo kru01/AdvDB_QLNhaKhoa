@@ -4,7 +4,7 @@ namespace QLNhaKhoa.General_Form
 {
     public partial class Treatment : Form
     {
-        private readonly string query = "select KH.*, LT.TENLIEUTRINH, HS.HOTEN" +
+        private readonly string query = "select KH.*, LT.TENLIEUTRINH, HS.HOTEN " +
                                         "from KEHOACHDIEUTRI KH join LIEUTRINH LT on KH.IDLIEUTRINH = LT.IDLIEUTRINH " +
                                         "join HOSOBENHNHAN HS on HS.IDHOSO = KH.IDHOSO";
         public Treatment()

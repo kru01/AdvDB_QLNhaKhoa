@@ -44,7 +44,7 @@
 ## Content
 
 -   `2223-CSDLNC-DA#3.pdf` contains all the tasks and requirements of the project (in Vietnamese).
--   `Report.pdf` includes our documentation for all the designs and required tasks (in Vietnamese).
+-   `Reports` folder includes our documentation for all the designs and required tasks (in Vietnamese).
 
 ### `QLNhaKhoa`, `QLNK_Release` and `assets`
 
